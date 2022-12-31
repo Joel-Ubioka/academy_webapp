@@ -1,0 +1,47 @@
+:root{
+  --main_color:#0e0f0e;
+  --main_color_rgb:rgb(87, 6, 92, 0.7);
+  --main_color_rgb2:rgb(87, 6, 92, 0.95);
+  --main_color_shade:#FFFFFF;
+  --main_color_shade2:#aa05b3;
+  --main_color_shade3:#f9bdfc;
+
+  --highlight_color:#e8db1e;
+  --highlight_color2:#736f20;
+  --highlight_color_dim:#a79c00;
+
+  --danger_color:#a60202;
+
+  --highlight_color3:#fffbad;
+  --new_color_shade:#dcfdce;
+
+  --main_color_shade6:#ffd2a1;
+  --foreground_color1:#0D0D0D; /* More Darker gray*/
+  --foreground_color4:#ffc587; /* Light orange*/
+
+  --color_shade1: #ffffff;
+  --color_shade2: #FAFAFA;
+  --color_shade3: rgb(239,239,239);
+  --color_shade4: #e3e5e3;
+  --color_shade5: #c5c5c5;
+
+  --color_shade6: #7E7E7E;
+  --color_shade7: #616161;
+  --color_shade8: #464646;
+  --color_shade9: #1f1e1e;
+  --color_shade10: #202020;
+
+  --success_color_shade:#037001;
+  --success_color_shade2:#DCF8C6;
+  --notify_success_color:#00ff4c;
+
+  --color1:#009879;
+  --color2:#006598;
+  --color3:#cf1b27;
+  --color_red:red;
+  --color4:#f77e05;
+  --color5:#0d4261;
+  --color6:#f15710;
+  --color7:#b83b01;
+
+}

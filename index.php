@@ -220,18 +220,578 @@
 
    <!-- FEATURED PRODUCTS SECTION -->
    <nav class="product_container">
-     <p>Featured Products</p>
+     <div class="category_title_container">
+       <h1 class="category_heading">Popular Courses</h1>
+       <div class="line_container">
+         <div class="line"></div>
+       </div>
+     </div>
+
+     <div class="product_content">
+
+       <div class="product_box">
+         <a href="" class="product_img_container">
+           <div class="product_img">
+             <img src="images/java.png" alt="">
+           </div>
+         </a>
+         <div class="product_details">
+           <p class="product_name">JAVASCRIPT</p>
+           <h3 class="product_price">&#8358;200,000</h3>
+         </div>
+         <div class="product_call_to_action">
+
+           <div class="view_details_container">
+             <a href="">
+               <button class="view_details_btn">
+
+                 <span class="material-symbols-outlined">visibility</span>
+                 View Details
+               </button>
+             </a>
+           </div>
+           <div class="add_to_cart_container">
+
+             <button class="add_to_cart_btn">
+               <span class="material-symbols-outlined">shopping_cart</span>
+               Add to cart
+             </button>
+           </div>
+         </div>
+       </div>
+
+       <div class="product_box">
+         <a href="" class="product_img_container">
+           <div class="product_img">
+             <img src="images/jquery.png" alt="">
+           </div>
+         </a>
+         <div class="product_details">
+           <p class="product_name">JQUERY</p>
+           <h3 class="product_price">&#8358;200,000</h3>
+         </div>
+         <div class="product_call_to_action">
+
+           <div class="view_details_container">
+             <a href="">
+               <button class="view_details_btn">
+
+                 <span class="material-symbols-outlined">visibility</span>
+                 View Details
+               </button>
+             </a>
+           </div>
+           <div class="add_to_cart_container">
+
+             <button class="add_to_cart_btn">
+               <span class="material-symbols-outlined">shopping_cart</span>
+               Add to cart
+             </button>
+           </div>
+         </div>
+       </div>
+
+       <div class="product_box">
+         <a href="" class="product_img_container">
+           <div class="product_img">
+             <img src="images/php.png" alt="">
+           </div>
+         </a>
+         <div class="product_details">
+           <p class="product_name">PHP</p>
+           <h3 class="product_price">&#8358;200,000</h3>
+         </div>
+         <div class="product_call_to_action">
+
+           <div class="view_details_container">
+             <a href="">
+               <button class="view_details_btn">
+
+                 <span class="material-symbols-outlined">visibility</span>
+                 View Details
+               </button>
+             </a>
+           </div>
+           <div class="add_to_cart_container">
+
+             <button class="add_to_cart_btn">
+               <span class="material-symbols-outlined">shopping_cart</span>
+               Add to cart
+             </button>
+           </div>
+         </div>
+       </div>
+
+       <div class="product_box">
+         <a href="" class="product_img_container">
+           <div class="product_img">
+             <img src="images/ajax.svg" alt="">
+           </div>
+         </a>
+         <div class="product_details">
+           <p class="product_name">AJAX</p>
+           <h3 class="product_price">&#8358;200,000</h3>
+         </div>
+         <div class="product_call_to_action">
+
+           <div class="view_details_container">
+             <a href="">
+               <button class="view_details_btn">
+
+                 <span class="material-symbols-outlined">visibility</span>
+                 View Details
+               </button>
+             </a>
+           </div>
+           <div class="add_to_cart_container">
+
+             <button class="add_to_cart_btn">
+               <span class="material-symbols-outlined">shopping_cart</span>
+               Add to cart
+             </button>
+           </div>
+         </div>
+       </div>
+
+       <div class="product_box">
+         <a href="" class="product_img_container">
+           <div class="product_img">
+             <img src="images/sql.avif" alt="">
+           </div>
+         </a>
+         <div class="product_details">
+           <p class="product_name">MYSQL</p>
+           <h3 class="product_price">&#8358;200,000</h3>
+         </div>
+         <div class="product_call_to_action">
+
+           <div class="view_details_container">
+             <a href="">
+               <button class="view_details_btn">
+
+                 <span class="material-symbols-outlined">visibility</span>
+                 View Details
+               </button>
+             </a>
+           </div>
+           <div class="add_to_cart_container">
+
+             <button class="add_to_cart_btn">
+               <span class="material-symbols-outlined">shopping_cart</span>
+               Add to cart
+             </button>
+           </div>
+         </div>
+       </div>
+
+       <div class="product_box">
+         <a href="" class="product_img_container">
+           <div class="product_img">
+             <img src="images/login.webp" alt="">
+           </div>
+         </a>
+         <div class="product_details">
+           <p class="product_name">LOGIN SYSTEM</p>
+           <h3 class="product_price">&#8358;200,000</h3>
+         </div>
+         <div class="product_call_to_action">
+
+           <div class="view_details_container">
+             <a href="">
+               <button class="view_details_btn">
+
+                 <span class="material-symbols-outlined">visibility</span>
+                 View Details
+               </button>
+             </a>
+           </div>
+           <div class="add_to_cart_container">
+
+             <button class="add_to_cart_btn">
+               <span class="material-symbols-outlined">shopping_cart</span>
+               Add to cart
+             </button>
+           </div>
+         </div>
+       </div>
+
+       <div class="product_box">
+         <a href="" class="product_img_container">
+           <div class="product_img">
+             <img src="images/admin_panel.jpg" alt="">
+           </div>
+         </a>
+         <div class="product_details">
+           <p class="product_name">ADMIN PANEL</p>
+           <h3 class="product_price">&#8358;200,000</h3>
+         </div>
+         <div class="product_call_to_action">
+
+           <div class="view_details_container">
+             <a href="">
+               <button class="view_details_btn">
+
+                 <span class="material-symbols-outlined">visibility</span>
+                 View Details
+               </button>
+             </a>
+           </div>
+           <div class="add_to_cart_container">
+
+             <button class="add_to_cart_btn">
+               <span class="material-symbols-outlined">shopping_cart</span>
+               Add to cart
+             </button>
+           </div>
+         </div>
+       </div>
+
+       <div class="product_box">
+         <a href="" class="product_img_container">
+           <div class="product_img">
+             <img src="images/pyhton.jpg" alt="">
+           </div>
+         </a>
+         <div class="product_details">
+           <p class="product_name">PYTHON</p>
+           <h3 class="product_price">&#8358;200,000</h3>
+         </div>
+         <div class="product_call_to_action">
+
+           <div class="view_details_container">
+             <a href="">
+               <button class="view_details_btn">
+
+                 <span class="material-symbols-outlined">visibility</span>
+                 View Details
+               </button>
+             </a>
+           </div>
+           <div class="add_to_cart_container">
+
+             <button class="add_to_cart_btn">
+               <span class="material-symbols-outlined">shopping_cart</span>
+               Add to cart
+             </button>
+           </div>
+         </div>
+       </div>
+
+       <div class="product_box">
+         <a href="" class="product_img_container">
+           <div class="product_img">
+             <img src="images/angular.png" alt="">
+           </div>
+         </a>
+         <div class="product_details">
+           <p class="product_name">ANGULAR</p>
+           <h3 class="product_price">&#8358;200,000</h3>
+         </div>
+         <div class="product_call_to_action">
+
+           <div class="view_details_container">
+             <a href="">
+               <button class="view_details_btn">
+
+                 <span class="material-symbols-outlined">visibility</span>
+                 View Details
+               </button>
+             </a>
+           </div>
+           <div class="add_to_cart_container">
+
+             <button class="add_to_cart_btn">
+               <span class="material-symbols-outlined">shopping_cart</span>
+               Add to cart
+             </button>
+           </div>
+         </div>
+       </div>
+
+       <div class="product_box">
+         <a href="" class="product_img_container">
+           <div class="product_img">
+             <img src="images/laravel.png" alt="">
+           </div>
+         </a>
+         <div class="product_details">
+           <p class="product_name">LARAVEL</p>
+           <h3 class="product_price">&#8358;200,000</h3>
+         </div>
+         <div class="product_call_to_action">
+
+           <div class="view_details_container">
+             <a href="">
+               <button class="view_details_btn">
+
+                 <span class="material-symbols-outlined">visibility</span>
+                 View Details
+               </button>
+             </a>
+           </div>
+           <div class="add_to_cart_container">
+
+             <button class="add_to_cart_btn">
+               <span class="material-symbols-outlined">shopping_cart</span>
+               Add to cart
+             </button>
+           </div>
+         </div>
+       </div>
+
+
+
+
+     </div>
    </nav>
 
    <!-- ADVERT SECTION -->
-   <nav class="Advert_container">
-     Adverts
+   <nav class="advert_section">
+     <div class="advert_box_container">
+       <div class="advert_overlay_container"> </div>
+       <div class="advert_img_box">
+         <img src="images/design.webp" alt="">
+       </div>
+
+       <div class="advert_content_container">
+         <a href="" class="advert_box">
+           <h3>SAVE 20%</h3>
+           <h1>Special Offer</h1>
+           <button class="close_btn">Book a Class</button>
+         </a>
+       </div>
+     </div>
+
+     <div class="advert_box_container">
+       <div class="advert_overlay_container"> </div>
+       <div class="advert_img_box"><img src="images/web1.jpeg" alt="">
+       </div>
+
+       <div class="advert_content_container">
+         <a href="" class="advert_box">
+           <h3>SAVE 20%</h3>
+           <h1>Special Offer</h1>
+           <button class="close_btn">Book a Class</button>
+         </a>
+       </div>
+     </div>
+
+
+
    </nav>
 
    <!-- RECENT PRODUCTS SECTION -->
    <nav class="product_container">
-     Recent Products
+     <div class="category_title_container">
+       <h1 class="category_heading">Expert Instructors</h1>
+       <div class="line_container">
+         <div class="line"></div>
+       </div>
+     </div>
+
+     <div class="product_content">
+
+
+
+       <div class="product_box">
+         <a href="" class="product_img_container">
+           <div class="product_img">
+             <img src="images/jethro2 (1).jpeg" alt="">
+           </div>
+         </a>
+         <div class="product_details">
+           <p class="product_name">Web developer</p>
+
+         </div>
+         <div class="product_call_to_action">
+
+           <div class="view_details_container">
+             <a href="">
+               <button class="view_details_btn">
+
+                 <span class="material-symbols-outlined">visibility</span>
+                 View CV
+               </button>
+             </a>
+           </div>
+           <div class="add_to_cart_container">
+
+             <button class="add_to_cart_btn">
+               <span class="material-symbols-outlined">shopping_cart</span>
+               Book a Tutor
+             </button>
+           </div>
+         </div>
+       </div>
+
+       <div class="product_box">
+         <a href="" class="product_img_container">
+           <div class="product_img">
+             <img src="images/jethro2 (1).jpeg" alt="">
+           </div>
+         </a>
+         <div class="product_details">
+           <p class="product_name">Web developer</p>
+
+         </div>
+         <div class="product_call_to_action">
+
+           <div class="view_details_container">
+             <a href="">
+               <button class="view_details_btn">
+
+                 <span class="material-symbols-outlined">visibility</span>
+                 View CV
+               </button>
+             </a>
+           </div>
+           <div class="add_to_cart_container">
+
+             <button class="add_to_cart_btn">
+               <span class="material-symbols-outlined">shopping_cart</span>
+               Book a Tutor
+             </button>
+           </div>
+         </div>
+       </div>
+
+       <div class="product_box">
+         <a href="" class="product_img_container">
+           <div class="product_img">
+             <img src="images/jethro2 (1).jpeg" alt="">
+           </div>
+         </a>
+         <div class="product_details">
+           <p class="product_name">Web developer</p>
+
+         </div>
+         <div class="product_call_to_action">
+
+           <div class="view_details_container">
+             <a href="">
+               <button class="view_details_btn">
+
+                 <span class="material-symbols-outlined">visibility</span>
+                 View CV
+               </button>
+             </a>
+           </div>
+           <div class="add_to_cart_container">
+
+             <button class="add_to_cart_btn">
+               <span class="material-symbols-outlined">shopping_cart</span>
+               Book a Tutor
+             </button>
+           </div>
+         </div>
+       </div>
+
+       <div class="product_box">
+         <a href="" class="product_img_container">
+           <div class="product_img">
+             <img src="images/jethro2 (1).jpeg" alt="">
+           </div>
+         </a>
+         <div class="product_details">
+           <p class="product_name">Web developer</p>
+
+         </div>
+         <div class="product_call_to_action">
+
+           <div class="view_details_container">
+             <a href="">
+               <button class="view_details_btn">
+
+                 <span class="material-symbols-outlined">visibility</span>
+                 View CV
+               </button>
+             </a>
+           </div>
+           <div class="add_to_cart_container">
+
+             <button class="add_to_cart_btn">
+               <span class="material-symbols-outlined">shopping_cart</span>
+               Book a Tutor
+             </button>
+           </div>
+         </div>
+       </div>
+
+       <div class="product_box">
+         <a href="" class="product_img_container">
+           <div class="product_img">
+             <img src="images/jethro2 (1).jpeg" alt="">
+           </div>
+         </a>
+         <div class="product_details">
+           <p class="product_name">Web developer</p>
+
+         </div>
+         <div class="product_call_to_action">
+
+           <div class="view_details_container">
+             <a href="">
+               <button class="view_details_btn">
+
+                 <span class="material-symbols-outlined">visibility</span>
+                 View CV
+               </button>
+             </a>
+           </div>
+           <div class="add_to_cart_container">
+
+             <button class="add_to_cart_btn">
+               <span class="material-symbols-outlined">shopping_cart</span>
+               Book a Tutor
+             </button>
+           </div>
+         </div>
+       </div>
+
+
+     </div>
    </nav>
+
+   <!-- TESTIMONIAL SECTION -->
+   <div id="testimonial_container">
+     <h1 id="testimonial_text">Testimonials</h1>
+   </div>
+   <!-- Slideshow container -->
+   <div class="slideshow-container">
+
+     <!-- Full-width slides/quotes -->
+     <div class="mySlides">
+       <q>“I always have fears to do coding. My friend recommended
+         "Morrhtech Solutions". <br> The instructors are great at explaining and
+         are patient and helpful. <br> I strongly recommend
+         Morrhtech Solutions to those who want to learn Web development from A to Z.”</q>
+       <p class="author">- Chinemerem Cyril</p>
+     </div>
+
+     <div class="mySlides">
+       <q>“Very instructive course. Definitely worthwhile if you
+         are trying to learn Python. <br> The instructors are engaging and able to cater
+         to different levels of expertise among their attendees.”</q>
+       <p class="author">- Iyanam Joseph</p>
+     </div>
+
+     <div class="mySlides">
+       <q>“I always resisted learning how to code because I thought it would be
+         boring and complicated, <br> but Morrhtech Solutions really changed my mind.”</q>
+       <p class="author">- Ogbodo Joy</p>
+     </div>
+
+     <!-- Next/prev buttons -->
+     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+     <a class="next" onclick="plusSlides(1)">&#10095;</a>
+   </div>
+
+   <!-- Dots/bullets/indicators -->
+   <div class="dot-container">
+     <span class="dot" onclick="currentSlide(1)"></span>
+     <span class="dot" onclick="currentSlide(2)"></span>
+     <span class="dot" onclick="currentSlide(3)"></span>
+   </div>
 
    <!-- FOOTER SECTION -->
    <?php require "includes/footer.php";?>

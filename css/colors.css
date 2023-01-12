@@ -16,8 +16,9 @@
   --new_color_shade:#dcfdce;
 
   --main_color_shade6:#ffd2a1;
-  --foreground_color1:#0D0D0D; /* More Darker gray*/
-  --foreground_color4:#ffc587; /* Light orange*/
+  --foreground_color1:#0D0D0D; 
+  --foreground_color2:#000000; 
+  --foreground_color4:#ffc587; 
 
   --color_shade1: #ffffff;
   --color_shade2: #FAFAFA;

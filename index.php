@@ -13,7 +13,7 @@
      </div>
      <div class="contact_container">
        <span class="material-symbols-outlined phone_icon">call</span>
-       +234 704 928 719
+       <b> +234 704 928 719</b>
      </div>
    </section>
 
@@ -23,9 +23,10 @@
 
        <div class="category_content">
          <span class="material-symbols-outlined ">menu</span>
-         Categories
+         <b id="courses_menu">Courses</b>
        </div>
-       <span class="material-symbols-outlined ">expand_more</span>
+       <span class="material-symbols-outlined category_dropdown ">expand_more</span>
+       <?php include "includes/category_menu.php";?>
 
 
      </div>
@@ -93,25 +94,25 @@
 
    <!-- SERVICE SECTION -->
    <nav class="service_desc">
-     <div class="service_container">
+     <div class="service_container" data-aos="fade-up">
        <div class="service_icon">
          <span class="material-symbols-outlined">cast_for_education</span>
        </div>
        <div class="service_text">Skilled Instructors</div>
      </div>
-     <div class="service_container">
+     <div class=" service_container" data-aos="fade-up">
        <div class="service_icon">
          <span class="material-symbols-outlined">school</span>
        </div>
        <div class="service_text">Physical / Online Classes</div>
      </div>
-     <div class="service_container">
+     <div class="service_container" data-aos="fade-up">
        <div class="service_icon">
          <span class="material-symbols-outlined">home_work</span>
        </div>
        <div class="service_text"> Projects</div>
      </div>
-     <div class="service_container">
+     <div class="service_container" data-aos="fade-up">
        <div class="service_icon">
          <span class="material-symbols-outlined">contact_support</span>
        </div>
@@ -132,7 +133,7 @@
 
 
 
-       <a href="#" class="category_box">
+       <a href="#" class="category_box" data-aos="fade-left">
          <div class="category_img"><img src="images/web1.jpeg" alt=""></div>
          <div class="category_desc">
            <h4 class="category_desc_heading">Web Development</h4>
@@ -142,7 +143,7 @@
        </a>
 
 
-       <a href="#" class="category_box">
+       <a href="#" class="category_box" data-aos="fade-left">
          <div class="category_img"><img src="images/mobile.jpg" alt=""></div>
          <div class="category_desc">
            <h4 class="category_desc_heading">Mobile Development</h4>
@@ -152,7 +153,7 @@
        </a>
 
 
-       <a href="#" class="category_box">
+       <a href="#" class="category_box" data-aos="fade-left">
          <div class="category_img"><img src="images/softwaredev.jpg" alt=""></div>
          <div class="category_desc">
            <h4 class="category_desc_heading">Software Development</h4>
@@ -162,7 +163,7 @@
        </a>
 
 
-       <a href="#" class="category_box">
+       <a href="#" class="category_box" data-aos="fade-left">
          <div class="category_img"><img src="images/uiux.webp" alt=""></div>
          <div class="category_desc">
            <h4 class="category_desc_heading">UI & UX</h4>
@@ -172,7 +173,7 @@
        </a>
 
 
-       <a href="#" class="category_box">
+       <a href="#" class="category_box" data-aos="fade-left">
          <div class="category_img"><img src="images/graphics.webp" alt=""></div>
          <div class="category_desc">
            <h4 class="category_desc_heading">Graphics and Branding</h4>
@@ -182,7 +183,7 @@
        </a>
 
 
-       <a href="#" class="category_box">
+       <a href="#" class="category_box" data-aos="fade-left">
          <div class="category_img"><img src="images/digitalmarketing.webp" alt=""></div>
          <div class="category_desc">
            <h4 class="category_desc_heading">Digital Marketing</h4>
@@ -192,7 +193,7 @@
        </a>
 
 
-       <a href="#" class="category_box">
+       <a href="#" class="category_box" data-aos="fade-left">
          <div class="category_img"><img src="images/data.webp" alt=""></div>
          <div class="category_desc">
            <h4 class="category_desc_heading">Data Analysis</h4>
@@ -202,7 +203,7 @@
        </a>
 
 
-       <a href="#" class="category_box">
+       <a href="#" class="category_box" data-aos="fade-left">
          <div class="category_img"><img src="images/freelance.png" alt=""></div>
          <div class="category_desc">
            <h4 class="category_desc_heading">Freelancing Programme</h4>
@@ -229,7 +230,7 @@
 
      <div class="product_content">
 
-       <div class="product_box">
+       <div class="product_box" data-aos="zoom-in-down">
          <a href="" class="product_img_container">
            <div class="product_img">
              <img src="images/java.png" alt="">
@@ -260,7 +261,7 @@
          </div>
        </div>
 
-       <div class="product_box">
+       <div class="product_box" data-aos="zoom-in-down">
          <a href="" class="product_img_container">
            <div class="product_img">
              <img src="images/jquery.png" alt="">
@@ -291,7 +292,7 @@
          </div>
        </div>
 
-       <div class="product_box">
+       <div class="product_box" data-aos="zoom-in-down">
          <a href="" class="product_img_container">
            <div class="product_img">
              <img src="images/php.png" alt="">
@@ -322,7 +323,7 @@
          </div>
        </div>
 
-       <div class="product_box">
+       <div class="product_box" data-aos="zoom-in-down">
          <a href="" class="product_img_container">
            <div class="product_img">
              <img src="images/ajax.svg" alt="">
@@ -353,7 +354,7 @@
          </div>
        </div>
 
-       <div class="product_box">
+       <div class="product_box" data-aos="zoom-in-down">
          <a href="" class="product_img_container">
            <div class="product_img">
              <img src="images/sql.avif" alt="">
@@ -384,7 +385,7 @@
          </div>
        </div>
 
-       <div class="product_box">
+       <div class="product_box" data-aos="zoom-in-down">
          <a href="" class="product_img_container">
            <div class="product_img">
              <img src="images/login.webp" alt="">
@@ -415,7 +416,7 @@
          </div>
        </div>
 
-       <div class="product_box">
+       <div class="product_box" data-aos="zoom-in-down">
          <a href="" class="product_img_container">
            <div class="product_img">
              <img src="images/admin_panel.jpg" alt="">
@@ -446,7 +447,7 @@
          </div>
        </div>
 
-       <div class="product_box">
+       <div class="product_box" data-aos="zoom-in-down">
          <a href="" class="product_img_container">
            <div class="product_img">
              <img src="images/pyhton.jpg" alt="">
@@ -477,7 +478,7 @@
          </div>
        </div>
 
-       <div class="product_box">
+       <div class="product_box" data-aos="zoom-in-down">
          <a href="" class="product_img_container">
            <div class="product_img">
              <img src="images/angular.png" alt="">
@@ -508,7 +509,7 @@
          </div>
        </div>
 
-       <div class="product_box">
+       <div class="product_box" data-aos="zoom-in-down">
          <a href="" class="product_img_container">
            <div class="product_img">
              <img src="images/laravel.png" alt="">
@@ -593,7 +594,7 @@
 
 
 
-       <div class="product_box">
+       <div class="product_box" data-aos="zoom-in-left">
          <a href="" class="product_img_container">
            <div class="product_img">
              <img src="images/jethro2 (1).jpeg" alt="">
@@ -624,7 +625,7 @@
          </div>
        </div>
 
-       <div class="product_box">
+       <div class="product_box" data-aos="zoom-in-left">
          <a href="" class="product_img_container">
            <div class="product_img">
              <img src="images/jethro2 (1).jpeg" alt="">
@@ -655,7 +656,7 @@
          </div>
        </div>
 
-       <div class="product_box">
+       <div class="product_box" data-aos="zoom-in-left">
          <a href="" class="product_img_container">
            <div class="product_img">
              <img src="images/jethro2 (1).jpeg" alt="">
@@ -686,7 +687,7 @@
          </div>
        </div>
 
-       <div class="product_box">
+       <div class="product_box" data-aos="zoom-in-left">
          <a href="" class="product_img_container">
            <div class="product_img">
              <img src="images/jethro2 (1).jpeg" alt="">
@@ -717,7 +718,7 @@
          </div>
        </div>
 
-       <div class="product_box">
+       <div class="product_box" data-aos="zoom-in-left">
          <a href="" class="product_img_container">
            <div class="product_img">
              <img src="images/jethro2 (1).jpeg" alt="">
@@ -796,6 +797,20 @@
    <!-- FOOTER SECTION -->
    <?php require "includes/footer.php";?>
    <nav class="footer_container"></nav>
+
+
+
+
+
+
+   <!-- AOS Script -->
+   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+   <script>
+   AOS.init({
+     offset: 200,
+     duration: 1000,
+   });
+   </script>
 
  </body>
 

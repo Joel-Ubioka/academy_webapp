@@ -90,7 +90,7 @@ p
   padding: 10px;
   background-color: var(--highlight_color);
   border: 1px solid var(--highlight_color);
-  color:var( --color_shade1);
+  color:var( --foreground_color1);
   text-transform: uppercase;
   letter-spacing: 1.2px;
 
@@ -132,6 +132,7 @@ p
   display: flex;
   padding: 20px;
   cursor: pointer;
+  position: relative;
 }
 .category_content
 {
@@ -193,6 +194,72 @@ p
   left: 18px;
 }
 
+.category_list_container
+{
+  position: absolute;
+  left: 0;
+  top: 64px;
+  width: 100%;
+  background-color: var(--foreground_color1);
+  display: none;
+
+}
+
+.category_list
+{
+  list-style-type: none;
+  position: relative;
+}
+.category_list a
+{
+  padding: 10px 20px;
+  display: block;
+  color: var(  --main_color_shade);
+}
+
+.category_list a:hover, .category_list a:focus
+{
+  color: var(--highlight_color);
+  font-weight: bold;
+}
+.category_list:not(:last-child)
+{
+  border-bottom: 1px solid var(--color_shade4);
+}
+
+#courses_menu
+{
+  font-size: 20px;
+}
+
+.category_submenu
+{
+  position: absolute;
+  top: 0;
+  left: 300px;
+  width: 300px;
+ background-color: var(--foreground_color1);
+ z-index: 201;
+ display: none;
+}
+
+.category_submenu_list
+{
+  list-style: none;
+
+}
+
+.category_submenu_list:hover, .category_submenu_list:focus
+{
+  background-color: var(--color_shade9);
+
+  
+}
+
+
+
+
+
 /*----------- OTHER SECTIONS STYLES -----------*/
 .main_desc,.service_desc,.categories_container,.product_container,.advert_container,.product_container
 {
@@ -216,7 +283,7 @@ p
   flex: 1;
   height: 0;
   position: relative;
-  padding-bottom: 35%;
+  padding-bottom: 36%;
   overflow: hidden;
 }
 .slider_container img
@@ -1000,4 +1067,112 @@ q
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/*----------- OVERLAY CONTAINER STYLES -----------*/
+
+
+.overlay
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--foreground_color2);
+  opacity: .3;
+  z-index: 200;
+  display: none;
+
+}
+
+/*----------- POPUP STYLES -----------*/
+.popup_container
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  z-index: 210;
+  display: none;
+}
+
+.popup_box
+{
+  background-color: var(--main_color_shade);
+  box-shadow: 0 0 5px 1px var(--color_shade7);
+  flex-basis: 600px;
+  overflow: hidden;
+}
+
+.popup_head
+{
+  border-bottom: 1px sold var(--color_shade4);
+  padding: 10px 10px 3px 10px;
+  display: flex;
+}
+
+.popup_logo_container
+{
+  width: 35px;
+}
+
+.popup_logo_container img
+{
+  width: 100%;
+}
+
+
+.popup_close_container
+{
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.popup_close_container span
+{
+  cursor: pointer;
+
+}
+
+.popup_close_container span:hover, .popup_close_container span:focus
+{
+ color: var(--highlight_color);
+  
+}
+
+.popup_body
+{
+  padding: 10px;
+  max-height:80vh;
+  overflow: auto;
+}
+
+.popup_footer
+{
+  padding: 10px;
+}
+
+.buy_btn_container
+{
+  display: flex;
+}
+
+.buy_btn_content
+{
+ flex: 1;
+}
+
+.buy_btn_content:not(:last-child)
+{
+  margin-right: 10px;
+}
+
+.buy_btn_content button
+{
+  width: 100%;
 }

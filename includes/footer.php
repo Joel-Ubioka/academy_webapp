@@ -81,5 +81,9 @@
   </div>
 </section>
 
+<?php include "includes/overlay.php";
+include "popups/popup.php";
+?>
+
 <script src="js/jquery.js"></script>
 <script src="js/script.js?ver=<?php echo microtime(); ?>"></script>

@@ -1,3 +1,75 @@
+
+
+// DISPLAY CATEGORY DROP DOWN MENU
+
+$('.category_menu_container').click(function(){
+  $(this).children('.category_list_container').slideToggle();
+ // $(this).siblings('.category_list_container').slideToggle();
+ // $('.category_list_container').toggle();
+});
+
+// CLOSE POPUP
+$('.close_popup').click(function(){
+    $(".popup_container, .overlay").hide();
+});
+
+// ADD TO CART
+$('.add_to_cart_btn, .details_add_to_cart').click(function(){
+  $(".overlay").show();
+  $(".popup_container").css("display", "flex");
+
+  const buttons = `
+  <div class="buy_btn_container">
+        <div class="buy_btn_content">
+          <button class="open_btn">Proceed to buy</button>
+        </div>
+        <div class="buy_btn_content">
+            <button class="close_btn">Select more course</button>
+        </div>
+  </div>
+  `;
+  $('.popup_footer').html(buttons);
+});
+
+//DISPLAY CATEGORY SUBMENU
+
+$('.category_list').hover(function(){
+$(this).children('.category_submenu').toggle();
+});
+
+//INCREASE OR DECREASE PRODUCT QUANTITY
+$('#qty_minus').click(function(){
+    let quantity = $('#qty_value').val();
+    if(quantity == 0)
+    {
+        quantity = 0;
+    }
+    else
+    {
+      quantity = quantity -1;
+    }
+
+    $('#qty_value').val(quantity);
+  
+
+
+});
+
+$('#qty_plus').click(function(){
+  let quantity = $('#qty_value').val();
+  quantity = parseInt(quantity) +1;
+
+    $('#qty_value').val(quantity);
+});
+
+
+
+
+
+
+
+
+
 /* TESTIMONIALS SCRIPT */
 
 var slideIndex = 1;
@@ -28,40 +100,3 @@ function showSlides(n) {
 }
 
 /* END OF TESTIMONIALS */
-
-// DISPLAY CATEGORY DROP DOWN MENU
-
-$('.category_menu_container').click(function(){
-  $(this).children('.category_list_container').slideToggle();
- // $(this).siblings('.category_list_container').slideToggle();
- // $('.category_list_container').toggle();
-});
-
-// CLOSE POPUP
-$('.close_popup').click(function(){
-    $(".popup_container, .overlay").hide();
-});
-
-// ADD TO CART
-$('.add_to_cart_btn').click(function(){
-  $(".overlay").show();
-  $(".popup_container").css("display", "flex");
-
-  const buttons = `
-  <div class="buy_btn_container">
-        <div class="buy_btn_content">
-          <button class="open_btn">Proceed to buy</button>
-        </div>
-        <div class="buy_btn_content">
-            <button class="close_btn">Select more course</button>
-        </div>
-  </div>
-  `;
-  $('.popup_footer').html(buttons);
-});
-
-//DISPLAY CATEGORY SUBMENU
-
-$('.category_list').hover(function(){
-$(this).children('.category_submenu').toggle();
-});

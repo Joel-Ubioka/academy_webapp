@@ -118,7 +118,7 @@ p
   display: flex;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 300;
 }
 .phone_icon
 {
@@ -202,6 +202,7 @@ p
   width: 100%;
   background-color: var(--foreground_color1);
   display: none;
+  z-index: 300;
 
 }
 
@@ -261,7 +262,7 @@ p
 
 
 /*----------- OTHER SECTIONS STYLES -----------*/
-.main_desc,.service_desc,.categories_container,.product_container,.advert_container,.product_container
+.main_desc,.service_desc,.categories_container,.product_container,.product_container
 {
   padding: 20px 50px;
 }
@@ -280,10 +281,10 @@ p
 
 .slider_container
 {
-  flex: 1;
+  flex: 2;
   height: 0;
   position: relative;
-  padding-bottom: 36%;
+  padding-bottom: 33.3%;
   overflow: hidden;
 }
 .slider_container img
@@ -317,12 +318,12 @@ p
 }
 .advert_container
 {
-  flex-basis: 400px;
-  
+ /* flex-basis: 400px;*/
+  flex: 1;
   margin-left: 20px;
   height: 0;
   position: relative;
-  padding-bottom: 35%;
+  padding-bottom: 32.3%;
   
 }
 .advert_content
@@ -458,7 +459,10 @@ p
 /*----------- SERVICE DESCRIPTION SECTIONS STYLE -----------*/
 .service_desc
 {
-  display: flex;
+  /*display: flex;*/
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
 }
 .service_container
 {
@@ -471,13 +475,13 @@ p
   align-items: center;
 
 }
-
+/*
 .service_container:not(:last-child)
 {
  margin-right: 20px;
   
 }
-
+*/
 .service_icon span
 {
   color: var(--highlight_color);
@@ -492,6 +496,7 @@ p
   padding-left: 20px;
   display: flex;
   align-items: center;
+  white-space: nowrap;
 }
 
 
@@ -1329,6 +1334,19 @@ q
   border: none;
 }
 
+.column_item .qty_box
+{
+  width: 30px;
+  height: 30px;
+  font-weight: 300;
+
+}
+
+
+.column_item .qty_value
+{
+  font-size: 16px;
+}
 .qty_box.btn
 {
   border: 1px solid var(  --main_color_shade);
@@ -1459,3 +1477,359 @@ q
   
 }
 
+/*----------- PRODUCT CART STYLE -----------*/
+
+.columns_container
+{
+  padding: 20px 50px;
+}
+
+.column_heading
+{
+  display: grid;
+  grid-template-columns: 3fr 1fr 2fr 1fr 1fr ;
+  column-gap: 10px;
+  background-color: var(--highlight_color);
+  color: var(--main_color);
+  padding: 10px;
+
+}
+
+.heading_item h3
+{
+  text-align: center;
+}
+
+.column_wrapper
+{
+  display: grid;
+  grid-template-columns: 2fr 1fr  ;
+  column-gap: 20px;
+}
+
+.column_content
+{
+  display: grid;
+  grid-template-columns: 3fr 1fr 2fr 1fr 1fr ;
+  column-gap: 10px;
+  background-color: var( --main_color_shade);
+  color: var(--color_shade8);
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.column_item.img_desc
+{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.column_desc
+{
+  padding-left: 10px;
+}
+
+.column_img
+{
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+}
+
+.column_img img
+{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  
+}
+
+.column_item 
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column_item p
+{
+  text-align: center;
+  
+}
+
+.product_remove_btn
+{
+  background-color: var(--highlight_color);
+  color: var( --main_color);
+  border: none;
+  padding: 2px;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  justify-content: center;
+  align-items: center;
+}
+
+.product_remove_btn span
+{
+  font-size: 17px;
+  font-weight: bold;
+}
+
+
+.product_remove_btn:focus
+{
+  border: 2px solid var( --highlight_color2);
+}
+
+.product_remove_btn:hover
+{
+  background-color:  var( --highlight_color_dim);
+}
+
+
+#coupon_form
+{
+  display: flex;
+}
+
+#coupon_form button
+{
+  font-size: 16px;
+}
+
+#coupon_form input
+{
+    flex: 1;
+}
+
+.summary_container .category_title_container
+{
+  padding: 20px 0 0 0;
+}
+
+.summary_deatils_container
+{
+  background-color: var(--main_color_shade);
+  padding: 15px;
+  border: 1px solid var(--color_shade4);
+}
+
+.summary_list
+{
+  display: flex;
+  padding: 10px 0;
+}
+
+.summary_list p:first-child
+{
+  flex: 1;
+  padding-right: 10px;
+}
+
+.summary_list.last
+{
+  border-bottom: 1px solid var(--color_shade4);
+}
+
+.summary_total
+{
+  display: flex;
+  padding: 10px 0;
+}
+
+
+.summary_total p
+{
+  font-weight: bold;
+}
+.summary_total p:first-child
+{
+  flex: 1;
+  padding: 10px 0 15px 0;
+}
+
+.summary_details_container .close_btn
+{
+  width: 100%;
+  font-size: 16px;
+}
+
+/* ------------ CHECKOUT STYLES -----------*/
+.column_content.checkout
+{
+    display: flex;
+    align-items: center;
+}
+
+.checkout .column_desc
+{
+  flex: 1;
+  padding: 0 20px;
+}
+
+.columns_title.order_details
+{
+  margin-top: 20px;
+}
+
+.columns_title.summary
+{
+  margin: 0;
+}
+
+.category_title_container.summary
+{
+  padding: 0;
+}
+
+.payment_method
+{
+  font-weight: bold;
+}
+
+.column_content.payment
+{
+  padding: 20px;
+}
+
+/* ------ CATEGORY STYLES ------------*/
+
+.category_wrapper .product_columns_heading
+{
+  padding: 0 50px;
+}
+
+.category_wrapper .category_title_container
+{
+  margin-bottom: 0px;
+  margin-top: 20px;
+}
+
+.categories_heading
+{
+  padding: 20px 50px 0 50px;
+}
+
+/* ----------- SIGN UP STYLE ---------------------*/
+
+.signup_wrapper
+{
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup_container
+{
+    background-color:var(--main_color_shade);
+    padding: 20px;
+    flex-basis: 500px;
+}
+
+.signup_container h1
+{
+   margin-bottom: 40px;
+}
+
+.signup_container h2
+{
+  margin-bottom: 20px;
+}
+
+.input_container
+{
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color_shade4);
+  padding: 5px 10px;
+
+}
+
+.input_container:focus-within
+{
+  border: 1px solid var(--highlight_color);
+
+}
+
+.input_container span
+{
+  user-select: none;
+
+}
+
+.input_container:not(:last-child)
+{
+  margin-bottom: 15px;
+  
+}
+
+.input_container .form_input
+{
+  border: none;
+  font-size: 15px;
+}
+
+.show_password
+{
+  cursor: pointer;
+}
+
+.signup_container button
+{
+  width: 100%;
+  font-size: 15px;
+}
+
+.input_container .hide_password
+{
+  display: none;
+  cursor: pointer;
+}
+
+.signup_container p
+{
+  margin-top: 15px;
+  text-align: center;
+}
+
+.input_column
+{
+  display: flex;
+  padding: 20px;
+  background-color: var(--color_shade1);
+  width: 100%;
+}
+
+.input_column:not(:last-child)
+{
+ margin-bottom: 10px;
+}
+
+.checkout.payment
+{
+  background-color: var(--color_shade2);
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.input_column input
+{
+  margin-right: 10px;
+}
+
+.input_column label
+{
+  cursor: pointer;
+}
+
+/*----------- RESPONSIVE MEDIA  -----------*/
+
+@media only screen and (max-width: 900px)
+{
+  .product_desc
+   {
+    width: 70%;
+   }
+}

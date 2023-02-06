@@ -24,7 +24,7 @@
   object-fit: cover;
 }
 
-.main_desc .slide
+.main_desc .slide img
 {
   animation: zoom 5s ease;
 }
@@ -34,7 +34,7 @@
   100% {transform: scale(1.2);}
 }
 
-.next_wrap .prev_wrap
+.next_wrap, .prev_wrap
 {
   position: absolute;
   top: 0;
@@ -42,6 +42,7 @@
   display: flex;
   align-items: center;
   padding: 10px;
+  z-index: 100;
 }
 
 .product_details_container .slide:hover

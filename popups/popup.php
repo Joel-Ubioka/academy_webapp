@@ -7,10 +7,7 @@
       </div>
     </div>
     <div class="popup_body">
-      <p>test paragraph</p>
-      <p>test paragraph</p>
-      <p>test paragraph</p>
-      <p>test paragraph</p>
+
     </div>
     <div class="popup_footer"></div>
   </div>

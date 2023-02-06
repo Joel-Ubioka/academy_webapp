@@ -38,9 +38,9 @@
                <span>N200,000</span>
              </div>
              <div class="product_details_qty_box">
-               <button class="qty_box btn" id="qty_minus">-</button>
-               <input type="text" class="qty_box qty" id="qty_value" value="1">
-               <button class="qty_box btn" id="qty_plus">+</button>
+               <button class="qty_box btn qty_minus">-</button>
+               <input type="text" class="qty_box qty qty_value" value="1">
+               <button class="qty_box btn qty_plus">+</button>
              </div>
            </div>
            <div class="product_details_btn_container">

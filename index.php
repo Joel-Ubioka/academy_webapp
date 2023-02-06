@@ -13,22 +13,6 @@
 
          <?php include "sliders/slider.php";?>
 
-         <!--
-          <img src="images/products1.png" alt="">
-         <div class="overlay_container"></div>
-         <div class="content_container">
-
-           <h1 class="product_title">MORRHTECH SOLUTIONS</h1>
-           <p class="product_desc">Learning to code is the new literacy</p>
-           <a href=""><button class="close_btn">Book a Class</button></a>
-         </div>
-         -->
-
-
-
-
-
-
 
        </div>
 
@@ -41,7 +25,7 @@
            <div class="content_container">
 
              <h1 class="product_title">WEB DEVELOPMENT</h1>
-             <p class="product_desc">Learn to build websites that works seamlessly on all devices</p>
+             <!--<p class="product_desc">Learn to build websites that works seamlessly on all devices</p>-->
              <a href=""><button class="close_btn">Book a Class</button></a>
            </div>
 
@@ -52,7 +36,7 @@
            <div class="content_container">
 
              <h1 class="product_title">UI and UX</h1>
-             <p class="product_desc">Learn what earns. Inspirational designs, illustrations, and graphic elements</p>
+             <!-- <p class="product_desc">Learn what earns. Inspirational designs, illustrations, and graphic elements</p>-->
              <a href=""><button class="close_btn">Book a Class</button></a>
            </div>
 
@@ -103,7 +87,7 @@
 
 
 
-       <a href="#" class="category_box" data-aos="fade-left">
+       <a href="categories" class="category_box" data-aos="fade-left">
          <div class="category_img"><img src="images/web1.jpeg" alt=""></div>
          <div class="category_desc">
            <h4 class="category_desc_heading">Web Development</h4>
@@ -113,7 +97,7 @@
        </a>
 
 
-       <a href="#" class="category_box" data-aos="fade-left">
+       <a href="categories" class="category_box" data-aos="fade-left">
          <div class="category_img"><img src="images/mobile.jpg" alt=""></div>
          <div class="category_desc">
            <h4 class="category_desc_heading">Mobile Development</h4>
@@ -123,7 +107,7 @@
        </a>
 
 
-       <a href="#" class="category_box" data-aos="fade-left">
+       <a href="categories" class="category_box" data-aos="fade-left">
          <div class="category_img"><img src="images/softwaredev.jpg" alt=""></div>
          <div class="category_desc">
            <h4 class="category_desc_heading">Software Development</h4>
@@ -133,7 +117,7 @@
        </a>
 
 
-       <a href="#" class="category_box" data-aos="fade-left">
+       <a href="categories" class="category_box" data-aos="fade-left">
          <div class="category_img"><img src="images/uiux.webp" alt=""></div>
          <div class="category_desc">
            <h4 class="category_desc_heading">UI & UX</h4>
@@ -143,17 +127,17 @@
        </a>
 
 
-       <a href="#" class="category_box" data-aos="fade-left">
+       <a href="categories" class="category_box" data-aos="fade-left">
          <div class="category_img"><img src="images/graphics.webp" alt=""></div>
          <div class="category_desc">
-           <h4 class="category_desc_heading">Graphics and Branding</h4>
-           <small>HD, 3D & 4D</small>
+           <h4 class="category_desc_heading">Data Analysis</h4>
+           <small>With Python, R, SQL</small>
          </div>
 
        </a>
 
 
-       <a href="#" class="category_box" data-aos="fade-left">
+       <a href="categories" class="category_box" data-aos="fade-left">
          <div class="category_img"><img src="images/digitalmarketing.webp" alt=""></div>
          <div class="category_desc">
            <h4 class="category_desc_heading">Digital Marketing</h4>
@@ -163,21 +147,21 @@
        </a>
 
 
-       <a href="#" class="category_box" data-aos="fade-left">
+       <a href="categories" class="category_box" data-aos="fade-left">
          <div class="category_img"><img src="images/data.webp" alt=""></div>
          <div class="category_desc">
-           <h4 class="category_desc_heading">Data Analysis</h4>
-           <small>With Python, R, SQL</small>
+           <h4 class="category_desc_heading">School Hub</h4>
+           <small>Coding, Robotics, Python</small>
          </div>
 
        </a>
 
 
-       <a href="#" class="category_box" data-aos="fade-left">
+       <a href="categories" class="category_box" data-aos="fade-left">
          <div class="category_img"><img src="images/freelance.png" alt=""></div>
          <div class="category_desc">
-           <h4 class="category_desc_heading">Freelancing Programme</h4>
-           <small>Remote & Hybrid</small>
+           <h4 class="category_desc_heading">Foreign Exams</h4>
+           <small>IELTS, TOEFL, SELT, SAT, GMAT, GRE</small>
          </div>
 
        </a>

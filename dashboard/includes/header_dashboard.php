@@ -12,6 +12,12 @@
   <!-- CSS FILES -->
   <link rel="stylesheet" href="<?php echo $base_url; ?>css/colors.css">
   <link rel="stylesheet" href="css/dashboard.css?ver=<?php echo microtime(); ?>">
+  <link rel="stylesheet" href="<?php echo $base_url; ?>popups/popup.css?ver=<?php echo microtime(); ?>">
+  <link rel="stylesheet" href="<?php echo $base_url; ?>popups/toast.css?ver=<?php echo microtime(); ?>">
+  <link rel="stylesheet" href="<?php echo $base_url; ?>css/form.css?ver=<?php echo microtime(); ?>">
+  <link rel="stylesheet" href="<?php echo $base_url; ?>popups/overlay.css?ver=<?php echo microtime(); ?>">
+  <link rel="stylesheet" href="<?php echo $base_url; ?>loading/loading.css?ver=<?php echo microtime(); ?>">
+
 
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />

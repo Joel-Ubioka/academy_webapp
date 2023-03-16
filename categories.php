@@ -13,7 +13,7 @@
    </div>
 
 
-
+   <!-- FOR ALL CATEGORIES -->
    <div class="category_wrapper">
      <div class="category_details_container">
 
@@ -34,7 +34,7 @@
          </div>
 
 
-         <?php include "includes/product_scroll.php";?>
+         <?php include "includes/product_scroll_category.php";?>
        </section>
 
        <!-- MOBILE DEVELOPMENT-->
@@ -47,7 +47,7 @@
              </div>
            </div>
          </div>
-         <?php include "includes/product_scroll.php";?>
+         <?php include "includes/product_scroll_category.php";?>
        </section>
 
        <!-- SOFTWARE DEVELOPMENT-->
@@ -60,7 +60,7 @@
              </div>
            </div>
          </div>
-         <?php include "includes/product_scroll.php";?>
+         <?php include "includes/product_scroll_category.php";?>
        </section>
 
        <!-- UI & UX-->
@@ -73,7 +73,7 @@
              </div>
            </div>
          </div>
-         <?php include "includes/product_scroll.php";?>
+         <?php include "includes/product_scroll_category.php";?>
        </section>
 
        <!-- DATA ANALYSIS-->
@@ -99,7 +99,7 @@
              </div>
            </div>
          </div>
-         <?php include "includes/product_scroll.php";?>
+         <?php include "includes/product_scroll_category.php";?>
        </section>
 
        <!-- School Hub-->
@@ -112,7 +112,7 @@
              </div>
            </div>
          </div>
-         <?php include "includes/product_scroll.php";?>
+         <?php include "includes/product_scroll_category.php";?>
        </section>
 
        <!-- Foregin Exam-->
@@ -125,13 +125,25 @@
              </div>
            </div>
          </div>
-         <?php include "includes/product_scroll.php";?>
+         <?php include "includes/product_scroll_category.php";?>
        </section>
 
 
      </div>
    </div>
 
+   <!-- FOR SINGLE CATEGORY -->
+   <div class="product_columns_heading categories_heading">
+     <div class="category_title_container">
+       <h1 class="columns_title">Category Name</h1>
+     </div>
+   </div>
+   </div>
+   <nav class="product_container">
+
+
+     <?php include "includes/product_list.php";?>
+   </nav>
 
    <!-- FOOTER SECTION -->
    <?php require "includes/footer.php";?>

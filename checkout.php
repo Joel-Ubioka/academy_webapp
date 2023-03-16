@@ -16,7 +16,7 @@
        </div>
      </div>
 
-     <div class="column_wrapper">
+     <div class="column_wrapper checkout_wrap">
        <div class="column_inner_container">
          <p>Select Payment Method</p>
          <div class=" checkout payment">
@@ -37,68 +37,6 @@
 
 
 
-
-         </div>
-
-
-
-
-         <div class="column_body">
-           <div class="category_title_container">
-             <h2 class="columns_title order_details">Order Details</h2>
-           </div>
-
-           <div class="column_content checkout">
-             <div class="column_img">
-               <img src="images/laravel.png" alt="">
-             </div>
-             <div class="column_desc">
-               <p>Courses Name</p>
-             </div>
-
-             <div class="column_item">
-               <p>N200,000</p>
-             </div>
-           </div>
-
-           <div class="column_content checkout">
-             <div class="column_img">
-               <img src="images/laravel.png" alt="">
-             </div>
-             <div class="column_desc">
-               <p>Courses Name</p>
-             </div>
-
-             <div class="column_item">
-               <p>N200,000</p>
-             </div>
-           </div>
-
-           <div class="column_content checkout">
-             <div class="column_img">
-               <img src="images/laravel.png" alt="">
-             </div>
-             <div class="column_desc">
-               <p>Courses Name</p>
-             </div>
-
-             <div class="column_item">
-               <p>N200,000</p>
-             </div>
-           </div>
-
-           <div class="column_content checkout">
-             <div class="column_img">
-               <img src="images/laravel.png" alt="">
-             </div>
-             <div class="column_desc">
-               <p>Courses Name</p>
-             </div>
-
-             <div class="column_item">
-               <p>N200,000</p>
-             </div>
-           </div>
 
          </div>
 
@@ -125,6 +63,68 @@
          </div>
        </div>
      </div>
+
+
+
+     <div class="column_body  order_details_wrapper">
+       <div class="category_title_container">
+         <h2 class="columns_title order_details">Order Details</h2>
+       </div>
+       <div class="order_details_inner">
+         <div class="column_content checkout">
+           <div class="column_img">
+             <img src="images/laravel.png" alt="">
+           </div>
+           <div class="column_desc">
+             <p>Courses Name</p>
+           </div>
+
+           <div class="column_item">
+             <p>N200,000</p>
+           </div>
+         </div>
+
+         <div class="column_content checkout">
+           <div class="column_img">
+             <img src="images/laravel.png" alt="">
+           </div>
+           <div class="column_desc">
+             <p>Courses Name</p>
+           </div>
+
+           <div class="column_item">
+             <p>N200,000</p>
+           </div>
+         </div>
+
+         <div class="column_content checkout">
+           <div class="column_img">
+             <img src="images/laravel.png" alt="">
+           </div>
+           <div class="column_desc">
+             <p>Courses Name</p>
+           </div>
+
+           <div class="column_item">
+             <p>N200,000</p>
+           </div>
+         </div>
+
+         <div class="column_content checkout">
+           <div class="column_img">
+             <img src="images/laravel.png" alt="">
+           </div>
+           <div class="column_desc">
+             <p>Courses Name</p>
+           </div>
+
+           <div class="column_item">
+             <p>N200,000</p>
+           </div>
+         </div>
+       </div>
+     </div>
+
 
    </div>
 

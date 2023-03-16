@@ -19,26 +19,29 @@
 
      <div class="category_content">
        <span class="material-symbols-outlined ">menu</span>
-       <b id="courses_menu">Courses</b>
+       <b id="courses_menu">
+         <span>Courses</span>
+       </b>
      </div>
      <span class="material-symbols-outlined category_dropdown ">expand_more</span>
      <?php include "includes/category_menu.php";?>
-
-
    </div>
-   <div class="nav_icons_container"></div>
-   <div class="nav_icons">
-     <a href="#">
-       <span class="material-symbols-outlined">search</span>
-     </a>
-     <a href="#">
-       <span class="material-symbols-outlined">favorite</span>
-       <div class="item_container">0</div>
-     </a>
 
-     <a href="cart">
-       <span class="material-symbols-outlined">shopping_cart</span>
-       <div class="item_container">0</div>
-     </a>
+   <div class="nav_icons_container">
+     <div class="nav_icons">
+       <a href="#" class="search_icon">
+         <span class="material-symbols-outlined">search</span>
+       </a>
+       <a href="#">
+         <span class="material-symbols-outlined">favorite</span>
+         <div class="item_container">0</div>
+       </a>
+
+       <a href="cart">
+         <span class="material-symbols-outlined">shopping_cart</span>
+         <div class="item_container">0</div>
+       </a>
+     </div>
    </div>
+
  </nav>

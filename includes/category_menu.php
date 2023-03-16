@@ -5,7 +5,8 @@
       <li class="category_submenu_list "><a href="#">Frontend Web Development</a></li>
       <li class="category_submenu_list "><a href="#">Backend Web Development</a></li>
       <li class="category_submenu_list "><a href="#">FullStack Web Development</a></li>
-    </ul </li>
+    </ul>
+  </li>
   <li class="category_list"><a href="">UI / UX</a></li>
   <li class="category_list"><a href="">Mobile Application</a></li>
   <li class="category_list"><a href="">Software Application</a></li>

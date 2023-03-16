@@ -1,8 +1,11 @@
-// HIDE POPUP WHEN SELECT MORE IS CLICKED
-$('.popup_footer').on("click", ".select_more_btn", function(e){
-  $(".overlay").hide();
-    $('.popup_container').hide();
+
+// SHOW SEARCH INPUT
+$('.search_icon').click(function(){
+$('.search_container').toggle();
 });
+
+
+
 
 
 // DISPLAY LOGIN POPUP
@@ -239,10 +242,7 @@ $('.category_menu_container').click(function(){
  // $('.category_list_container').toggle();
 });
 
-// CLOSE POPUP
-$('.close_popup').click(function(){
-    $(".popup_container, .overlay").hide();
-});
+
 
 // ADD TO CART
 $('.add_to_cart_btn, .details_add_to_cart').click(function(e){

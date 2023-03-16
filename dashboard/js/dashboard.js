@@ -1,3 +1,14 @@
+var base_url = "http://localhost/online_shop/";
+
+
+var loading = `<div class="loading_container">
+                  <div class="loading_content">
+                    <img src="${base_url}loading/loading.gif" alt="loading...">
+                  </div>
+                </div>`;
+
+
+
 // ADD HOVERED CLASS IN SELECTED LIST ITEM
 
 let list = document.querySelectorAll('.navigation li');
@@ -47,4 +58,52 @@ $(".dropdown_menu").click(function(e){
       }
 
    
+});
+
+
+
+// LOAD PAGE AUTOMATICALLY 
+$(document).ready(function(){
+    let active_url = localStorage.getItem('active_url');
+
+    if(active_url !== undefined)
+    {
+      active_url = "includes/dashboard.php";
+    }
+
+    $('.dashboard_container').html(loading);
+    $('.loading_container').css('display','flex');
+  
+      $.ajax({
+          type: "POST",
+          url: active_url,
+          success: function(response){
+            $('.dashboard_container').html(response);
+          }
+        });
+});
+
+// DISPLAY INSERT PRODUCT PAGE
+
+$('.navigation a').click(function(){
+
+  const page_url = $(this).attr('data-url');
+
+   localStorage.setItem('active_url', page_url);
+
+
+if(page_url !== undefined)
+{
+  $('.dashboard_container').html(loading);
+  $('.loading_container').css('display','flex');
+
+    $.ajax({
+        type: "POST",
+        url: page_url,
+        success: function(response){
+          $('.dashboard_container').html(response);
+        }
+      });
+}
+  
 });

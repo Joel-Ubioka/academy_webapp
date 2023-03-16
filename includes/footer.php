@@ -2,7 +2,7 @@
   <div class="footer1">
     <div class="footer_column">
       <div class="logo_container"><a href="<?php echo $base_url; ?>"><img src="images/logo.png" alt=""></a></div>
-      <p>Morrhtech Solutions is the leading ICT
+      <p class="first_footer_p">Morrhtech Solutions is the leading ICT
         Training and Exam Testing Institute with
         over 5 years cognitive experience in Nigeria
       </p>
@@ -73,10 +73,14 @@
   </div>
 </section>
 
-<?php include "includes/overlay.php";
+<?php include "popups/overlay.php";
 include "popups/popup.php";
+include "popups/toast.php";
+include "loading/loading.php";
 ?>
 
-<script src="js/jquery.js"></script>
-<script src="js/script.js?ver=<?php echo microtime(); ?>"></script>
-<script src="sliders/slider.js?ver=<?php echo microtime(); ?>"></script>
+<script src="<?php echo $base_url; ?>js/jquery.js"></script>
+<script src="<?php echo $base_url; ?>js/script.js?ver=<?php echo microtime(); ?>"></script>
+<script src="<?php echo $base_url; ?>sliders/slider.js?ver=<?php echo microtime(); ?>"></script>
+<script src="<?php echo $base_url; ?>popups/popup.js?ver=<?php echo microtime(); ?>"></script>
+<script src="<?php echo $base_url; ?>popups/toast.js?ver=<?php echo microtime(); ?>"></script>

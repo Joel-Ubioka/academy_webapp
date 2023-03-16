@@ -32,40 +32,44 @@
 
          <!-- PRODUCT TITLES PRICE  AND BUTTONS -->
          <div class="product_details_title_content">
-           <h1 class="product_details_title">FRONTEND WEB DEVELOPMENT</h1>
-           <div class="price_qty_container">
-             <div class="product_details_price_box">
-               <span>N200,000</span>
-             </div>
-             <div class="product_details_qty_box">
-               <button class="qty_box btn qty_minus">-</button>
-               <input type="text" class="qty_box qty qty_value" value="1">
-               <button class="qty_box btn qty_plus">+</button>
-             </div>
-           </div>
-           <div class="product_details_btn_container">
-             <a href="#"> <button class="close_btn details_add_to_cart">Add to cart</button></a>
-             <a href="#"> <button class="open_btn">Enroll Now</button></a>
-           </div>
 
-           <!-- PRODUCT SPECIFICATIONS-->
-           <div class="product_spec">
-             <h3>Course Content</h3>
-             <ul>
-               <li>HTML 5</li>
-               <li>CSS</li>
-               <li>JAVASCRIPT</li>
-               <li>JQUERY</li>
-               <li>ANGULAR</li>
-             </ul>
-           </div>
+           <div class="details_inner_content">
+             <h1 class="product_details_title">FRONTEND WEB DEVELOPMENT</h1>
+             <div class="price_qty_container">
+               <div class="product_details_price_box">
+                 <span>N200,000</span>
+               </div>
+               <div class="product_details_qty_box">
+                 <button class="qty_box btn qty_minus">-</button>
+                 <input type="text" class="qty_box qty qty_value" value="1">
+                 <button class="qty_box btn qty_plus">+</button>
+               </div>
+             </div>
+             <div class="product_details_btn_container">
+               <a href="#"> <button class="close_btn details_add_to_cart">Add to cart</button></a>
+               <a href="#"> <button class="open_btn">Enroll Now</button></a>
+             </div>
 
+             <!-- PRODUCT SPECIFICATIONS-->
+             <div class="product_spec">
+               <h3>Course Content</h3>
+               <ul>
+                 <li>HTML 5</li>
+                 <li>CSS</li>
+                 <li>JAVASCRIPT</li>
+                 <li>JQUERY</li>
+                 <li>ANGULAR</li>
+               </ul>
+             </div>
+           </div>
 
            <!-- SOCIAL MEDIA SHARE BUTTONS-->
            <div class="social_container details">
              <h3>Share this course</h3>
              <?php include "includes/social_icons.php";?>
            </div>
+
+
            <div>
              <h4> DURATION</h4>
              <p> 3 Months</p>
@@ -111,7 +115,10 @@
          </p>
        </div>
      </section>
-
+     <div class="social_container details">
+       <h3>Share this course</h3>
+       <?php include "includes/social_icons.php";?>
+     </div>
 
    </div>
 

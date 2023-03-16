@@ -576,6 +576,11 @@ p
   color: var(--main_color);
 }
 
+.dashboard_container
+{
+  padding: 10px;
+}
+
 /* RESPONSIVE DESIGN */
 @media (max-width: 1370px)
 {

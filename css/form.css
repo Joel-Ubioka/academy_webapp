@@ -1,0 +1,255 @@
+/* ----------- SIGN UP STYLE ---------------------*/
+
+#search_form
+{
+  flex-basis: 600px;
+  display: flex;
+  margin: 0 20px;
+}
+
+.form_input
+{
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border: 1px solid var( --color_shade4);
+  outline: none;
+}
+
+.form_input:focus
+{
+  border: 1px solid var(--highlight_color);
+}
+
+
+.search_btn
+{
+  border: none;
+  padding: 10px;
+  background-color: var(--highlight_color);
+  border: 1px solid var(--highlight_color);
+  color:var( --foreground_color1);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+
+}
+
+.search_btn:hover
+{
+  background-color: var(--highlight_color_dim);
+  border: 1px solid var(--highlight_color_dim);
+  cursor: pointer;
+
+}
+
+/* SIGNUP STYLES */
+/*----------- BUTTON STYLES -----------*/
+
+.open_btn
+{
+  background: none;
+  border: 1px solid var(--highlight_color);
+  padding: 15px 23px;
+  color: var( --foreground_color2);
+  cursor: pointer;
+  white-space: nowrap;
+
+}
+
+.open_btn:hover
+{
+  border: 1px solid var(--main_color_shade);
+  color: var(--main_color_shade);
+  background-color: var(--highlight_color_dim);
+  
+}
+
+.open_btn:focus
+{
+  border: 1px solid var(--highlight_color2);
+}
+
+
+.close_btn
+{
+  background:var(--highlight_color);
+  border: 1px solid var(--highlight_color);
+  padding: 15px 23px;
+  color: var(--main_color);
+  cursor: pointer;
+  white-space: nowrap;
+
+}
+
+.close_btn:hover
+{
+ opacity: .8;
+  
+}
+
+.close_btn:focus
+{
+  border: 1px solid var(--highlight_color2);
+}
+
+.signup_wrapper
+{
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup_container
+{
+    background-color:var(--main_color_shade);
+    padding: 20px;
+    flex-basis: 500px;
+}
+
+.signup_container h1
+{
+   margin-bottom: 40px;
+}
+
+.signup_container h2
+{
+  margin-bottom: 20px;
+}
+
+.input_container
+{
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color_shade4);
+  padding: 5px 10px;
+
+}
+
+.input_container:focus-within
+{
+  border: 1px solid var(--highlight_color);
+
+}
+
+.input_container span
+{
+  user-select: none;
+
+}
+
+.input_container:not(:last-child)
+{
+  margin-bottom: 15px;
+  
+}
+
+.input_container .form_input
+{
+  border: none;
+  font-size: 15px;
+}
+
+.form_input
+{
+  font-size: 15px;
+}
+
+.show_password
+{
+  cursor: pointer;
+}
+
+.signup_container button
+{
+  width: 100%;
+  font-size: 15px;
+}
+
+.input_container .hide_password
+{
+  display: none;
+  cursor: pointer;
+}
+
+.signup_container p
+{
+  margin-top: 15px;
+  text-align: center;
+}
+
+.input_column
+{
+  display: flex;
+  padding: 20px;
+  background-color: var(--color_shade1);
+  width: 100%;
+}
+
+.input_column:not(:last-child)
+{
+ margin-bottom: 10px;
+}
+
+.checkout.payment
+{
+  background-color: var(--color_shade2);
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.input_column input
+{
+  margin-right: 10px;
+}
+
+.input_column label
+{
+  cursor: pointer;
+}
+
+select
+{
+background-color: transparent;
+}
+
+.file_container input
+{
+  display: none;
+}
+
+.file_container
+{
+  width: 100%;
+  display: flex;
+  border: 1px solid var(--color_shade4);
+  margin-bottom:20px ;
+}
+
+#file_text
+{
+  flex: 1;
+  padding:12px 20px;
+  color: var(--color_shade8);
+}
+
+
+#file_btn
+{
+  padding: 12px 20px;
+  background-color: var(--color_shade4);
+  cursor: pointer;
+}
+
+
+
+
+
+@media only screen and (max-width: 600px)
+{
+  .signup_wrapper
+  {
+    padding: 20px;
+    
+  }
+}

@@ -38,9 +38,9 @@
          <button name="submit" class="close_btn">Login</button>
 
        </form>
-       <p>Forgot your password? <a href="#" class="reset_pass_link">Click here</a></p>
+       <p class="bottom_text">Forgot your password? <a href="#" class="reset_pass_link">Click here</a></p>
 
-       <p>You do not have an account? <a href="signup">Sign Up</a></p>
+       <p class="bottom_text">You do not have an account? <a href="signup">Sign Up</a></p>
      </div>
 
 

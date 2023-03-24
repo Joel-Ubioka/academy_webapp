@@ -59,7 +59,7 @@
                <span class="title">Insert Products</span>
              </a>
 
-             <a href="#" data-url='includes/insert_product.php'>
+             <a href="#" data-url='includes/view_product.php'>
                <span class="icon">
                  <ion-icon name="eye-outline" title="View products"></ion-icon>
                </span>
@@ -80,18 +80,29 @@
            </a>
            <div class="submenu">
 
-             <a href="#" data-url='includes/insert_product.php'>
+             <a href="#" data-url='includes/insert_category.php'>
                <span class="icon">
-                 <ion-icon name="add-circle-outline" title="Insert products"></ion-icon>
+                 <ion-icon name="add-circle-outline" title="Insert category"></ion-icon>
                </span>
                <span class="title">Insert Category</span>
              </a>
-
-             <a href="#" data-url='includes/insert_product.php'>
+             <a href="#" data-url='includes/insert_subcategory.php'>
                <span class="icon">
-                 <ion-icon name="eye-outline" title="View products"></ion-icon>
+                 <ion-icon name="add-circle-outline" title="Insert sub-category"></ion-icon>
+               </span>
+               <span class="title">Insert Sub-Category</span>
+             </a>
+             <a href="#" data-url='includes/view_categories.php'>
+               <span class="icon">
+                 <ion-icon name="eye-outline" title="View Category"></ion-icon>
                </span>
                <span class="title">View Category</span>
+             </a>
+             <a href="#" data-url='includes/view_subcategories.php'>
+               <span class="icon">
+                 <ion-icon name="eye-outline" title="View Sub-category"></ion-icon>
+               </span>
+               <span class="title">View Sub-category</span>
              </a>
 
            </div>
@@ -168,8 +179,9 @@ include "../popups/toast.php";
 // include "../loading/loading.php";
 ?>
 
-   <script src="<?php echo $base_url; ?>dashboard/js/jquery.js"></script>
+   <!-- <script src="<?php echo $base_url; ?>dashboard/js/jquery.js"></script> -->
    <script src="<?php echo $base_url; ?>dashboard/js/dashboard.js"></script>
+   <script src="<?php echo $base_url; ?>dashboard/js/table.js"></script>
    <script src="<?php echo $base_url; ?>popups/popup.js?ver=<?php echo microtime(); ?>"></script>
    <script src="<?php echo $base_url; ?>popups/toast.js?ver=<?php echo microtime(); ?>"></script>
    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

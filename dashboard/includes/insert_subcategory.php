@@ -1,6 +1,6 @@
 <div class="table_wrapper">
   <h2>
-    <ion-icon name="star-outline"></ion-icon> Insert Product
+    <ion-icon name="star-outline"></ion-icon> Insert Category
   </h2>
   <div class="table_container">
     <div class="signup_wrapper">
@@ -9,11 +9,8 @@
 
         <h1></h1>
 
-        <form action="" method="POST" id="insert_product_form">
-          <div class="input_container">
-            <input type="text" id='product_name' name="product_name" class="form_input" placeholder="Product Name"
-              required>
-          </div>
+        <form action="" method="POST" id="insert_category_form">
+
           <div class="input_container">
             <select id="product_category" name="product_category" class="form_input" required>
               <option value="">Select Category</option>
@@ -22,35 +19,13 @@
               <option value="Category 3">Category 3</option>
             </select>
           </div>
-          <div class="input_container">
-            <input type="number" min="10" id="product_price" name="product_price" class="form_input"
-              placeholder="Product Price" required>
-          </div>
 
           <div class="input_container">
-            <input type="text" id="product_tag" name="product_tag" class="form_input" placeholder="Product Tag"
-              required>
+            <input type="text" id='subcategory_name' name="subcategory_name" class="form_input"
+              placeholder="Sub-Category" required>
           </div>
 
-          <div class="input_container">
-            <input type="text" id="product_publisher" name="product_publisher" class="form_input"
-              placeholder="Publisher" required>
-          </div>
-
-          <textarea rows="10" cols="12" id="product_spec" name="product_spec" class="form_input" required></textarea>
-
-          <textarea rows="10" cols="12" id="product_desc" name="product_desc" class="form_input" required></textarea>
-
-
-          <label for="product_img" class="file_container" id="file_container">
-            <span id="file_text">
-              Select product image
-            </span>
-            <span id="file_btn">Browse</span>
-            <input type="file" id="product_img" name="product_img" class="form_input" required>
-          </label>
-
-          <button name="submit" class="close_btn">Insert Product</button>
+          <button name="submit" class="close_btn">Insert</button>
 
         </form>
 

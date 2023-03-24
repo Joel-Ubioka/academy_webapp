@@ -26,9 +26,27 @@ item.addEventListener('mouseover', activeLink)
 
 // TOGGLE DASHBOARD MENU SIDEBAR
 $('.toggle').click(function(){
+    // $('.navigation').removeClass('contract');
+    // $('.main').removeClass('contract');
     $('.navigation').toggleClass('adjust');
     $('.main').toggleClass('adjust');
+
+    $('.dropdown_icon').toggle();
 });
+
+// DISPLAY THE NAVIGATION MENU ON HOVER
+
+// $('.navigation').hover(function(){
+
+
+//   if($(this).hasClass('adjust'))
+//   {
+//     $(this).removeClass('adjust');
+//     $('.main').removeClass('adjust');
+//     $('.dropdown_icon').show();
+//   }
+
+// });
 
 
 
@@ -36,6 +54,10 @@ $('.toggle').click(function(){
 
 $(".dropdown_menu").click(function(e){
     e.preventDefault();
+
+    $('.navigation').removeClass('adjust');
+    $('.main').removeClass('adjust');
+    $('.dropdown_icon').show();
 
     $(this).parent().siblings().children('.submenu').slideUp();
     $(this).parent().siblings().children('.dropdown_menu').children('.dropdown_icon').children().attr('name','chevron-down-outline');
@@ -85,7 +107,19 @@ $(document).ready(function(){
 
 // DISPLAY INSERT PRODUCT PAGE
 
-$('.navigation a').click(function(){
+$('.navigation a:not(.dropdown_menu)').click(function(e){
+
+  e.preventDefault();
+
+  $('.navigation').toggleClass('adjust');
+  $('.main').toggleClass('adjust');
+
+  // $('.dropdown_icon').toggle();
+
+  // $(".navigation").addClass('adjust');
+  // $('.main').addClass('adjust');
+  // $('.dropdown_icon').hide();
+
 
   const page_url = $(this).attr('data-url');
 

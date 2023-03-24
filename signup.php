@@ -63,7 +63,7 @@
 
        </form>
 
-       <p>Already have an account <a href="login">Login</a></p>
+       <p class="bottom_text">Already have an account <a href="login">Login</a></p>
      </div>
 
    </div>

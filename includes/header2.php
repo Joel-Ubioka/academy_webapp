@@ -3,8 +3,11 @@
    <div class="logo_container"><a href="<?php echo $base_url; ?>"><img src="images/logo.png" alt=""></a></div>
    <div class="search_container">
      <form action="" id="search_form">
+       <button name="search_btn" class="search_btn">
+         <ion-icon name="search-outline"></ion-icon>
+       </button>
        <input type="text" class="form_input" name="search" id="search" placeholder="Search for products">
-       <button name="search_btn" class="search_btn">Search</button>
+       <?php include "includes/search_dropdown.php";?>
      </form>
    </div>
    <div class="contact_container">

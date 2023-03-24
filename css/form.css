@@ -126,6 +126,17 @@
 
 }
 
+.dashboard_form_container
+{
+  box-shadow: 0 7px 25px var(--color_shade4);
+  border-radius: 20px;
+}
+
+.dashboard_form_container .input_container
+{
+  padding: 5px;
+}
+
 .input_container:focus-within
 {
   border: 1px solid var(--highlight_color);
@@ -160,7 +171,7 @@
   cursor: pointer;
 }
 
-.signup_container button
+.signup_container .close_btn, .signup_container .open_btn
 {
   width: 100%;
   font-size: 15px;
@@ -172,7 +183,7 @@
   cursor: pointer;
 }
 
-.signup_container p
+.signup_container .bottom_text
 {
   margin-top: 15px;
   text-align: center;
@@ -211,6 +222,16 @@
 select
 {
 background-color: transparent;
+color: var(--color_shade7);
+}
+
+textarea, .note-editor
+{
+  margin-bottom: 16px;
+  display: block;
+  width: 100%;
+  background-color: var(--color_shade1);
+  text-align: left;
 }
 
 .file_container input
@@ -229,7 +250,7 @@ background-color: transparent;
 #file_text
 {
   flex: 1;
-  padding:12px 20px;
+  padding:12px;
   color: var(--color_shade8);
 }
 
@@ -237,8 +258,13 @@ background-color: transparent;
 #file_btn
 {
   padding: 12px 20px;
-  background-color: var(--color_shade4);
+  background-image:linear-gradient( var(--color_shade4), var(--color_shade2));
   cursor: pointer;
+}
+
+#file_btn:active
+{
+  border: 1px solid var(--highlight_color);
 }
 
 

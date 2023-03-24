@@ -74,6 +74,20 @@ p
 {
   display: none ;
 }
+
+.search_btn ion-icon
+{
+  font-size: 23px;
+}
+
+.search_container .search_btn
+{
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /*----------- NAV BAR STYLES -----------*/
 
 .nav_bar

@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="<?php echo $base_url; ?>css/form.css?ver=<?php echo microtime(); ?>">
   <link rel="stylesheet" href="<?php echo $base_url; ?>popups/overlay.css?ver=<?php echo microtime(); ?>">
   <link rel="stylesheet" href="<?php echo $base_url; ?>loading/loading.css?ver=<?php echo microtime(); ?>">
-
+  <link rel="stylesheet" href="<?php echo $base_url; ?>dashboard/css/table.css?ver=<?php echo microtime(); ?>">
 
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -25,4 +25,15 @@
 
   <script src="../js/script.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <!-- FOR SUMMER NOTE TEXT EDITOR -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js">
+  </script>
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+
+  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 </head>

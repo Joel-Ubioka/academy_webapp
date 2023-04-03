@@ -141,3 +141,32 @@ if(page_url !== undefined)
 }
   
 });
+
+// INSERT PRODUCT CATEGORY
+
+$('.dashboard_container').on('submit','#insert_category_form', function(e){
+  e.preventDefault();
+  const that = this;
+
+  $(this).ajaxSubmit({
+uploadProgress: function(event, position, total, percentComplete){
+
+},
+success: function(response){
+$('.toast_wrapper').fadeIn();
+if(response !== "SSuccessfully inserted!")
+{
+    $('.toast_container').addClass('danger');
+   
+}
+
+
+   $('.toast_msg span').html(response);
+  setTimeout(function(){
+    $('.toast_wrapper').fadeOut();
+  },5000)
+ 
+}
+  });
+});
+

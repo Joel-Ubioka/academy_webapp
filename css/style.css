@@ -59,6 +59,7 @@ p
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 401;
 
 }
 
@@ -86,7 +87,95 @@ p
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 402;
 }
+
+#search_form
+{
+  position: relative;
+}
+
+#search
+{
+  z-index: 402;
+}
+
+.search_dropdown
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px 0 20px 0;
+  border: 1px solid var(--color_shade4);
+  background-color: var(--color_shade1);
+  display: none;
+
+}
+
+.search_dropdown_link
+{
+  display: flex;
+  padding: 7px 20px;
+  border-bottom: 1px solid var(--color_shade4);
+  align-items: center;
+}
+
+.search_dropdown_img
+{
+  flex-basis: 60px;
+  flex-shrink: 0;
+  height: 60px;
+  overflow: hidden;
+}
+
+.search_dropdown_img img
+{
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+}
+
+.dropdown_search_text
+{
+  padding: 10px 15px 10px 10px ;
+}
+
+.dropdown_search_text p
+{
+  overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin: 0;
+    padding: 0;
+}
+
+.search_dropdown_inner
+{
+  max-height: 400px;
+  overflow: auto;
+}
+
+
+.dropdown_search_date
+{
+  padding: 10px;
+}
+
+.dropdown_search_date span{
+  color: var(--color_shade8);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.dropdown_search_date span:last-child
+{
+  color: var(--color_shade5);
+}
+
+
 
 /*----------- NAV BAR STYLES -----------*/
 

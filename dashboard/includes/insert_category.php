@@ -9,7 +9,7 @@
 
         <h1></h1>
 
-        <form action="" method="POST" id="insert_category_form">
+        <form action="ajax_functions/insert_category_ajax.php" method="POST" id="insert_category_form">
           <div class="input_container">
             <input type="text" id='category_name' name="category_name" class="form_input" placeholder="Category Name"
               required>
@@ -33,7 +33,8 @@
   </div>
 </div>
 <script>
-$('#product_img').on("change", function() {
+// SHOW SELECTED IMAGE
+$('#category_img').on("change", function() {
   const file = $(this).prop('files')[0];
   $('#file_text').html(file.name);
 });

@@ -179,6 +179,8 @@ include "../popups/toast.php";
 // include "../loading/loading.php";
 ?>
 
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
+   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script> -->
    <!-- <script src="<?php echo $base_url; ?>dashboard/js/jquery.js"></script> -->
    <script src="<?php echo $base_url; ?>dashboard/js/dashboard.js"></script>
    <script src="<?php echo $base_url; ?>dashboard/js/table.js"></script>

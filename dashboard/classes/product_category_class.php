@@ -57,7 +57,9 @@ class Product_category_class extends File_class
 
             $stmt = $this->connect()->prepare('INSERT INTO product_categories (category_name,category_image) VALUES(?,?)');
             if ($stmt->execute(array($category_name, $file_name))) {
-                echo "Successfully uploaded!";
+
+                echo "Successfully inserted!";
+
             } else {
                 echo "Failed!";
             }

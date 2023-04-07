@@ -13,6 +13,35 @@ class Product_category_class extends File_class
         }
     }
 
+    protected function select_category_by_id($id)
+    {
+        $stmt = $this->connect()->prepare('SELECT category_name FROM product_categories WHERE id=?');
+        if (!$stmt->execute(array($id))) {
+            $stmt = null;
+            echo 'Connection failed';
+        } else {
+            return $stmt;
+        }
+    }
+
+    public function fetch_category_by_id($id)
+    {
+        $stmt = $this->select_category_by_id($id);
+        $category_array = $stmt->fetch(PDO::FETCH_OBJ);
+        return $category_array;
+    }
+
+    protected function select_categories()
+    {
+        $stmt = $this->connect()->prepare('SELECT * FROM product_categories');
+        if (!$stmt->execute()) {
+            $stmt = null;
+            echo 'Connection failed';
+        } else {
+            return $stmt;
+        }
+    }
+
     protected function category_exists($category_name)
     {
         $stmt = $this->select_category($category_name);
@@ -68,5 +97,12 @@ class Product_category_class extends File_class
             echo "Failed!";
         }
 
+    }
+
+    public function view_categories()
+    {
+        $stmt = $this->select_categories();
+        $category_array = $stmt->fetchAll(PDO::FETCH_OBJ);
+        return $category_array;
     }
 }

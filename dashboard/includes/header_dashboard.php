@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="<?php echo $base_url; ?>popups/popup.css?ver=<?php echo microtime(); ?>">
   <link rel="stylesheet" href="<?php echo $base_url; ?>popups/toast.css?ver=<?php echo microtime(); ?>">
   <link rel="stylesheet" href="<?php echo $base_url; ?>css/form.css?ver=<?php echo microtime(); ?>">
+  <link rel="stylesheet" href="<?php echo $base_url; ?>loading/progress.css?ver=<?php echo microtime(); ?>">
+
   <link rel="stylesheet" href="<?php echo $base_url; ?>popups/overlay.css?ver=<?php echo microtime(); ?>">
   <link rel="stylesheet" href="<?php echo $base_url; ?>loading/loading.css?ver=<?php echo microtime(); ?>">
   <link rel="stylesheet" href="<?php echo $base_url; ?>dashboard/css/table.css?ver=<?php echo microtime(); ?>">

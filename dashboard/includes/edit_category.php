@@ -1,6 +1,18 @@
+<?php
+include "../config/config.php";
+include '../functions/autoloader.php';
+
+$id = $_POST['edit_id'];
+$obj = new Product_category_class();
+
+$category_detail = $obj->fetch_category_by_id($id);
+
+?>
+
+
 <div class="table_wrapper">
   <h2>
-    <ion-icon name="star-outline"></ion-icon> Insert Category
+    <ion-icon name="star-outline"></ion-icon> Edit Category
   </h2>
   <div class="table_container">
     <div class="signup_wrapper">
@@ -12,7 +24,7 @@
         <form action="ajax_functions/insert_category_ajax.php" method="POST" id="insert_category_form">
           <div class="input_container">
             <input type="text" id='category_name' name="category_name" class="form_input" placeholder="Category Name"
-              required>
+              value="<?php echo $category_detail->category_name; ?>" required>
           </div>
 
 

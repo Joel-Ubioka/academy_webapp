@@ -152,7 +152,10 @@
 
       $(this).ajaxSubmit({
     uploadProgress: function(event, position, total, percentComplete){
-      // $('#file_text').html(percentComplete);
+      $('.progress_container').css("display","flex");
+      $('.progress_bar').css('width', percentComplete+"%")
+      $('.progress_text').text(percentComplete+"%");
+
     },
     success: function(response){
 
@@ -171,11 +174,78 @@
 
         setTimeout(function(){
           $('.toast_wrapper').fadeOut();
+         $('.progress_container').hide();
         },5000)
 
       $(that).children('button').attr('disabled', false);
+       
         
     }
       });
+    });
+
+// LOAD ACTIVE PAGE
+    function load_active_page()
+    {
+      $('.dashboard_container').html(loading);
+      $('.loading_container').css('display','flex');
+
+
+      let active_url = localStorage.getItem('active_url');
+      $.ajax({
+          url: active_url,
+          success: function(response){
+            $('.dashboard_container').html(response);
+          }
+      });
+    }
+
+    //LOAD PAGE
+    function load_page(url)
+    {
+      $('.dashboard_container').html(loading);
+      $('.loading_container').css('display','flex');
+
+
+      $.ajax({
+          url: url,
+          success: function(response){
+            $('.dashboard_container').html(response);
+          }
+      });
+    }
+
+
+    //LOAD PAGE FOR EDITING
+    function load_page(url, id)
+    {
+      $('.dashboard_container').html(loading);
+      $('.loading_container').css('display','flex');
+
+
+      $.ajax({
+        type: "POST",
+          url: url,
+          data:{'edit_id':id},
+
+          success: function(response){
+            $('.dashboard_container').html(response);
+          }
+      });
+    }
+
+    // LOAD EDIT CATEGORY PAGE WHEN EDIT BUTTON IS CLICKED
+
+    $('.dashboard_container').on("click", ".edit_btn", function(e){
+      e.preventDefault();
+
+      localStorage.removeItem('active_url');
+
+        let id = $(this).attr('data-id');
+        let url = $(this).attr('data-url');
+
+         //localStorage.setItem("edit_id", id);
+        
+         load_page(url, id);
     });
 

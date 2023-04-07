@@ -92,7 +92,7 @@
                </span>
                <span class="title">Insert Sub-Category</span>
              </a>
-             <a href="#" data-url='includes/view_categories.php'>
+             <a href="#" data-url='ajax_functions/view_categories_ajax.php'>
                <span class="icon">
                  <ion-icon name="eye-outline" title="View Category"></ion-icon>
                </span>

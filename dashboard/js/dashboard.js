@@ -244,8 +244,106 @@
         let id = $(this).attr('data-id');
         let url = $(this).attr('data-url');
 
-         //localStorage.setItem("edit_id", id);
         
-         load_page(url, id);
+
+        load_page(url, id);
+
+         localStorage.setItem("edit_id", id);
+        localStorage.setItem('active_url', url);
+         
     });
+
+    //LOAD EDITED PAGE
+    function load_edited_page()
+    {
+       let id =   localStorage.getItem("edit_id");
+        let url = localStorage.getItem('active_url');
+
+        
+      $('.dashboard_container').html(loading);
+      $('.loading_container').css('display','flex');
+
+
+      $.ajax({
+        type: "POST",
+          url: url,
+          data:{'edit_id':id},
+
+          success: function(response){
+            $('.dashboard_container').html(response);
+          }
+      });
+    }
+
+
+    // FUNCTION FOR UPDATING A PAGE
+function update_page()
+{
+
+
+
+     $('.dashboard_container').on('submit','.form_edit', function(e){
+      e.preventDefault();
+      const that = this;
+
+      $(that).children('button').attr('disabled', true);
+
+      $(this).ajaxSubmit({
+    uploadProgress: function(event, position, total, percentComplete){
+      $('.progress_container').css("display","flex");
+      $('.progress_bar').css('width', percentComplete+"%")
+      $('.progress_text').text(percentComplete+"%");
+
+    },
+    success: function(response){
+
+      $('.toast_wrapper').fadeIn();
+      if(response !== "Successfully updated!")
+      {
+        $('.toast_container').addClass('danger');
+      }
+      else{
+        $('.toast_container').removeClass('danger');
+     
+        that.reset();
+        $('#file_text').text('Select category image');
+
+        load_edited_page()
+      }
+      $('.toast_msg span').html(response);
+
+        setTimeout(function(){
+          $('.toast_wrapper').fadeOut();
+         $('.progress_container').hide();
+        },5000)
+
+      $(that).children('button').attr('disabled', false);
+       
+        
+    }
+      });
+    });
+
+
+
+}
+
+update_page();
+
+// SHOW DELETE CONFIRMATION POPUP
+$('.dashboard_container').on("click", ".delete_pop_btn", function(e){
+  e.preventDefault();
+  const message = "<p>Are you sure you want to delete?</p>";
+  const btns = `<div class="yes_no_wrap">
+                  <button class="close_btn">Yes</button>
+                  <button class="open_btn">No</button>
+                </div>`;
+
+  $('.overlay').show();
+    $('.popup_container').css('display','flex');
+    $('.popup_box').css('flex-basis', '400px');
+    $('.popup_body').html(message);
+    $('.popup_footer').html(btns);
+});
+
 

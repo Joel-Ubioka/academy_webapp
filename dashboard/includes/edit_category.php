@@ -21,7 +21,9 @@ $category_detail = $obj->fetch_category_by_id($id);
 
         <h1></h1>
 
-        <form action="ajax_functions/insert_category_ajax.php" method="POST" id="insert_category_form">
+        <form action="ajax_functions/edit_category_ajax.php" method="POST" class="form_edit"
+          enctype="multipart/form-data">
+          <input type="hidden" name="category_id" value="<?php echo $id; ?>">
           <div class="input_container">
             <input type="text" id='category_name' name="category_name" class="form_input" placeholder="Category Name"
               value="<?php echo $category_detail->category_name; ?>" required>
@@ -36,7 +38,7 @@ $category_detail = $obj->fetch_category_by_id($id);
             <input type="file" id="category_img" name="category_img" class="form_input" required>
           </label>
 
-          <button name="submit" class="close_btn">Insert Category</button>
+          <button name="submit" class="close_btn">Update Category</button>
 
         </form>
         <?php include "../../loading/progress_bar.php";?>

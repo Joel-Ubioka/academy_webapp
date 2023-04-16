@@ -42,6 +42,24 @@
 
 }
 
+.yes_no_wrap
+{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.yes_no_wrap button
+{
+  padding: 8px 15px;
+
+}
+
+.yes_no_wrap button:not(:last-child)
+{
+ margin-right: 10px;
+  
+}
+
 /* SIGNUP STYLES */
 /*----------- BUTTON STYLES -----------*/
 

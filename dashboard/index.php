@@ -96,13 +96,13 @@
                <span class="icon">
                  <ion-icon name="eye-outline" title="View Category"></ion-icon>
                </span>
-               <span class="title">View Category</span>
+               <span class="title">View Categories</span>
              </a>
              <a href="#" data-url='includes/view_subcategories.php'>
                <span class="icon">
                  <ion-icon name="eye-outline" title="View Sub-category"></ion-icon>
                </span>
-               <span class="title">View Sub-category</span>
+               <span class="title">View Sub-categories</span>
              </a>
 
            </div>

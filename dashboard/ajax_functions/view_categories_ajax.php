@@ -5,6 +5,7 @@ include '../functions/autoloader.php';
 $obj = new Product_category_class();
 
 $categories = $obj->view_categories();
+$is_categories_empty = $obj->is_categories_empty();
 
 ?>
 
@@ -27,14 +28,18 @@ $categories = $obj->view_categories();
 
 
         <?php
-$sn = 1;
-foreach ($categories as $item) {
+if ($is_categories_empty) {
+    echo "<tr><td colspan='5'>No record found</td></tr>";
+} else {
 
-    $id = $item->id;
-    $category_name = $item->category_name;
-    $category_image = $item->category_image;
+    $sn = 1;
+    foreach ($categories as $item) {
 
-    ?>
+        $id = $item->id;
+        $category_name = $item->category_name;
+        $category_image = $item->category_image;
+
+        ?>
 
         <tr>
           <td><?php echo $sn; ?></td>
@@ -51,15 +56,16 @@ foreach ($categories as $item) {
             <ul class="option_dropdown">
               <li><a href="" data-id="<?php echo $id; ?>" data-url="includes/edit_category" class="edit_btn">Edit</a>
               </li>
-              <li><a href="">Delete</a></li>
+              <li><a href="" class="delete_pop_btn">Delete</a></li>
             </ul>
           </td>
         </tr>
 
         <?php
 $sn++;
-}
+    }
 
+}
 ?>
 
 

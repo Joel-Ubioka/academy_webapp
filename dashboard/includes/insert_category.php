@@ -9,7 +9,8 @@
 
         <h1></h1>
 
-        <form action="ajax_functions/insert_category_ajax.php" method="POST" id="insert_category_form">
+        <form action="ajax_functions/insert_category_ajax.php" method="POST" id="insert_category_form"
+          enctype="multipart/form-data">
           <div class="input_container">
             <input type="text" id='category_name' name="category_name" class="form_input" placeholder="Category Name"
               required>

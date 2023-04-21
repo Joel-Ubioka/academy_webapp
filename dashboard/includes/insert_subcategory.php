@@ -1,6 +1,18 @@
+<?php
+
+include "../config/config.php";
+include '../functions/autoloader.php';
+
+$obj = new Product_category_class();
+
+$categories = $obj->fetch_categories();
+
+?>
+
+
 <div class="table_wrapper">
   <h2>
-    <ion-icon name="star-outline"></ion-icon> Insert Category
+    <ion-icon name="star-outline"></ion-icon> Insert Sub-category
   </h2>
   <div class="table_container">
     <div class="signup_wrapper">
@@ -9,20 +21,24 @@
 
         <h1></h1>
 
-        <form action="" method="POST" id="insert_category_form">
+        <form action="ajax_functions/insert_subcategory_ajax.php" method="POST" class=".insert_form">
 
           <div class="input_container">
             <select id="product_category" name="product_category" class="form_input" required>
               <option value="">Select Category</option>
-              <option value="Category 1"> Category 1</option>
-              <option value="Category 2">Category 2</option>
-              <option value="Category 3">Category 3</option>
+              <?php
+foreach ($categories as $item) {
+    $category = $item->category_name;
+    echo "<option value='$category'>$category</option>";
+}
+
+?>
             </select>
           </div>
 
           <div class="input_container">
-            <input type="text" id='subcategory_name' name="subcategory_name" class="form_input"
-              placeholder="Sub-Category" required>
+            <input type="text" id='sub_category' name="sub_category" class="form_input" placeholder="Sub-Category"
+              required>
           </div>
 
           <button name="submit" class="close_btn">Insert</button>

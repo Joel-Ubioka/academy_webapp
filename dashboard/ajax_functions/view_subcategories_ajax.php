@@ -2,10 +2,10 @@
 include "../config/config.php";
 include '../functions/autoloader.php';
 
-$obj = new Product_category_class();
+$obj = new Sub_category_class;
 
-$categories = $obj->view_categories();
-$is_categories_empty = $obj->is_categories_empty();
+$sub_categories = $obj->fetch_sub_categories();
+$is_subcategories_empty = $obj->is_subcategories_empty();
 
 ?>
 
@@ -20,7 +20,7 @@ $is_categories_empty = $obj->is_categories_empty();
           <th>S/N</th>
           <th>ID</th>
           <th>Product Category</th>
-          <th> Category Image</th>
+          <th>Sub Categories</th>
           <th>Options</th>
         </tr>
       </thead>
@@ -28,16 +28,19 @@ $is_categories_empty = $obj->is_categories_empty();
 
 
         <?php
-if ($is_categories_empty) {
+if ($is_subcategories_empty) {
     echo "<tr><td colspan='5'>No record found</td></tr>";
 } else {
 
     $sn = 1;
-    foreach ($categories as $item) {
+    foreach ($sub_categories as $item) {
 
         $id = $item->id;
-        $category_name = $item->category_name;
-        $category_image = $item->category_image;
+        $category_id = $item->category_id;
+
+        echo $category_name = $obj->get_category_name($category_id);
+        exit();
+        $sub_category = $item->sub_category;
 
         ?>
 
@@ -45,9 +48,7 @@ if ($is_categories_empty) {
           <td><?php echo $sn; ?></td>
           <td><?php echo $id; ?></td>
           <td><?php echo $category_name; ?></td>
-          <td>
-            <div class='table_img_container'><img src='../images/categories/<?php echo $category_image; ?>'></div>
-          </td>
+          <td><?php echo $sub_category; ?></td>
 
           <td>
             <button class="close_btn option_btn"><span>Options</span>

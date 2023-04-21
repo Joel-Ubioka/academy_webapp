@@ -98,7 +98,7 @@
                </span>
                <span class="title">View Categories</span>
              </a>
-             <a href="#" data-url='includes/view_subcategories.php'>
+             <a href="#" data-url='ajax_functions/view_subcategories_ajax.php'>
                <span class="icon">
                  <ion-icon name="eye-outline" title="View Sub-category"></ion-icon>
                </span>

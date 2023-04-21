@@ -4,7 +4,7 @@ class Product_category_class extends File_class
 
     protected function select_category($category_name)
     {
-        $stmt = $this->connect()->prepare('SELECT category_name FROM product_categories WHERE category_name=?');
+        $stmt = $this->connect()->prepare('SELECT * FROM product_categories WHERE category_name=?');
         if (!$stmt->execute(array($category_name))) {
             $stmt = null;
             echo 'Connection failed';
@@ -13,9 +13,17 @@ class Product_category_class extends File_class
         }
     }
 
+    protected function get_category_id($category_name)
+    {
+        $stmt = $this->select_category($category_name);
+        $category_array = $stmt->fetch(PDO::FETCH_OBJ);
+        return $category_array->id;
+
+    }
+
     protected function select_category_by_id($id)
     {
-        $stmt = $this->connect()->prepare('SELECT category_name FROM product_categories WHERE id=?');
+        $stmt = $this->connect()->prepare('SELECT * FROM product_categories WHERE id=?');
         if (!$stmt->execute(array($id))) {
             $stmt = null;
             echo 'Connection failed';
@@ -28,6 +36,19 @@ class Product_category_class extends File_class
     {
         $stmt = $this->select_category_by_id($id);
         $category_array = $stmt->fetch(PDO::FETCH_OBJ);
+        return $category_array;
+    }
+
+    public function get_category_name($id)
+    {
+        $category_array = $this->fetch_category_by_id($id);
+        return $category_array->category_name;
+    }
+
+    public function fetch_categories()
+    {
+        $stmt = $this->select_categories();
+        $category_array = $stmt->fetchAll(PDO::FETCH_OBJ);
         return $category_array;
     }
 

@@ -184,6 +184,54 @@
       });
     });
 
+    //INSERT FUNCTION
+    function insert()
+    {
+
+      $('.dashboard_container').on('submit','.insert_form', function(e){
+        e.preventDefault();
+        const that = this;
+  
+        $(that).children('button').attr('disabled', true);
+  
+        $(this).ajaxSubmit({
+      uploadProgress: function(event, position, total, percentComplete){
+        $('.progress_container').css("display","flex");
+        $('.progress_bar').css('width', percentComplete+"%")
+        $('.progress_text').text(percentComplete+"%");
+  
+      },
+      success: function(response){
+  
+        $('.toast_wrapper').fadeIn();
+        if(response !== "Successfully inserted!")
+        {
+          $('.toast_container').addClass('danger');
+        }
+        else{
+          $('.toast_container').removeClass('danger');
+       
+          that.reset();
+          $('#file_text').text('Select category image');
+        }
+        $('.toast_msg span').html(response);
+  
+          setTimeout(function(){
+            $('.toast_wrapper').fadeOut();
+           $('.progress_container').hide();
+          },5000)
+  
+        $(that).children('button').attr('disabled', false);
+         
+          
+      }
+        });
+      });
+
+
+    }
+    insert()
+
 // LOAD ACTIVE PAGE
     function load_active_page()
     {
@@ -332,11 +380,20 @@ update_page();
 
 // SHOW DELETE CONFIRMATION POPUP
 $('.dashboard_container').on("click", ".delete_pop_btn", function(e){
+
+const id = $(this).attr('data-id');
+const delete_url = $(this).attr('data-url');
+const table = $(this).attr('data-table');
+
+localStorage.setItem("delete_id", id);
+localStorage.setItem("delete_url", delete_url);
+localStorage.setItem("delete_table", delete_table);
+
   e.preventDefault();
   const message = "<p>Are you sure you want to delete?</p>";
   const btns = `<div class="yes_no_wrap">
-                  <button class="close_btn">Yes</button>
-                  <button class="open_btn">No</button>
+                  <button class="close_btn delete_btn">Yes</button>
+                  <button class="open_btn no_btn">No</button>
                 </div>`;
 
   $('.overlay').show();
@@ -344,6 +401,59 @@ $('.dashboard_container').on("click", ".delete_pop_btn", function(e){
     $('.popup_box').css('flex-basis', '400px');
     $('.popup_body').html(message);
     $('.popup_footer').html(btns);
+});
+
+// CLOSE DELETE POPUP WHEN NO BUTTON IS CLICKED
+
+$('.popup_footer').on("click", ".no_btn", function(e){
+  e.preventDefault();
+
+
+  $('.overlay').hide();
+    $('.popup_container').css('display','none');
+  
+});
+
+// DELETE ITEM
+
+$('.popup_footer').on("click", ".delete_btn", function(e){
+  e.preventDefault();
+  const delete_id = localStorage.getItem("delete_id");
+  const delete_url =  localStorage.getItem("delete_url");
+  const table = localStorage.getItem("delete_table");
+
+  $.ajax({
+    type: "POST",
+      url: delete_url,
+      data:{'delete_id':delete_id, 'table': table},
+
+      success: function(response){
+       
+
+        $('.toast_wrapper').fadeIn();
+        if(response !== "Successfully deleted!")
+        {
+          $('.toast_container').addClass('danger');
+        }
+        else{
+          $('.toast_container').removeClass('danger');
+       
+          that.reset();
+          $('#file_text').text('Select category image');
+        }
+        $('.toast_msg span').html(response);
+  
+          setTimeout(function(){
+            $('.toast_wrapper').fadeOut();
+          },5000)
+  
+        $(that).children('button').attr('disabled', false);
+         
+          
+
+      }
+  });
+  
 });
 
 

@@ -11,7 +11,7 @@ $is_subcategories_empty = $obj->is_subcategories_empty();
 
 <div class="table_wrapper">
   <h2>
-    <ion-icon name="star-outline"></ion-icon> Products Categories
+    <ion-icon name="star-outline"></ion-icon> Sub-categories
   </h2>
   <div class="table_container">
     <table id="table_format" class="table_format">
@@ -37,9 +37,7 @@ if ($is_subcategories_empty) {
 
         $id = $item->id;
         $category_id = $item->category_id;
-
-        echo $category_name = $obj->get_category_name($category_id);
-        exit();
+        $category_name = $obj->get_category_name($category_id);
         $sub_category = $item->sub_category;
 
         ?>
@@ -55,7 +53,7 @@ if ($is_subcategories_empty) {
               <ion-icon name="chevron-down-outline"></ion-icon>
             </button>
             <ul class="option_dropdown">
-              <li><a href="" data-id="<?php echo $id; ?>" data-url="includes/edit_category" class="edit_btn">Edit</a>
+              <li><a href="" data-id="<?php echo $id; ?>" data-url="includes/edit_subcategory" class="edit_btn">Edit</a>
               </li>
               <li><a href="" data-id="<?php echo $id; ?>" data-url="ajax_functions/delete_ajax"
                   data-table="product_categories" class="delete_pop_btn">Delete</a></li>

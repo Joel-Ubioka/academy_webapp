@@ -202,8 +202,10 @@
   
       },
       success: function(response){
-  
+
         $('.toast_wrapper').fadeIn();
+         
+
         if(response !== "Successfully inserted!")
         {
           $('.toast_container').addClass('danger');
@@ -387,7 +389,7 @@ const table = $(this).attr('data-table');
 
 localStorage.setItem("delete_id", id);
 localStorage.setItem("delete_url", delete_url);
-localStorage.setItem("delete_table", delete_table);
+localStorage.setItem("delete_table", table);
 
   e.preventDefault();
   const message = "<p>Are you sure you want to delete?</p>";
@@ -437,9 +439,9 @@ $('.popup_footer').on("click", ".delete_btn", function(e){
         }
         else{
           $('.toast_container').removeClass('danger');
-       
-          that.reset();
-          $('#file_text').text('Select category image');
+          $('.overlay').hide();
+          $('.popup_container').css('display','none');
+          load_active_page();
         }
         $('.toast_msg span').html(response);
   

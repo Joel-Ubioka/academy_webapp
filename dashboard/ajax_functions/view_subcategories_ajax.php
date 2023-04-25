@@ -56,7 +56,7 @@ if ($is_subcategories_empty) {
               <li><a href="" data-id="<?php echo $id; ?>" data-url="includes/edit_subcategory" class="edit_btn">Edit</a>
               </li>
               <li><a href="" data-id="<?php echo $id; ?>" data-url="ajax_functions/delete_ajax"
-                  data-table="product_categories" class="delete_pop_btn">Delete</a></li>
+                  data-table="sub_categories" class="delete_pop_btn">Delete</a></li>
             </ul>
           </td>
         </tr>

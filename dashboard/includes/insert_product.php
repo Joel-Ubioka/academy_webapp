@@ -1,3 +1,14 @@
+<?php
+
+include "../config/config.php";
+include '../functions/autoloader.php';
+
+$obj = new Product_category_class();
+
+$categories = $obj->fetch_categories();
+
+?>
+
 <div class="table_wrapper">
   <h2>
     <ion-icon name="star-outline"></ion-icon> Insert Product
@@ -7,9 +18,7 @@
 
       <div class="signup_container dashboard_form_container">
 
-        <h1></h1>
-
-        <form action="" method="POST" id="insert_product_form">
+        <form action="ajax_functions/insert_product_ajax.php" method="POST" class="insert_form">
           <div class="input_container">
             <input type="text" id='product_name' name="product_name" class="form_input" placeholder="Product Name"
               required>
@@ -17,9 +26,13 @@
           <div class="input_container">
             <select id="product_category" name="product_category" class="form_input" required>
               <option value="">Select Category</option>
-              <option value="Category 1"> Category 1</option>
-              <option value="Category 2">Category 2</option>
-              <option value="Category 3">Category 3</option>
+              <?php
+foreach ($categories as $item) {
+    $category = $item->category_name;
+    echo "<option value='$category'>$category</option>";
+}
+
+?>
             </select>
           </div>
           <div class="input_container">
@@ -47,7 +60,7 @@
               Select product image
             </span>
             <span id="file_btn">Browse</span>
-            <input type="file" id="product_img" name="product_img" class="form_input" required>
+            <input type="file" id="product_img" name="product_img[]" class="form_input" multiple required>
           </label>
 
           <button name="submit" class="close_btn">Insert Product</button>

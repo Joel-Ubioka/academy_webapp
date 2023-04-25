@@ -1,18 +1,18 @@
 :root{
-  --main_color:#0e0f0e;
+  --main_color:rgb(75, 75, 182);
   --main_color_rgb:rgb(87, 6, 92, 0.7);
   --main_color_rgb2:rgb(87, 6, 92, 0.95);
   --main_color_shade:#FFFFFF;
   --main_color_shade2:#fcfafa;
   --main_color_shade3:#f9bdfc;
 
-  --highlight_color:#e8db1e;
-  --highlight_color2:#736f20;
-  --highlight_color_dim:#a79c00;
+  --highlight_color:purple;
+  --highlight_color2:rgb(212, 99, 212);
+  --highlight_color_dim:rgb(73, 10, 73);
 
   --danger_color:#a60202;
 
-  --highlight_color3:#fffbad;
+  --highlight_color3:rgb(247, 163, 247);
   --new_color_shade:#dcfdce;
 
   --main_color_shade6:#ffd2a1;

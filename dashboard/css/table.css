@@ -24,7 +24,13 @@
   background-color: var(--color_shade1);
   padding: 20px;
   border-radius: 25px 25px 20px 20px;
+  overflow: auto;
 
+}
+
+.table_format tr th
+{
+  white-space: nowrap;
 }
 
 .table_format tr th:last-child
@@ -44,6 +50,11 @@
   position: relative;
 }
 
+.table_format tbody td p
+{
+  color: var(--color_shade8);
+}
+
 .table_format tbody td .close_btn
 {
  padding: 10px 12px;
@@ -59,7 +70,7 @@
 
 
 
-.table_format tbody tr:hover td
+.table_format tbody tr:hover td, .table_format tbody tr:hover td p
 {
   color: var(--color_shade1);
 }

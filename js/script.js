@@ -326,6 +326,111 @@ quantity = parseInt(quantity) +1;
 });
 
 
+//INSERT FUNCTION
+function insert()
+{
+
+  $('.dashboard_container').on('submit','.insert_form', function(e){
+    e.preventDefault();
+    const that = this;
+
+    $(that).children('button').attr('disabled', true);
+
+    $(this).ajaxSubmit({
+  uploadProgress: function(event, position, total, percentComplete){
+    $('.progress_container').css("display","flex");
+    $('.progress_bar').css('width', percentComplete+"%")
+    $('.progress_text').text(percentComplete+"%");
+
+  },
+  success: function(response){
+
+    $('.toast_wrapper').fadeIn();
+     
+
+    if(response !== "Successfully registered")
+    {
+      $('.toast_container').addClass('danger');
+    }
+    else{
+      $('.toast_container').removeClass('danger');
+   
+      that.reset();
+      $('#file_text').text('Select category image');
+    }
+    $('.toast_msg span').html(response);
+
+      setTimeout(function(){
+        $('.toast_wrapper').fadeOut();
+       $('.progress_container').hide();
+      },5000)
+
+    $(that).children('button').attr('disabled', false);
+     
+      
+  }
+    });
+  });
+
+
+}
+insert()
+
+
+   // FUNCTION FOR UPDATING A PAGE
+   function update_page()
+   {
+   
+   
+   
+        $('.dashboard_container').on('submit','.form_edit', function(e){
+         e.preventDefault();
+         const that = this;
+   
+         $(that).children('button').attr('disabled', true);
+   
+         $(this).ajaxSubmit({
+       uploadProgress: function(event, position, total, percentComplete){
+         $('.progress_container').css("display","flex");
+         $('.progress_bar').css('width', percentComplete+"%")
+         $('.progress_text').text(percentComplete+"%");
+   
+       },
+       success: function(response){
+   
+         $('.toast_wrapper').fadeIn();
+         if(response !== "Successfully updated!")
+         {
+           $('.toast_container').addClass('danger');
+         }
+         else{
+           $('.toast_container').removeClass('danger');
+        
+           that.reset();
+           $('#file_text').text('Select category image');
+   
+           load_edited_page()
+         }
+         $('.toast_msg span').html(response);
+   
+           setTimeout(function(){
+             $('.toast_wrapper').fadeOut();
+            $('.progress_container').hide();
+           },5000)
+   
+         $(that).children('button').attr('disabled', false);
+          
+           
+       }
+         });
+       });
+   
+   
+   
+   }
+   
+   update_page();
+
 
 
 

@@ -1,14 +1,15 @@
 <?php
-
 include "../config/config.php";
 include '../functions/autoloader.php';
+
+$product_id = $_POST['product_id'];
 
 $product_spec = $_POST['product_spec'];
 $product_desc = $_POST['product_desc'];
 
 // REMOVE SPAN TAGS
-$product_spec = preg_match('/<span[^>]+\>/i', '', $product_spec);
-$product_desc = preg_match('/<span[^>]+\>/i', '', $product_desc);
+// $product_spec = preg_match('/<span[^>]+\>/i', '', $product_spec);
+// $product_desc = preg_match('/<span[^>]+\>/i', '', $product_desc);
 
 $product_name = htmlspecialchars($_POST['product_name']);
 $product_category = htmlspecialchars($_POST['product_category']);
@@ -29,6 +30,6 @@ $product_desc = iconv("UTF-8", "ISO-8859-1//TRANSLIT", $product_desc);
 
 $product_image = $_FILES['product_img'];
 
-$obj = new Product_class;
+$obj = new Product_class();
 
-$obj->insert_product($product_name, $product_category, $product_price, $product_tag, $product_publisher, $product_spec, $product_desc, $product_image);
+$obj->update_product($product_id, $product_name, $product_category, $product_price, $product_tag, $product_publisher, $product_spec, $product_desc, $product_image);

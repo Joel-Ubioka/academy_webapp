@@ -103,7 +103,7 @@ class Product_class extends File_class
         }
 
         // CHECK IF THE FILE SIZE IS BIGGER THAN 200KB
-        if ($this->check_file_sizes($product_image, "204800")) {
+        if ($this->check_file_sizes($product_image, "2004800")) {
             echo "The image should not be more than 200kb";
             exit();
         }
@@ -118,30 +118,37 @@ class Product_class extends File_class
             echo "You can't upload a file of this type";
             exit();
         }
+        $file_names = "";
 
         for ($i = 0; $i < count($product_image['name']); $i++) {
             $file_name = $this->get_unique_file_names($product_image['name'][$i]);
             $tmp_name = $product_image['tmp_name'][$i];
             $file_path = "../../images/products/" . $file_name;
 
-            if (move_uploaded_file($tmp_name, $file_path)) {
+            $upload = move_uploaded_file($tmp_name, $file_path);
+            $file_names .= $file_name . ',';
+        }
 
-                $stmt = $this->connect()->prepare('INSERT INTO products (product_name,product_category,product_price,product_tag,product_publisher,product_spec,product_desc,product_image) VALUES(?,?,?,?,?,?,?,?)');
-                if ($stmt->execute(array($product_name, $product_category, $product_price, $product_tag, $product_publisher, $product_spec, $product_desc, $file_name))) {
+        $file_names = rtrim($file_names, ",");
+        $file_names = explode(",", $file_names);
+        $file_names = json_encode($file_names);
 
-                    $result = "Successfully inserted!";
+        if ($upload) {
+            $stmt = $this->connect()->prepare('INSERT INTO products (product_name,product_category,product_price,product_tag,product_publisher,product_spec,product_desc,product_image) VALUES(?,?,?,?,?,?,?,?)');
+            if ($stmt->execute(array($product_name, $product_category, $product_price, $product_tag, $product_publisher, $product_spec, $product_desc, $file_names))) {
 
-                } else {
-                    $result = "Failed!";
-                    break;
-                }
+                $result = "Successfully inserted!";
 
             } else {
                 $result = "Failed!";
-                break;
             }
+
+            echo $result;
+
+        } else {
+            echo "Upload failed!";
         }
-        echo $result;
+
     }
 
     public function view_products()
@@ -151,49 +158,60 @@ class Product_class extends File_class
         return $product_array;
     }
 
-    public function update_product($product_id, $product_name, $product_image)
+    public function update_product($product_id, $product_name, $product_category, $product_price, $product_tag, $product_publisher, $product_spec, $product_desc, $product_image)
     {
 
         // CHECK IF THE CATEGORY IS EXIXTING ALREADY
         if (!$this->product_exists_by_id($product_id)) {
-            echo "Category does not exist";
+            echo "Product does not exist";
             exit();
         }
 
         // CHECK IF THE FILE SIZE IS BIGGER THAN 200KB
-        if ($this->check_file_size($product_image, "204800")) {
+        if ($this->check_file_sizes($product_image, "2004800")) {
             echo "The image should not be more than 200kb";
             exit();
         }
 
         // CHECK IF THERE IS AN ERROR IN THE FILE
-        if ($this->check_file_error($product_image)) {
+        if ($this->check_file_errors($product_image)) {
             echo "There is an error in your image";
             exit();
         }
 
-        if (!$this->check_img_file_type($product_image['name'])) {
+        if (!$this->check_img_file_types($product_image)) {
             echo "You can't upload a file of this type";
             exit();
         }
+        $file_names = "";
 
-        $file_name = $this->get_unique_file_name($product_image['name']);
-        $tmp_name = $product_image['tmp_name'];
-        $file_path = "../../images/products/" . $file_name;
+        for ($i = 0; $i < count($product_image['name']); $i++) {
+            $file_name = $this->get_unique_file_names($product_image['name'][$i]);
+            $tmp_name = $product_image['tmp_name'][$i];
+            $file_path = "../../images/products/" . $file_name;
 
-        if (move_uploaded_file($tmp_name, $file_path)) {
+            $upload = move_uploaded_file($tmp_name, $file_path);
+            $file_names .= $file_name . ',';
+        }
 
-            $stmt = $this->connect()->prepare('UPDATE products SET product_name=?,product_image=? WHERE id=?');
-            if ($stmt->execute(array($product_name, $file_name, $product_id))) {
+        $file_names = rtrim($file_names, ",");
+        $file_names = explode(",", $file_names);
+        $file_names = json_encode($file_names);
 
-                echo "Successfully updated!";
+        if ($upload) {
+            $stmt = $this->connect()->prepare('UPDATE products SET product_name=?,product_category=?, product_price=?, product_tag=?, product_publisher=?, product_spec=?, product_desc=?, product_image=? WHERE id=?');
+            if ($stmt->execute(array($product_name, $product_category, $product_price, $product_tag, $product_publisher, $product_spec, $product_desc, $file_names, $product_id))) {
+
+                $result = "Successfully updated!";
 
             } else {
-                echo "Failed!";
+                $result = "Failed!";
             }
 
+            echo $result;
+
         } else {
-            echo "Failed!";
+            echo "File upload failed!";
         }
 
     }

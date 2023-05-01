@@ -215,7 +215,7 @@ p
 }
 .category_menu_container span
 {
-  color: var(--main_color);
+  color: var( --main_color_shade);
 }
 
 .nav_icons
@@ -248,7 +248,7 @@ p
 {
   /*border: 2px solid var(--color_shade1);*/
   background-color: var(--highlight_color);
-  color: var(--main_color);
+  color: var( --main_color_shade);
   width: 22px;
   height: 22px;
   border-radius: 50%;
@@ -605,13 +605,13 @@ color: var(  --main_color);
 
 .category_desc_heading
 {
-  color: var(--color_shade8);
+  color: var( --main_color_shade);
   user-select: none;
 }
 
 .category_desc small
 {
-  color: var(--color_shade7);
+  color: var( --main_color_shade);
   user-select: none;
 }
 
@@ -726,7 +726,7 @@ color: var(  --main_color);
   background: none;
  border: 1px solid var(--highlight_color);
  background-color: var(--highlight_color);
- color: var(--main_color);
+ color: var( --main_color_shade);
  border-radius: 3px;
  /* border: none;*/
   display: flex;

@@ -59,7 +59,7 @@
                <span class="title">Insert Products</span>
              </a>
 
-             <a href="#" data-url='includes/view_product.php'>
+             <a href="#" data-url='ajax_functions/view_products_ajax.php'>
                <span class="icon">
                  <ion-icon name="eye-outline" title="View products"></ion-icon>
                </span>

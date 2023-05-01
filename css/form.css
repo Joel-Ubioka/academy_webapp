@@ -93,7 +93,7 @@
   background:var(--highlight_color);
   border: 1px solid var(--highlight_color);
   padding: 15px 23px;
-  color: var(--main_color);
+  color: var( --main_color_shade);
   cursor: pointer;
   white-space: nowrap;
 

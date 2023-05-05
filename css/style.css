@@ -44,7 +44,7 @@ p
 
 .logo_container
 {
-  width: 120px;
+  width: 50px;
   overflow: hidden;
 }
 
@@ -268,7 +268,7 @@ p
   left: 0;
   top: 64px;
   width: 100%;
-  background-color: var(--foreground_color1);
+  background-color: var(--main_color);
   display: none;
   z-index: 300;
 
@@ -307,7 +307,7 @@ p
   top: 0;
   left: 300px;
   width: 300px;
- background-color: var(--foreground_color1);
+ background-color: var(--main_color);
  z-index: 201;
  display: none;
 }

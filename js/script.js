@@ -1,4 +1,6 @@
 
+var base_url = "http://localhost/online_shop/";
+
 // SHOW SEARCH INPUT
 $('.search_icon').click(function(){
 $('.search_container').toggle();
@@ -18,7 +20,7 @@ $('.popup_body').on("click", ".login_popup", function(e){
 
   <h2>Login</h2>
 
-  <form action="" method="POST" id="signup_form">
+  <form action="ajax_functions/login_customer_ajax.php" method="POST" id="signup_form" class="customer_login_form">
   
     <div class="input_container">
       <span class="material-symbols-outlined">
@@ -66,7 +68,7 @@ $('.popup_body').on("click", ".signup_popup", function(e){
 
   <h2>SignUp</h2>
 
-  <form action="" method="POST" id="signup_form">
+  <form action="ajax_functions/register_customer_ajax.php" method="POST" id="signup_form" class="reg_form">
     <div class="input_container">
       <span class="material-symbols-outlined">
         person
@@ -77,7 +79,7 @@ $('.popup_body').on("click", ".signup_popup", function(e){
       <span class="material-symbols-outlined">
         mail
       </span>
-      <input type="email" name="email" class="form_input" placeholder="Email" required>
+      <input type="email" name="email" class="form_input" placeholder="Email" id="email" required>
     </div>
     <div class="input_container">
       <span class="material-symbols-outlined">
@@ -118,14 +120,27 @@ $('.popup_body').on("click", ".signup_popup", function(e){
 
 // DISPLAY REG POPUP
 
-$('.popup_footer').on("click", ".proceed_btn", function(){
+$('.popup_footer').on("click", ".proceed_btn", function(e){
+  e.preventDefault();
+
+  const customer_email = localStorage.getItem('customer_email');
+
+// console.log(customer_email);
+// return;
+
+  if(customer_email !== null)
+  {
+    window.location = base_url+"checkout";
+  }
+  else{
+    
  
   const element = `
   <div class="signup_container">
 
   <h2>SignUp</h2>
 
-  <form action="" method="POST" id="signup_form">
+  <form action="ajax_functions/register_customer_ajax" method="POST" id="signup_form" class="reg_form">
     <div class="input_container">
       <span class="material-symbols-outlined">
         person
@@ -136,7 +151,7 @@ $('.popup_footer').on("click", ".proceed_btn", function(){
       <span class="material-symbols-outlined">
         mail
       </span>
-      <input type="email" name="email" class="form_input" placeholder="Email" required>
+      <input type="email" name="email" class="form_input" placeholder="Email" id="email" required>
     </div>
     <div class="input_container">
       <span class="material-symbols-outlined">
@@ -170,6 +185,9 @@ $('.popup_footer').on("click", ".proceed_btn", function(){
 
                             $('.popup_body').html(element);
                             $('.popup_footer').hide();
+  }
+
+
                            
 });
 
@@ -330,19 +348,14 @@ quantity = parseInt(quantity) +1;
 function insert()
 {
 
-  $('.dashboard_container').on('submit','.insert_form', function(e){
+  $('.signup_container').on('submit','.insert_form', function(e){
     e.preventDefault();
     const that = this;
 
     $(that).children('button').attr('disabled', true);
 
     $(this).ajaxSubmit({
-  uploadProgress: function(event, position, total, percentComplete){
-    $('.progress_container').css("display","flex");
-    $('.progress_bar').css('width', percentComplete+"%")
-    $('.progress_text').text(percentComplete+"%");
-
-  },
+  
   success: function(response){
 
     $('.toast_wrapper').fadeIn();
@@ -350,19 +363,18 @@ function insert()
 
     if(response !== "Successfully registered")
     {
-      $('.toast_container').addClass('danger');
+      $('.toast_container').addClass('success');
     }
     else{
       $('.toast_container').removeClass('danger');
-   
       that.reset();
-      $('#file_text').text('Select category image');
+      
     }
     $('.toast_msg span').html(response);
 
       setTimeout(function(){
         $('.toast_wrapper').fadeOut();
-       $('.progress_container').hide();
+      
       },5000)
 
     $(that).children('button').attr('disabled', false);
@@ -375,6 +387,143 @@ function insert()
 
 }
 insert()
+
+//INSERT FUNCTION FOR CUSTOMER REG
+function customer_reg()
+{
+
+  $('.popup_body').on('submit','.reg_form', function(e){
+    e.preventDefault();
+    const that = this;
+
+    const customer_email = $('#email').val();
+
+    $(that).children('button').attr('disabled', true);
+
+    $(this).ajaxSubmit({
+  
+  success: function(response){
+
+    $('.toast_wrapper').fadeIn();
+     
+
+    if(response !== "Successful! loading to checkout...")
+    {
+      $('.toast_container').addClass('success');
+      setTimeout(function(){
+        $('.toast_wrapper').fadeOut();
+      
+      },5000)
+    }
+    else{
+      localStorage.setItem('customer_email', customer_email);
+
+      $('.toast_container').removeClass('danger');
+      that.reset();
+      window.location = base_url+"checkout";
+      
+    }
+    $('.toast_msg span').html(response);
+
+    $(that).children('button').attr('disabled', false);
+     
+      
+  }
+    });
+  });
+
+
+}
+customer_reg()
+
+//LOGIN FUNCTION
+function login()
+{
+
+  $('.signup_container').on('submit','.login_form', function(e){
+    e.preventDefault();
+    const that = this;
+
+    $(that).children('button').attr('disabled', true);
+
+    $(this).ajaxSubmit({
+  
+  success: function(response){
+
+    $('.toast_wrapper').fadeIn();
+     
+
+    if(response !== "Logging in, please wait...")
+    {
+      $('.toast_container').addClass('success');
+       setTimeout(function(){
+        $('.toast_wrapper').fadeOut();
+      
+      },5000)
+    }
+    else{
+      $('.toast_container').removeClass('danger');
+      that.reset();
+      window.location = base_url+"dashboard";
+      
+    }
+    $('.toast_msg span').html(response);
+    $(that).children('button').attr('disabled', false);
+     
+      
+  }
+    });
+  });
+
+
+}
+login()
+
+//LOGIN FUNCTION
+function customer_login()
+{
+
+  $('.popup_body').on('submit','.customer_login_form', function(e){
+    e.preventDefault();
+    const that = this;
+
+    const customer_email = $('#email').val();
+
+    $(that).children('button').attr('disabled', true);
+
+    $(this).ajaxSubmit({
+  
+  success: function(response){
+
+    $('.toast_wrapper').fadeIn();
+     
+
+    if(response !== "Logging in, please wait...")
+    {
+      $('.toast_container').addClass('success');
+       setTimeout(function(){
+        $('.toast_wrapper').fadeOut();
+      
+      },5000)
+    }
+    else{
+      localStorage.setItem('customer_email', customer_email);
+      $('.toast_container').removeClass('danger');
+      that.reset();
+      window.location = base_url+"checkout";
+      
+    }
+    $('.toast_msg span').html(response);
+    $(that).children('button').attr('disabled', false);
+     
+      
+  }
+    });
+  });
+
+
+}
+customer_login();
 
 
    // FUNCTION FOR UPDATING A PAGE

@@ -79,7 +79,8 @@ include "popups/toast.php";
 include "loading/loading.php";
 ?>
 
-<script src="<?php echo $base_url; ?>js/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
+<!-- <script src="<?php echo $base_url; ?>js/jquery.js"></script> -->
 <script src="<?php echo $base_url; ?>js/script.js?ver=<?php echo microtime(); ?>"></script>
 <script src="<?php echo $base_url; ?>sliders/slider.js?ver=<?php echo microtime(); ?>"></script>
 <script src="<?php echo $base_url; ?>popups/popup.js?ver=<?php echo microtime(); ?>"></script>

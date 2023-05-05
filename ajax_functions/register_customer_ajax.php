@@ -6,8 +6,7 @@ $full_name = htmlspecialchars($_POST['full_name']);
 $email = htmlspecialchars($_POST['email']);
 $phone_number = htmlspecialchars($_POST['phone_number']);
 $password = htmlspecialchars($_POST['password']);
-$confirm_password = htmlspecialchars($_POST['confirm_password']);
 
-$obj = new Users_class;
+$obj = new Customers_class;
 
-$obj->insert_user($full_name, $email, $phone_number, $password, $confirm_password);
+$obj->insert_customer($full_name, $email, $phone_number, $password);

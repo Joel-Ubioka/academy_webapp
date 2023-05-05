@@ -458,4 +458,37 @@ $('.popup_footer').on("click", ".delete_btn", function(e){
   
 });
 
+$(".logout").on("click", function(e){
+  e.preventDefault();
+  localStorage.clear();
+
+  $('.dashboard_container').html(loading);
+  $('.loading_container').css('display','flex');
+
+  const url = $(this).attr('data-url');
+
+  $.ajax({
+    type: "POST",
+      url: url,
+
+      success: function(response){
+       
+
+        $('.toast_wrapper').fadeIn();
+        if(response !== "Logging out...")
+        {
+          $('.toast_container').addClass('danger');
+           setTimeout(function(){
+            $('.toast_wrapper').fadeOut();
+          },5000)
+        }
+        else{
+          window.location = base_url;
+        }
+         
+          
+
+      }
+  });
+});
 

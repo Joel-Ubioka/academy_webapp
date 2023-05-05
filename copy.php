@@ -39,6 +39,13 @@ class Users_class extends File_class
         return $user_array;
     }
 
+    public function fetch_user($email)
+    {
+        $stmt = $this->select_user($email);
+        $user_array = $stmt->fetch(PDO::FETCH_OBJ);
+        return $user_array;
+    }
+
     public function get_user_name($id)
     {
         $user_array = $this->fetch_user_by_id($id);
@@ -102,6 +109,19 @@ class Users_class extends File_class
         }
     }
 
+    protected function check_login_password_match($password, $email)
+    {
+
+        $user_details = $this->fetch_user($email);
+        $db_password = $user_details->password;
+
+        if (password_verify($password, $db_password)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function insert_user($full_name, $email, $phone_number, $password, $confirm_password)
     {
 
@@ -127,6 +147,25 @@ class Users_class extends File_class
             echo "Failed!";
         }
 
+    }
+
+    public function login_user($email, $password)
+    {
+
+        //CHECK IF THE USER IS EXISTING ALREADY
+        if (!$this->user_exists($email)) {
+            echo "User does not exist!";
+            exit();
+        }
+
+        if (!$this->check_login_password_match($password, $email)) {
+            echo "Password do not match";
+            exit();
+        }
+
+        $_SESSION['user_email'] = $email;
+
+        echo "Logging in, please wait....";
     }
 
     public function view_users()

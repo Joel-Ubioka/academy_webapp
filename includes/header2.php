@@ -1,6 +1,6 @@
  <!-- TOP BAR SECTION -->
  <section class="top_bar">
-   <div class="logo_container"><a href="<?php echo $base_url; ?>"><img src="images/logo.png" alt=""></a></div>
+   <div class="logo_container"><a href="<?php echo $base_url; ?>"><img src="images/logo.jpg" alt=""></a></div>
    <div class="search_container">
      <form action="" id="search_form">
        <button name="search_btn" class="search_btn">
@@ -12,7 +12,7 @@
    </div>
    <div class="contact_container">
      <span class="material-symbols-outlined phone_icon">call</span>
-     <b> +234 704 928 719</b>
+     <b> 08035817907, 08150280180</b>
    </div>
  </section>
 
@@ -23,7 +23,7 @@
      <div class="category_content">
        <span class="material-symbols-outlined ">menu</span>
        <b id="courses_menu">
-         <span>Courses</span>
+         <span>Categories</span>
        </b>
      </div>
      <span class="material-symbols-outlined category_dropdown ">expand_more</span>

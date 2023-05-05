@@ -12,7 +12,7 @@
 
        <h2>Login</h2>
 
-       <form action="" method="POST" id="signup_form">
+       <form action="./ajax_functions/login_user_ajax.php" method="POST" id="signup_form" class="login_form">
 
          <div class="input_container">
            <span class="material-symbols-outlined">

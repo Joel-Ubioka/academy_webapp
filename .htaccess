@@ -1,5 +1,13 @@
 RewriteEngine on
+
 # Remove .php from all files if the files are not folders or file name
+
 RewriteCond %(REQUEST_FILENAME) !-d
 RewriteCond %(REQUEST_FILENAME) !-f
-RewriteRule ^([^\.]+)$ $1.php [NC]
+#RewriteRule ^([^\.]+)$ $1.php [NC]
+
+# Allow to change the page name and include the page id
+
+# RewriteRule ^([-\w]+)/(\d+)$ product-details.php?product_id=$1 [NC,L]
+
+RewriteRule ^products/(\d+)$ product-details.php?product_id=$1 [NC,L]

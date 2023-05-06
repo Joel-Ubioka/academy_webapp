@@ -1,41 +1,41 @@
 <div class="slider_wrapper">
 
   <div class="slide">
-    <img src="images/java.png" alt="slider">
+    <img src="images/lighting.jpg" alt="slider">
     <div class="overlay_container"></div>
     <div class="content_container">
 
-      <h1 class="product_title">MORRHTECH SOLUTIONS</h1>
-      <p class="product_desc">Learning to code is the new literacy</p>
-      <a href=""><button class="close_btn">Book a Class</button></a>
+      <h1 class="product_title">ELECTRICAL LIGHTING</h1>
+      <p class="product_desc"> Get the brightest lights, even in the darkest nights.</p>
+      <a href=""><button class="close_btn">Shop Now</button></a>
     </div>
 
   </div>
   <div class="slide">
-    <img src="images/angular.png" alt="slider">
+    <img src="images/solar.jpg" alt="slider">
     <div class="content_container">
 
-      <h1 class="product_title">MORRHTECH SOLUTIONS</h1>
-      <p class="product_desc">Learning to code is the new literacy</p>
-      <a href=""><button class="close_btn">Book a Class</button></a>
+      <h1 class="product_title">SOLAR SYSTEM</h1>
+      <p class="product_desc">Power the future with solar energy.</p>
+      <a href=""><button class="close_btn">Shop Now</button></a>
     </div>
   </div>
   <div class="slide">
-    <img src="images/data.webp" alt="slider">
+    <img src="images/generator.jpg" alt="slider">
     <div class="content_container">
 
-      <h1 class="product_title">MORRHTECH SOLUTIONS</h1>
-      <p class="product_desc">Learning to code is the new literacy</p>
-      <a href=""><button class="close_btn">Book a Class</button></a>
+      <h1 class="product_title">POWER GENERATOR</h1>
+      <p class="product_desc">Diesel generators are available in various sizes, models and designs</p>
+      <a href=""><button class="close_btn">Shop Now</button></a>
     </div>
   </div>
   <div class="slide">
-    <img src="images/design.webp" alt="slider">
+    <img src="images/appliances.jpg" alt="slider">
     <div class="content_container">
 
-      <h1 class="product_title">MORRHTECH SOLUTIONS</h1>
-      <p class="product_desc">Learning to code is the new literacy</p>
-      <a href=""><button class="close_btn">Book a Class</button></a>
+      <h1 class="product_title">ELECTRICAL APPLIANCES</h1>
+      <p class="product_desc">The best appliances for your home</p>
+      <a href=""><button class="close_btn">Shop Now</button></a>
     </div>
   </div>
 

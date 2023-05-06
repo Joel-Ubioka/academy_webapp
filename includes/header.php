@@ -1,4 +1,18 @@
-<?php include "url/base_url.php";?>
+<?php session_start();
+require_once "dashboard/config/config.php";
+require_once 'functions/dashboard_autoloader.php';
+require_once "dashboard/classes/file_class.php";
+require_once "dashboard/classes/product_class.php";
+
+include "url/base_url.php";
+
+$obj = new Product_class;
+
+$products = $obj->view_products();
+
+?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">

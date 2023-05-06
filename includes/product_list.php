@@ -1,4 +1,57 @@
 <div class="product_content">
+  <?php
+foreach ($products as $product) {
+    // CONVERT JSON IMAGES TO ARRAY
+    $id = $product->id;
+    $product_name = $product->product_name;
+    $product_price = $product->product_price;
+    $images = json_decode($product->product_image);
+
+    ?>
+  <div class="product_box" data-aos="zoom-in-down">
+    <a href="<?php echo $base_url; ?>products/<?php echo $id; ?>" class="product_img_container">
+      <div class="product_img">
+        <img src="<?php echo $base_url; ?>images/products/<?php echo $images[0]; ?>" alt="">
+      </div>
+    </a>
+    <div class="product_details">
+      <p class="product_name"><?php echo $product_name; ?></p>
+      <h3 class="product_price">&#8358;<?php echo number_format($product_price); ?></h3>
+    </div>
+    <div class="product_call_to_action">
+
+      <div class="view_details_container">
+        <a href="<?php echo $base_url; ?>products/<?php echo $id; ?>">
+          <button class="view_details_btn">
+
+            <span class="material-symbols-outlined">visibility</span>
+            View Details
+          </button>
+        </a>
+      </div>
+      <div class="add_to_cart_container">
+
+        <button class="add_to_cart_btn">
+          <span class="material-symbols-outlined">shopping_cart</span>
+          Add to cart
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <?php
+}
+?>
+
+</div>
+
+
+
+
+
+<!--
+
+<div class="product_content">
 
   <div class="product_box" data-aos="zoom-in-down">
     <a href="<?php echo $base_url; ?>product-details" class="product_img_container">
@@ -316,3 +369,5 @@
 
 
 </div>
+
+ -->

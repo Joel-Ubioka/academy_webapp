@@ -20,24 +20,24 @@
      <div class="advert_container">
        <div class="advert_inner_container">
          <div class="advert_content">
-           <img src="images/adverts1.png" alt="">
+           <img src="images/fancy.jpg" alt="">
            <div class="overlay_container"></div>
            <div class="content_container">
 
-             <h1 class="product_title">WEB DEVELOPMENT</h1>
+             <h1 class="product_title">FURNITURES</h1>
              <!--<p class="product_desc">Learn to build websites that works seamlessly on all devices</p>-->
-             <a href=""><button class="close_btn">Book a Class</button></a>
+             <a href=""><button class="close_btn">Shop Now</button></a>
            </div>
 
          </div>
          <div class="advert_content">
-           <img src="images/adverts2.png" alt="">
+           <img src="images/utencils.jpg" alt="">
            <div class="overlay_container"></div>
            <div class="content_container">
 
-             <h1 class="product_title">UI and UX</h1>
+             <h1 class="product_title">KITCHEN UTENCILS</h1>
              <!-- <p class="product_desc">Learn what earns. Inspirational designs, illustrations, and graphic elements</p>-->
-             <a href=""><button class="close_btn">Book a Class</button></a>
+             <a href=""><button class="close_btn">Shop Now</button></a>
            </div>
 
          </div>
@@ -50,21 +50,21 @@
    <nav class="service_desc">
      <div class="service_container" data-aos="fade-up">
        <div class="service_icon">
-         <span class="material-symbols-outlined">cast_for_education</span>
+         <span class="material-symbols-outlined">check</span>
        </div>
-       <div class="service_text">Skilled Instructors</div>
+       <div class="service_text">Quality Products</div>
      </div>
      <div class=" service_container" data-aos="fade-up">
        <div class="service_icon">
-         <span class="material-symbols-outlined">school</span>
+         <span class="material-symbols-outlined">transportation</span>
        </div>
-       <div class="service_text">Physical / Online Classes</div>
+       <div class="service_text">Free Shipping</div>
      </div>
      <div class="service_container" data-aos="fade-up">
        <div class="service_icon">
          <span class="material-symbols-outlined">home_work</span>
        </div>
-       <div class="service_text"> Projects</div>
+       <div class="service_text"> 14 Days Return</div>
      </div>
      <div class="service_container" data-aos="fade-up">
        <div class="service_icon">
@@ -78,7 +78,7 @@
    <nav class="categories_container">
 
      <div class="category_title_container">
-       <h1 class="category_heading">Courses Categories</h1>
+       <h1 class="category_heading">Categories</h1>
        <div class="line_container">
          <div class="line"></div>
        </div>
@@ -176,7 +176,7 @@
    <!-- FEATURED PRODUCTS SECTION -->
    <nav class="product_container">
      <div class="category_title_container">
-       <h1 class="category_heading">Popular Courses</h1>
+       <h1 class="category_heading">Featured Products</h1>
        <div class="line_container">
          <div class="line"></div>
        </div>
@@ -223,7 +223,7 @@
    <!-- RECENT PRODUCTS SECTION -->
    <nav class="product_container">
      <div class="category_title_container">
-       <h1 class="category_heading">Expert Instructors</h1>
+       <h1 class="category_heading">Recent Products</h1>
        <div class="line_container">
          <div class="line"></div>
        </div>
@@ -232,46 +232,7 @@
      <?php include "includes/product_list.php";?>
    </nav>
 
-   <!-- TESTIMONIAL SECTION -->
-   <div id="testimonial_container">
-     <h1 id="testimonial_text">Testimonials</h1>
-   </div>
-   <!-- Slideshow container -->
-   <div class="slideshow-container">
 
-     <!-- Full-width slides/quotes -->
-     <div class="mySlides">
-       <q>“I always have fears to do coding. My friend recommended
-         "Morrhtech Solutions". <br> The instructors are great at explaining and
-         are patient and helpful. <br> I strongly recommend
-         Morrhtech Solutions to those who want to learn Web development from A to Z.”</q>
-       <p class="author">- Chinemerem Cyril</p>
-     </div>
-
-     <div class="mySlides">
-       <q>“Very instructive course. Definitely worthwhile if you
-         are trying to learn Python. <br> The instructors are engaging and able to cater
-         to different levels of expertise among their attendees.”</q>
-       <p class="author">- Iyanam Joseph</p>
-     </div>
-
-     <div class="mySlides">
-       <q>“I always resisted learning how to code because I thought it would be
-         boring and complicated, <br> but Morrhtech Solutions really changed my mind.”</q>
-       <p class="author">- Ogbodo Joy</p>
-     </div>
-
-     <!-- Next/prev buttons -->
-     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-     <a class="next" onclick="plusSlides(1)">&#10095;</a>
-   </div>
-
-   <!-- Dots/bullets/indicators -->
-   <div class="dot-container">
-     <span class="dot" onclick="currentSlide(1)"></span>
-     <span class="dot" onclick="currentSlide(2)"></span>
-     <span class="dot" onclick="currentSlide(3)"></span>
-   </div>
 
    <!-- FOOTER SECTION -->
    <?php require "includes/footer.php";?>

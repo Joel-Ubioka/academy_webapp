@@ -3,12 +3,16 @@ require_once "dashboard/config/config.php";
 require_once 'functions/dashboard_autoloader.php';
 require_once "dashboard/classes/file_class.php";
 require_once "dashboard/classes/product_class.php";
-
+require_once "dashboard/classes/product_category_class.php";
+require_once "dashboard/classes/sub_category_class.php";
 include "url/base_url.php";
 
 $obj = new Product_class;
+$category_obj = new Product_category_class;
+$sub_category_obj = new Sub_category_class;
 
 $products = $obj->view_products();
+$categories = $category_obj->fetch_categories();
 
 ?>
 

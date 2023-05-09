@@ -1,6 +1,7 @@
  <!-- TOP BAR SECTION -->
  <section class="top_bar">
-   <div class="logo_container"><a href="<?php echo $base_url; ?>"><img src="images/logo.jpg" alt=""></a></div>
+   <div class="logo_container"><a href="<?php echo $base_url; ?>"><img src="<?php echo $base_url; ?>images/logo.jpg"
+         alt=""></a></div>
    <div class="search_container">
      <form action="" id="search_form">
        <button name="search_btn" class="search_btn">
@@ -18,8 +19,12 @@
 
  <!-- NAVBAR SECTION -->
  <nav class="nav_bar">
-   <div class="category_menu_container">
+   <?php
+// SHOW CATEGORY IF IT EXIST
+if (!$category_obj->is_categories_empty()) {
 
+    ?>
+   <div class="category_menu_container">
      <div class="category_content">
        <span class="material-symbols-outlined ">menu</span>
        <b id="courses_menu">
@@ -29,7 +34,10 @@
      <span class="material-symbols-outlined category_dropdown ">expand_more</span>
      <?php include "includes/category_menu.php";?>
    </div>
+   <?php
+}
 
+?>
    <div class="nav_icons_container">
      <div class="nav_icons">
        <a href="#" class="search_icon">

@@ -85,33 +85,38 @@
      </div>
      <div class="category_content_container">
 
+       <?php
+foreach ($categories as $category) {
+    $id = $category->id;
+    $category_name = $category->category_name;
+    $category_image = $category->category_image;
 
+    ?>
 
-       <a href="categories" class="category_box" data-aos="fade-left">
-         <div class="category_img"><img src="images/web1.jpeg" alt=""></div>
+       <a href="<?php echo $base_url; ?>categories/<?php echo $id ?>" class="category_box" data-aos="fade-left">
+         <div class="category_img"><img src="<?php echo $base_url; ?>images/categories/<?php echo $category_image; ?>"
+             alt="">
+         </div>
          <div class="category_desc">
-           <h4 class="category_desc_heading">Web Development</h4>
-           <small>Frontend, Backend or Fullstack</small>
+           <h4 class="category_desc_heading"><?php echo $category_name; ?></h4>
+           <small><?php echo $obj->count_products($id); ?> products</small>
          </div>
 
        </a>
 
+       <?php
+}
 
-       <a href="categories" class="category_box" data-aos="fade-left">
-         <div class="category_img"><img src="images/mobile.jpg" alt=""></div>
-         <div class="category_desc">
-           <h4 class="category_desc_heading">Mobile Development</h4>
-           <small>With Flutter</small>
-         </div>
+?>
 
-       </a>
 
+       <!--
 
        <a href="categories" class="category_box" data-aos="fade-left">
          <div class="category_img"><img src="images/softwaredev.jpg" alt=""></div>
          <div class="category_desc">
-           <h4 class="category_desc_heading">Software Development</h4>
-           <small>With Angular & Laravel or Nodejs</small>
+           <h4 class="category_desc_heading">Power Generators</h4>
+           <small>Portable Generator,Inverter Generator,Gasoline Generator,Diesel Generator,Solar Generator</small>
          </div>
 
        </a>
@@ -120,8 +125,8 @@
        <a href="categories" class="category_box" data-aos="fade-left">
          <div class="category_img"><img src="images/uiux.webp" alt=""></div>
          <div class="category_desc">
-           <h4 class="category_desc_heading">UI & UX</h4>
-           <small>With Figma</small>
+           <h4 class="category_desc_heading">Furnitures & Fancy</h4>
+           <small> Tables, Chairs, Beds, Desks, Dressers, and Cupboards.</small>
          </div>
 
        </a>
@@ -130,8 +135,8 @@
        <a href="categories" class="category_box" data-aos="fade-left">
          <div class="category_img"><img src="images/graphics.webp" alt=""></div>
          <div class="category_desc">
-           <h4 class="category_desc_heading">Data Analysis</h4>
-           <small>With Python, R, SQL</small>
+           <h4 class="category_desc_heading">Kitchen Utencils</h4>
+           <small>Food preparation, Food storage, Maintenance & Cleaning, and Serving L</small>
          </div>
 
        </a>
@@ -140,8 +145,8 @@
        <a href="categories" class="category_box" data-aos="fade-left">
          <div class="category_img"><img src="images/digitalmarketing.webp" alt=""></div>
          <div class="category_desc">
-           <h4 class="category_desc_heading">Digital Marketing</h4>
-           <small>Online Marketing</small>
+           <h4 class="category_desc_heading">Sanitary Wares</h4>
+           <small>Bath tubs, Water closets $ Urinals </small>
          </div>
 
        </a>
@@ -150,8 +155,8 @@
        <a href="categories" class="category_box" data-aos="fade-left">
          <div class="category_img"><img src="images/data.webp" alt=""></div>
          <div class="category_desc">
-           <h4 class="category_desc_heading">School Hub</h4>
-           <small>Coding, Robotics, Python</small>
+           <h4 class="category_desc_heading">Security Doors</h4>
+           <small>Single Security Doors,Double Security Doors,Mesh Doors,Laser Doors</small>
          </div>
 
        </a>
@@ -160,11 +165,11 @@
        <a href="categories" class="category_box" data-aos="fade-left">
          <div class="category_img"><img src="images/freelance.png" alt=""></div>
          <div class="category_desc">
-           <h4 class="category_desc_heading">Foreign Exams</h4>
-           <small>IELTS, TOEFL, SELT, SAT, GMAT, GRE</small>
+           <h4 class="category_desc_heading">Auto Deals</h4>
+           <small>Brand new $ Tokunbo</small>
          </div>
 
-       </a>
+       </a> -->
 
 
 

@@ -32,6 +32,17 @@ class Product_class extends File_class
         }
     }
 
+    public function count_products($category_id)
+    {
+        $stmt = $this->connect()->prepare('SELECT * FROM products WHERE category_id=?');
+        if (!$stmt->execute(array($category_id))) {
+            $stmt = null;
+            echo 'Connection failed';
+        } else {
+            return $stmt->rowCount();
+        }
+    }
+
     public function fetch_product_by_id($id)
     {
         $stmt = $this->select_product_by_id($id);
@@ -48,6 +59,24 @@ class Product_class extends File_class
     public function fetch_products()
     {
         $stmt = $this->select_products();
+        $product_array = $stmt->fetchAll(PDO::FETCH_OBJ);
+        return $product_array;
+    }
+
+    protected function select_product_by_category($category_id)
+    {
+        $stmt = $this->connect()->prepare('SELECT * FROM products WHERE category_id=?');
+        if (!$stmt->execute(array($category_id))) {
+            $stmt = null;
+            echo 'Connection failed';
+        } else {
+            return $stmt;
+        }
+    }
+
+    public function fetch_products_by_category($category_id)
+    {
+        $stmt = $this->select_product_by_category($category_id);
         $product_array = $stmt->fetchAll(PDO::FETCH_OBJ);
         return $product_array;
     }

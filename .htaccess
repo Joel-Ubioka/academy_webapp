@@ -11,3 +11,8 @@ RewriteCond %(REQUEST_FILENAME) !-f
 # RewriteRule ^([-\w]+)/(\d+)$ product-details.php?product_id=$1 [NC,L]
 
 RewriteRule ^products/(\d+)$ product-details.php?product_id=$1 [NC,L]
+RewriteRule ^(products)$ product-details.php [NC,L]
+
+
+RewriteRule ^categories/(\d+)$ categories.php?category_id=$1 [NC,L]
+RewriteRule ^(categories)$ $1.php [NC,L]

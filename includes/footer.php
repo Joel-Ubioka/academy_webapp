@@ -1,7 +1,8 @@
 <section class="footer_container">
   <div class="footer1">
     <div class="footer_column">
-      <div class="logo_container"><a href="<?php echo $base_url; ?>"><img src="images/logo.png" alt=""></a></div>
+      <div class="logo_container"><a href="<?php echo $base_url; ?>"><img src="<?php echo $base_url; ?>images/logo.png"
+            alt=""></a></div>
       <p class="first_footer_p">Morrhtech Solutions is the leading ICT
         Training and Exam Testing Institute with
         over 5 years cognitive experience in Nigeria
@@ -66,9 +67,9 @@
   <div class="footer2">
     <div class="copyright_container"><span>&copy; Morrhtech Solutions. All rights reserved</span></div>
     <div class="payment_method_container">
-      <div class="payment_img_container"><img src="images/visa.jpg" alt=""></div>
-      <div class="payment_img_container"><img src="images/mastercard.jpg" alt=""></div>
-      <div class="payment_img_container"><img src="images/Paystack.webp" alt=""></div>
+      <div class="payment_img_container"><img src="<?php echo $base_url; ?>images/visa.jpg" alt=""></div>
+      <div class="payment_img_container"><img src="<?php echo $base_url; ?>images/mastercard.jpg" alt=""></div>
+      <div class="payment_img_container"><img src="<?php echo $base_url; ?>images/Paystack.webp" alt=""></div>
     </div>
   </div>
 </section>

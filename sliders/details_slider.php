@@ -1,9 +1,16 @@
 <div class="slider_wrapper">
-
+  <?php
+foreach ($images as $image) {
+    ?>
   <div class="slide">
-    <img src="images/java.png" alt="slider">
+    <img src="<?php echo $base_url; ?>images/products/<?php echo $image; ?>" alt="slider">
   </div>
-  <div class="slide">
+  <?php
+}
+
+?>
+
+  <!-- <div class="slide">
     <img src="images/angular.png" alt="slider">
   </div>
   <div class="slide">
@@ -11,7 +18,7 @@
   </div>
   <div class="slide">
     <img src="images/design.webp" alt="slider">
-  </div>
+  </div> -->
 
   <div class="next_wrap">
     <button class="next">

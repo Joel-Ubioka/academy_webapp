@@ -219,6 +219,16 @@
       </div>
     </div>
 
+    <div class="product_box more_product">
+      <button class="close_btn">
+        <a href="categories">
+          <span>See all products</span>
+          <sapn class="material-symbols-outlined">arrow</sapn>
+        </a>
+      </button>
+
+    </div>
+
 
 
 

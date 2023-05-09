@@ -3,10 +3,11 @@
 
     <?php
 foreach ($products as $product) {
-    // CONVERT JSON IMAGES TO ARRAY
+
     $id = $product->id;
     $product_name = $product->product_name;
     $product_price = $product->product_price;
+    // CONVERT JSON IMAGES TO ARRAY
     $images = json_decode($product->product_image);
 
     ?>
@@ -50,15 +51,14 @@ foreach ($products as $product) {
 
 
 
-  <!-- <div class="product_box more_product">
-      <button class="close_btn">
-        <a href="<?php echo $base_url; ?>categories">
-          <span>See all products</span>
-          <span class="material-symbols-outlined">arrow_forward</span>
-        </a>
-      </button>
 
-    </div> -->
+  <button>
+    <a href="<?php echo $base_url; ?>categories">
+      <h1>See all products</h1>
+    </a>
+  </button>
+
+
 
 
 

@@ -19,29 +19,41 @@
      </div>
      <div class="advert_container">
        <div class="advert_inner_container">
+         <?php
+$products = $obj->fetch_slider_products(2);
+foreach ($products as $product) {
+    $product_id = $product->id;
+    $product_name = $product->product_name;
+    // CONVERT JSON IMAGES TO ARRAY
+    $images = json_decode($product->product_image);
+    ?>
+
          <div class="advert_content">
-           <img src="images/fancy.jpg" alt="">
+           <img src="<?php echo $base_url; ?>images/products/<?php echo $images[0]; ?>" alt="">
            <div class="overlay_container"></div>
            <div class="content_container">
 
-             <h1 class="product_title">FURNITURES</h1>
+             <h1 class="product_title"><?php echo $product_name; ?></h1>
              <!--<p class="product_desc">Learn to build websites that works seamlessly on all devices</p>-->
-             <a href=""><button class="close_btn">Shop Now</button></a>
+             <a href="<?php echo $base_url; ?>products/<?php echo $product_id; ?>"><button class="close_btn">Shop
+                 Now</button></a>
            </div>
-
          </div>
-         <div class="advert_content">
+         <?php
+}
+
+?>
+
+         <!-- <div class="advert_content">
            <img src="images/utencils.jpg" alt="">
            <div class="overlay_container"></div>
            <div class="content_container">
-
              <h1 class="product_title">KITCHEN UTENCILS</h1>
-             <!-- <p class="product_desc">Learn what earns. Inspirational designs, illustrations, and graphic elements</p>-->
              <a href=""><button class="close_btn">Shop Now</button></a>
-           </div>
+           </div> -->
 
-         </div>
        </div>
+     </div>
      </div>
    </nav>
 
@@ -192,17 +204,28 @@ foreach ($categories as $category) {
 
    <!-- ADVERT SECTION -->
    <nav class="advert_section">
+
+     <?php
+$product_array = $obj->fetch_ad_products(10);
+$id = $product_array[0][0];
+$product_title = $product_array[0][1];
+$images = $product_array[0][8];
+
+// // CONVERT JSON IMAGES TO ARRAY
+$images = json_decode($images);
+?>
+
      <div class="advert_box_container">
        <div class="advert_overlay_container"> </div>
        <div class="advert_img_box">
-         <img src="images/design.webp" alt="">
+         <img src="<?php echo $base_url; ?>images/products/<?php echo $images[0]; ?>" alt="">
        </div>
 
        <div class="advert_content_container">
          <a href="" class="advert_box">
-           <h3>SAVE 20%</h3>
+           <h3><?php echo $product_title; ?></h3>
            <h1>Special Offer</h1>
-           <button class="close_btn">Book a Class</button>
+           <button class="close_btn">Shop Now</button>
          </a>
        </div>
      </div>
@@ -216,7 +239,7 @@ foreach ($categories as $category) {
          <a href="" class="advert_box">
            <h3>SAVE 20%</h3>
            <h1>Special Offer</h1>
-           <button class="close_btn">Book a Class</button>
+           <button class="close_btn">Shop Now</button>
          </a>
        </div>
      </div>

@@ -4,7 +4,7 @@ class Product_class extends File_class
 
     protected function select_product($product_name)
     {
-        $stmt = $this->connect()->prepare('SELECT * FROM products WHERE product_name=?');
+        $stmt = $this->connect()->prepare("SELECT * FROM products WHERE product_name=? ORDER BY id DESC");
         if (!$stmt->execute(array($product_name))) {
             $stmt = null;
             echo 'Connection failed';
@@ -23,7 +23,7 @@ class Product_class extends File_class
 
     protected function select_product_by_id($id)
     {
-        $stmt = $this->connect()->prepare('SELECT * FROM products WHERE id=?');
+        $stmt = $this->connect()->prepare('SELECT * FROM products WHERE id=? ORDER BY id DESC');
         if (!$stmt->execute(array($id))) {
             $stmt = null;
             echo 'Connection failed';
@@ -34,7 +34,7 @@ class Product_class extends File_class
 
     public function count_products($category_id)
     {
-        $stmt = $this->connect()->prepare('SELECT * FROM products WHERE category_id=?');
+        $stmt = $this->connect()->prepare('SELECT * FROM products WHERE category_id=? ORDER BY id DESC');
         if (!$stmt->execute(array($category_id))) {
             $stmt = null;
             echo 'Connection failed';
@@ -83,13 +83,38 @@ class Product_class extends File_class
 
     protected function select_products()
     {
-        $stmt = $this->connect()->prepare('SELECT * FROM products');
+        $stmt = $this->connect()->prepare("SELECT * FROM products ORDER BY id DESC");
         if (!$stmt->execute()) {
             $stmt = null;
             echo 'Connection failed';
         } else {
             return $stmt;
         }
+    }
+
+    protected function select_products_for_slider($limit)
+    {
+        $stmt = $this->connect()->prepare("SELECT * FROM products ORDER BY id DESC LIMIT $limit");
+        if (!$stmt->execute()) {
+            $stmt = null;
+            echo 'Connection failed';
+        } else {
+            return $stmt;
+        }
+    }
+
+    public function fetch_slider_products($limit)
+    {
+        $stmt = $this->select_products_for_slider($limit);
+        $product_array = $stmt->fetchAll(PDO::FETCH_OBJ);
+        return $product_array;
+    }
+
+    public function fetch_ad_products($limit)
+    {
+        $stmt = $this->select_products_for_slider($limit);
+        $product_array = $stmt->fetchAll(PDO::FETCH_NUM);
+        return $product_array;
     }
 
     public function is_products_empty()

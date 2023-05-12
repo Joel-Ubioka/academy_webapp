@@ -3,9 +3,11 @@
 include "../config/config.php";
 include '../functions/autoloader.php';
 
-$obj = new Product_category_class();
+$obj = new Product_category_class;
+$subcat_obj = new sub_category_class;
 
 $categories = $obj->fetch_categories();
+$subcategories = $subcat_obj->fetch_sub_categories()
 
 ?>
 
@@ -23,6 +25,7 @@ $categories = $obj->fetch_categories();
             <input type="text" id='product_name' name="product_name" class="form_input" placeholder="Product Name"
               required>
           </div>
+
           <div class="input_container">
             <select id="product_category" name="product_category" class="form_input" required>
               <option value="">Select Category</option>
@@ -35,6 +38,12 @@ foreach ($categories as $item) {
 ?>
             </select>
           </div>
+
+          <div class="input_container">
+            <select id="sub_category" name="sub_category" class="form_input" required>
+            </select>
+          </div>
+
           <div class="input_container">
             <input type="number" min="10" id="product_price" name="product_price" class="form_input"
               placeholder="Product Price" required>

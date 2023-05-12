@@ -207,22 +207,33 @@ foreach ($categories as $category) {
 
      <?php
 $product_array = $obj->fetch_ad_products(10);
-$id = $product_array[0][0];
-$product_title = $product_array[0][1];
-$images = $product_array[0][8];
 
-// // CONVERT JSON IMAGES TO ARRAY
+$min_no = 0;
+$max_no = count($product_array) - 1;
+$rand_no = rand($min_no, $max_no);
+
+$product_title = $product_array[$rand_no][1];
+
+$images = $product_array[$rand_no][8];
+
+// CONVERT JSON IMAGES TO ARRAY
 $images = json_decode($images);
+$ran_images = $images[$rand_no];
+// $ran_images = $obj->random_images($product_array);
+
+$prod_id = $product_array[$rand_no][0];
+
+$rand_no;
 ?>
 
      <div class="advert_box_container">
        <div class="advert_overlay_container"> </div>
        <div class="advert_img_box">
-         <img src="<?php echo $base_url; ?>images/products/<?php echo $images[0]; ?>" alt="">
+         <img src="<?php echo $base_url; ?>images/products/<?php echo $ran_images; ?>" alt="">
        </div>
 
        <div class="advert_content_container">
-         <a href="" class="advert_box">
+         <a href="<?php echo $base_url; ?>products/<?php echo $prod_id; ?>" class="advert_box">
            <h3><?php echo $product_title; ?></h3>
            <h1>Special Offer</h1>
            <button class="close_btn">Shop Now</button>
@@ -230,20 +241,39 @@ $images = json_decode($images);
        </div>
      </div>
 
+     <?php
+$min_no = 1;
+$max_no = count($product_array) - 1;
+
+$rand_no = rand($min_no, $max_no);
+$product_title = $product_array[$rand_no][1];
+
+$images = $product_array[$rand_no][8];
+
+// CONVERT JSON IMAGES TO ARRAY
+$images = json_decode($images);
+$ran_images = $images[$rand_no];
+// $ran_images = $obj->random_images($product_array);
+
+$prod_id = $product_array[$rand_no][0];
+
+$rand_no;
+?>
+
      <div class="advert_box_container">
        <div class="advert_overlay_container"> </div>
-       <div class="advert_img_box"><img src="images/web1.jpeg" alt="">
+       <div class="advert_img_box">
+         <img src="<?php echo $base_url; ?>images/products/<?php echo $ran_images; ?>" alt="">
        </div>
 
        <div class="advert_content_container">
-         <a href="" class="advert_box">
-           <h3>SAVE 20%</h3>
+         <a href="<?php echo $base_url; ?>products/<?php echo $prod_id; ?>" class="advert_box">
+           <h3><?php echo $product_title; ?></h3>
            <h1>Special Offer</h1>
            <button class="close_btn">Shop Now</button>
          </a>
        </div>
      </div>
-
 
 
    </nav>

@@ -4,7 +4,7 @@ RewriteEngine on
 
 RewriteCond %(REQUEST_FILENAME) !-d
 RewriteCond %(REQUEST_FILENAME) !-f
-#RewriteRule ^([^\.]+)$ $1.php [NC]
+
 
 # Allow to change the page name and include the page id
 
@@ -16,3 +16,6 @@ RewriteRule ^(products)$ product-details.php [NC,L]
 
 RewriteRule ^categories/(\d+)$ categories.php?category_id=$1 [NC,L]
 RewriteRule ^(categories)$ $1.php [NC,L]
+
+
+RewriteRule ^([^\.]+)$ $1.php [NC]

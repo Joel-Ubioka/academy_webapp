@@ -110,6 +110,19 @@ class Product_class extends File_class
         return $product_array;
     }
 
+    public function random_images($product_array)
+    {
+        $min_no = 0;
+        $max_no = count($product_array) - 1;
+
+        $rand_no = rand($min_no, $max_no);
+        $images = $product_array[$rand_no][8];
+
+        // CONVERT JSON IMAGES TO ARRAY
+        $images = json_decode($images);
+        return $images[$rand_no];
+    }
+
     public function fetch_ad_products($limit)
     {
         $stmt = $this->select_products_for_slider($limit);

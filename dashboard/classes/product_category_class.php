@@ -13,7 +13,7 @@ class Product_category_class extends File_class
         }
     }
 
-    protected function get_category_id($category_name)
+    public function get_category_id($category_name)
     {
         $stmt = $this->select_category($category_name);
         $category_array = $stmt->fetch(PDO::FETCH_OBJ);

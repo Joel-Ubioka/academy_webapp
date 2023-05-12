@@ -492,3 +492,19 @@ $(".logout").on("click", function(e){
   });
 });
 
+
+// GET SUB-CATEGORY BASED ON THE SELECTED CATEGORY
+$('.dashboard_container').on('change', '#product_category', function(){
+    const category = $(this).val();
+    $.ajax({
+      type: "POST",
+      data: {"product_category": category},
+        url: "ajax_functions/fetch_subcategories_ajax.php",
+  
+        success: function(response){
+         
+          $('#sub_category').html(response);
+        }
+    });
+
+});

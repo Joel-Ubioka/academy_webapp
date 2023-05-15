@@ -12,7 +12,7 @@ require "includes/header.php";
 if (isset($_GET['category_id'])) {
 
     $category_id = $_GET['category_id'];
-    $product_detail = $obj->fetch_products_by_category($category_id);
+    $product_detail = $obj->fetch_products_by_cat_sub($category_id, $sub_category_id);
 
     $category_name = $category_obj->get_category_name($category_id);
 

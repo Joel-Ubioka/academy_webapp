@@ -1,5 +1,5 @@
 <?php
-class Product_class extends File_class
+class Product_class extends Sub_category_class
 {
 
     protected function select_product($product_name)
@@ -92,6 +92,17 @@ class Product_class extends File_class
         }
     }
 
+    protected function select_product_by_cat_subcat($category_id, $sub_category_id)
+    {
+        $stmt = $this->connect()->prepare('SELECT * FROM products WHERE category_id=? || sub_category_id=?');
+        if (!$stmt->execute(array($category_id, $sub_category_id))) {
+            $stmt = null;
+            echo 'Connection failed';
+        } else {
+            return $stmt;
+        }
+    }
+
     protected function select_products_for_slider($limit)
     {
         $stmt = $this->connect()->prepare("SELECT * FROM products ORDER BY id DESC LIMIT $limit");
@@ -101,6 +112,18 @@ class Product_class extends File_class
         } else {
             return $stmt;
         }
+    }
+
+    public function fetch_products_by_cat_sub($category_id, $sub_category_id)
+    {
+        $stmt = $this->select_product_by_cat_subcat($category_id, $sub_category_id);
+        if ($stmt->rowCount() == 0) {
+            return false;
+        } else {
+            $product_array = $stmt->fetchAll(PDO::FETCH_OBJ);
+            return $product_array;
+        }
+
     }
 
     public function fetch_slider_products($limit)
@@ -160,10 +183,13 @@ class Product_class extends File_class
         }
     }
 
-    public function insert_product($product_name, $product_category, $product_price, $product_tag, $product_publisher, $product_spec, $product_desc, $product_image)
+    public function insert_product($product_name, $product_category, $sub_category, $product_price, $product_tag, $product_publisher, $product_spec, $product_desc, $product_image)
     {
 
-        // CHECK IF THE PRODUCT IS EXIXTING ALREADY
+        $category_id = $this->get_category_id($product_category);
+        $sub_category_id = $this->get_subcategory_id($sub_category);
+
+        // CHECK IF THE PRODUCT IS EXISTING ALREADY
         if ($this->product_exists($product_name)) {
             echo "Product already exist";
             exit();
@@ -201,8 +227,8 @@ class Product_class extends File_class
         $file_names = json_encode($file_names);
 
         if ($upload) {
-            $stmt = $this->connect()->prepare('INSERT INTO products (product_name,product_category,product_price,product_tag,product_publisher,product_spec,product_desc,product_image) VALUES(?,?,?,?,?,?,?,?)');
-            if ($stmt->execute(array($product_name, $product_category, $product_price, $product_tag, $product_publisher, $product_spec, $product_desc, $file_names))) {
+            $stmt = $this->connect()->prepare('INSERT INTO products (product_name,category_id, sub_category_id, product_price,product_tag,product_publisher,product_spec,product_desc,product_image) VALUES(?,?,?,?,?,?,?,?,?)');
+            if ($stmt->execute(array($product_name, $category_id, $sub_category_id, $product_price, $product_tag, $product_publisher, $product_spec, $product_desc, $file_names))) {
 
                 $result = "Successfully inserted!";
 

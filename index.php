@@ -214,16 +214,14 @@ $rand_no = rand($min_no, $max_no);
 
 $product_title = $product_array[$rand_no][1];
 
-$images = $product_array[$rand_no][8];
+$images = $product_array[$rand_no][9];
 
 // CONVERT JSON IMAGES TO ARRAY
 $images = json_decode($images);
+
 $ran_images = $images[$rand_no];
-// $ran_images = $obj->random_images($product_array);
 
 $prod_id = $product_array[$rand_no][0];
-
-$rand_no;
 ?>
 
      <div class="advert_box_container">
@@ -248,12 +246,11 @@ $max_no = count($product_array) - 1;
 $rand_no = rand($min_no, $max_no);
 $product_title = $product_array[$rand_no][1];
 
-$images = $product_array[$rand_no][8];
+$images = $product_array[$rand_no][9];
 
 // CONVERT JSON IMAGES TO ARRAY
 $images = json_decode($images);
 $ran_images = $images[$rand_no];
-// $ran_images = $obj->random_images($product_array);
 
 $prod_id = $product_array[$rand_no][0];
 

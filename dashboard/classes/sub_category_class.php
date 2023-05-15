@@ -31,9 +31,17 @@ class Sub_category_class extends Product_category_class
         return $sub_category_array;
     }
 
+    public function get_subcategory_id($sub_category)
+    {
+        $stmt = $this->select_sub_category($sub_category);
+        $category_array = $stmt->fetch(PDO::FETCH_OBJ);
+        return $category_array->id;
+
+    }
+
     protected function select_sub_category_by_cat_id($category_id)
     {
-        $stmt = $this->connect()->prepare('SELECT sub_category FROM sub_categories WHERE category_id=?');
+        $stmt = $this->connect()->prepare('SELECT * FROM sub_categories WHERE category_id=?');
         if (!$stmt->execute(array($category_id))) {
             $stmt = null;
             echo 'Connection failed';

@@ -5,7 +5,7 @@ foreach ($categories as $category) {
     ?>
 
   <li class="category_list">
-    <a href=""><?php echo $category->category_name; ?></a>
+    <a href="<?php echo $base_url . 'categories/' . $category->id; ?>"><?php echo $category->category_name; ?></a>
     <?php
 if ($sub_category_obj->sub_category_by_cat_exist($category->id)) {
         ?>
@@ -14,7 +14,9 @@ if ($sub_category_obj->sub_category_by_cat_exist($category->id)) {
 $sub_categories = $sub_category_obj->fetch_subcategory_by_cat_id($category->id);
         foreach ($sub_categories as $sub_category) {
             ?>
-      <li class="category_submenu_list "><a href="#"><?php echo $sub_category->sub_category; ?></a></li>
+      <li class="category_submenu_list "><a
+          href="<?php echo $base_url . 'categories/' . $sub_category->id; ?>"><?php echo $sub_category->sub_category; ?></a>
+      </li>
       <?php
 }
 

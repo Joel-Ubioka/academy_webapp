@@ -13,7 +13,7 @@
    </div>
    <div class="contact_container">
      <span class="material-symbols-outlined phone_icon">call</span>
-     <b> 08035817907, 08150280180</b>
+     <a href="tel:  08035817907"> 08035817907</a>
    </div>
  </section>
 
@@ -43,14 +43,23 @@ if (!$category_obj->is_categories_empty()) {
        <a href="#" class="search_icon">
          <span class="material-symbols-outlined">search</span>
        </a>
-       <a href="#">
+
+       <!-- <a href="#">
          <span class="material-symbols-outlined">favorite</span>
+         <div class="item_container">0</div>
+       </a> -->
+
+       <a href="<?php echo $base_url; ?>cart">
+         <span class="material-symbols-outlined">shopping_cart</span>
          <div class="item_container">0</div>
        </a>
 
-       <a href="cart">
-         <span class="material-symbols-outlined">shopping_cart</span>
-         <div class="item_container">0</div>
+       <a href="<?php echo $base_url; ?>signup" class="reg_btn">
+         <button class="close_btn">Sign Up</button>
+       </a>
+
+       <a href="<?php echo $base_url; ?>login">
+         <button class="open_btn">Login</button>
        </a>
      </div>
    </div>

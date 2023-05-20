@@ -105,7 +105,8 @@ foreach ($categories as $category) {
 
     ?>
 
-       <a href="<?php echo $base_url; ?>categories/<?php echo $id ?>" class="category_box" data-aos="fade-left">
+       <a href="<?php echo $base_url; ?>categories/<?php echo $id . "/" . $category_title; ?>" class="category_box"
+         data-aos="fade-left">
          <div class="category_img"><img src="<?php echo $base_url; ?>images/categories/<?php echo $category_image; ?>"
              alt="">
          </div>
@@ -122,66 +123,6 @@ foreach ($categories as $category) {
 ?>
 
 
-       <!--
-
-       <a href="categories" class="category_box" data-aos="fade-left">
-         <div class="category_img"><img src="images/softwaredev.jpg" alt=""></div>
-         <div class="category_desc">
-           <h4 class="category_desc_heading">Power Generators</h4>
-           <small>Portable Generator,Inverter Generator,Gasoline Generator,Diesel Generator,Solar Generator</small>
-         </div>
-
-       </a>
-
-
-       <a href="categories" class="category_box" data-aos="fade-left">
-         <div class="category_img"><img src="images/uiux.webp" alt=""></div>
-         <div class="category_desc">
-           <h4 class="category_desc_heading">Furnitures & Fancy</h4>
-           <small> Tables, Chairs, Beds, Desks, Dressers, and Cupboards.</small>
-         </div>
-
-       </a>
-
-
-       <a href="categories" class="category_box" data-aos="fade-left">
-         <div class="category_img"><img src="images/graphics.webp" alt=""></div>
-         <div class="category_desc">
-           <h4 class="category_desc_heading">Kitchen Utencils</h4>
-           <small>Food preparation, Food storage, Maintenance & Cleaning, and Serving L</small>
-         </div>
-
-       </a>
-
-
-       <a href="categories" class="category_box" data-aos="fade-left">
-         <div class="category_img"><img src="images/digitalmarketing.webp" alt=""></div>
-         <div class="category_desc">
-           <h4 class="category_desc_heading">Sanitary Wares</h4>
-           <small>Bath tubs, Water closets $ Urinals </small>
-         </div>
-
-       </a>
-
-
-       <a href="categories" class="category_box" data-aos="fade-left">
-         <div class="category_img"><img src="images/data.webp" alt=""></div>
-         <div class="category_desc">
-           <h4 class="category_desc_heading">Security Doors</h4>
-           <small>Single Security Doors,Double Security Doors,Mesh Doors,Laser Doors</small>
-         </div>
-
-       </a>
-
-
-       <a href="categories" class="category_box" data-aos="fade-left">
-         <div class="category_img"><img src="images/freelance.png" alt=""></div>
-         <div class="category_desc">
-           <h4 class="category_desc_heading">Auto Deals</h4>
-           <small>Brand new $ Tokunbo</small>
-         </div>
-
-       </a> -->
 
 
 

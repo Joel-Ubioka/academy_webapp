@@ -1,6 +1,12 @@
 
 var base_url = "http://localhost/online_shop/";
 
+var loading = `<div class="loading_container">
+<div class="loading_content">
+  <img src="${base_url}loading/loading.gif" alt="loading...">
+</div>
+</div>`;
+
 // SHOW SEARCH INPUT
 $('.search_icon').click(function(){
 $('.search_container').toggle();
@@ -581,40 +587,25 @@ customer_login();
    update_page();
 
 
+// SEARCH FOR PRODUCTS
+$('#search').on('keyup', function(){
 
+  $('.dashboard_container').html(loading);
+  $('.loading_container').css('display','flex');
 
-
-
-
-
-
-/* TESTIMONIALS SCRIPT */
-
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
+  const search = $(this).val();
+  $.ajax({
+    method: "POST",
+    data: {"search": search},
+    url: base_url+"ajax_functions/search_ajax.php",
+    success: function(response){
+      $('.search_dropdown').show();
+      $('.search_dropdown_inner').html(response);
     }
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-    }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-}
+  });
+});
 
-/* END OF TESTIMONIALS */
+
+
+
+

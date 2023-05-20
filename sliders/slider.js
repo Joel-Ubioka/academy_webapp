@@ -1,4 +1,4 @@
-//const slideIndex = 0;
+let slideIndex = 0;
 
 $(".next").click(function(){
     showSlides(0);

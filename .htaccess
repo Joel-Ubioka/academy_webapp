@@ -15,6 +15,7 @@ RewriteRule ^(products)$ product-details.php [NC,L]
 
 
 RewriteRule ^categories/(\d+)$ categories.php?category_id=$1 [NC,L]
+RewriteRule ^categories/(\d+)/([-\w]+)$ categories.php?category_id=$1&title=$2 [NC,L]
 RewriteRule ^(categories)$ $1.php [NC,L]
 
 

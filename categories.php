@@ -12,9 +12,19 @@ require "includes/header.php";
 if (isset($_GET['category_id'])) {
 
     $category_id = $_GET['category_id'];
-    $product_detail = $obj->fetch_products_by_cat_sub($category_id, $sub_category_id);
 
-    $category_name = $category_obj->get_category_name($category_id);
+    if (!$obj->fetch_products_by_cat_sub($category_id)) {
+        header('location:' . $base_url);
+        exit();
+    }
+
+    $product_detail = $obj->fetch_products_by_cat_sub($category_id);
+    if (isset($_GET['title'])) {
+        $category_name = str_replace('-', ' ', $_GET['title']);
+    } else {
+        $category_name = "";
+    }
+    // $category_name = $category_obj->get_category_name($category_id);
 
     ?>
 

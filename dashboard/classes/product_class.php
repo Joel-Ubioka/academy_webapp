@@ -92,10 +92,10 @@ class Product_class extends Sub_category_class
         }
     }
 
-    protected function select_product_by_cat_subcat($category_id, $sub_category_id)
+    protected function select_product_by_cat_subcat($category_id)
     {
         $stmt = $this->connect()->prepare('SELECT * FROM products WHERE category_id=? || sub_category_id=?');
-        if (!$stmt->execute(array($category_id, $sub_category_id))) {
+        if (!$stmt->execute(array($category_id, $category_id))) {
             $stmt = null;
             echo 'Connection failed';
         } else {
@@ -114,9 +114,9 @@ class Product_class extends Sub_category_class
         }
     }
 
-    public function fetch_products_by_cat_sub($category_id, $sub_category_id)
+    public function fetch_products_by_cat_sub($category_id)
     {
-        $stmt = $this->select_product_by_cat_subcat($category_id, $sub_category_id);
+        $stmt = $this->select_product_by_cat_subcat($category_id);
         if ($stmt->rowCount() == 0) {
             return false;
         } else {

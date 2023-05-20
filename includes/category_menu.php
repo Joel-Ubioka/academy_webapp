@@ -1,11 +1,14 @@
 <ul class="category_list_container">
   <?php
 foreach ($categories as $category) {
+    $category_title = str_replace(array('(', ')'), '', $category->category_name);
+    $category_title = str_replace(' ', '-', $category->category_name);
 
     ?>
 
   <li class="category_list">
-    <a href="<?php echo $base_url . 'categories/' . $category->id; ?>"><?php echo $category->category_name; ?></a>
+    <a
+      href="<?php echo $base_url . 'categories/' . $category->id . "/" . $category_title; ?>"><?php echo $category->category_name; ?></a>
     <?php
 if ($sub_category_obj->sub_category_by_cat_exist($category->id)) {
         ?>
@@ -15,7 +18,7 @@ $sub_categories = $sub_category_obj->fetch_subcategory_by_cat_id($category->id);
         foreach ($sub_categories as $sub_category) {
             ?>
       <li class="category_submenu_list "><a
-          href="<?php echo $base_url . 'categories/' . $sub_category->id; ?>"><?php echo $sub_category->sub_category; ?></a>
+          href="<?php echo $base_url . 'categories/' . $sub_category->id . "/" . $sub_category->sub_category; ?>"><?php echo $sub_category->sub_category; ?></a>
       </li>
       <?php
 }

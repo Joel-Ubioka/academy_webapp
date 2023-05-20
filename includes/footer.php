@@ -1,14 +1,13 @@
 <section class="footer_container">
   <div class="footer1">
     <div class="footer_column">
-      <div class="logo_container"><a href="<?php echo $base_url; ?>"><img src="<?php echo $base_url; ?>images/logo.png"
+      <div class="logo_container"><a href="<?php echo $base_url; ?>"><img src="<?php echo $base_url; ?>images/logo.jpg"
             alt=""></a></div>
-      <p class="first_footer_p">Morrhtech Solutions is the leading ICT
-        Training and Exam Testing Institute with
-        over 5 years cognitive experience in Nigeria
+      <p class="first_footer_p">FLOXI is Your One-Stop, High-End, High-Tech and High-ticket Online Shop for your Luxury
+        Products and Services.
       </p>
       <div class="product_details_btn_container">
-        <a href="#"> <button class="open_btn" style="color: white;">Call Us</button></a>
+        <a href="tel: 08035817907"> <button class="open_btn" style="color: white;">Call Us</button></a>
         <a href="#"> <button class="close_btn">Chat Us</button></a>
       </div>
     </div>
@@ -16,39 +15,40 @@
       <h3>Get in touch</h3>
       <p>
         <span class="material-symbols-outlined">location_on</span>
-        <span>7th Avenue Junction, Festac Town. Lagos State</span>
+        <span>Suite B4 (First Floor) Century Mall Plaza, St Patrick's Bus- Stop, Alaba International Market, Ojo, Lagos
+          State, Nigeria.</span>
       </p>
       <p>
         <span class="material-symbols-outlined">mail</span>
-        <span>Admin@morrhtechacademy.com</span>
+        <a href="mailto: admin@floxi.com"><span>admin@floxi.com</span></a>
       </p>
       <p>
         <span class="material-symbols-outlined">call</span>
-        <span> +234 9049 2836 53</span>
+        <a href="tel: 08035817907"><span> 08035817907</span></a>
       </p>
     </div>
     <div class="footer_column quick_links">
       <h3>Quick Links</h3>
       <a href="<?php echo $base_url; ?>">
         <span class="material-symbols-outlined">navigate_next</span>
-        <span> Courses</span>
+        <span> Home</span>
       </a>
       <a href="">
         <span class="material-symbols-outlined">navigate_next</span>
-        <span>Instructors</span>
+        <span>About</span>
       </a>
       <a href="">
         <span class="material-symbols-outlined">navigate_next</span>
 
-        <span>Certifications</span>
+        <span>Contact</span>
       </a>
       <a href="">
         <span class="material-symbols-outlined">navigate_next</span>
-        <span>Educational Services</span>
+        <span>Market</span>
       </a>
       <a href="">
         <span class="material-symbols-outlined">navigate_next</span>
-        <span>Online Training</span>
+        <span>Blog</span>
       </a>
     </div>
     <div class="footer_column">

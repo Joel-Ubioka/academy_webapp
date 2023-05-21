@@ -126,6 +126,18 @@ class Product_class extends Sub_category_class
 
     }
 
+    public function format_tag($product_name)
+    {
+        $product_tag = str_replace(",", "", $product_name);
+        $product_tag = str_replace(":", "", $product_tag);
+        $product_tag = str_replace("?", "", $product_tag);
+        $product_tag = str_replace("'", "", $product_tag);
+        $product_tag = str_replace("\"", "", $product_tag);
+        $product_tag = str_replace(" ", "_", $product_tag);
+        $product_tag = str_replace("__", "_", $product_tag);
+        return $product_tag;
+    }
+
     public function fetch_slider_products($limit)
     {
         $stmt = $this->select_products_for_slider($limit);

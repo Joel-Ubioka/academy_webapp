@@ -26,7 +26,7 @@ $('.popup_body').on("click", ".login_popup", function(e){
 
   <h2>Login</h2>
 
-  <form action="ajax_functions/login_customer_ajax.php" method="POST" id="signup_form" class="customer_login_form">
+  <form action="${base_url}ajax_functions/login_customer_ajax.php" method="POST" id="signup_form" class="customer_login_form">
   
     <div class="input_container">
       <span class="material-symbols-outlined">
@@ -74,7 +74,7 @@ $('.popup_body').on("click", ".signup_popup", function(e){
 
   <h2>SignUp</h2>
 
-  <form action="ajax_functions/register_customer_ajax.php" method="POST" id="signup_form" class="reg_form">
+  <form action="${base_url}ajax_functions/register_customer_ajax.php" method="POST" id="signup_form" class="reg_form">
     <div class="input_container">
       <span class="material-symbols-outlined">
         person
@@ -146,7 +146,7 @@ $('.popup_footer').on("click", ".proceed_btn", function(e){
 
   <h2>SignUp</h2>
 
-  <form action="ajax_functions/register_customer_ajax" method="POST" id="signup_form" class="reg_form">
+  <form action="${base_url}ajax_functions/register_customer_ajax" method="POST" id="signup_form" class="reg_form">
     <div class="input_container">
       <span class="material-symbols-outlined">
         person
@@ -288,6 +288,62 @@ $('.add_to_cart_btn, .details_add_to_cart').click(function(e){
 //footer.innerHTML = buttons;
 
  $('.popup_footer').html(buttons);
+
+
+// GET PRODUCT DATA
+const product_name = $(this).attr('data-product-name');
+const product_price = $(this).attr('data-product-price');
+const product_image = $(this).attr('data-product-image');
+const product_tag = $(this).attr('data-product-tag');
+
+// CREATE PRODUCT OBJECT
+let product = {
+  name: product_name,
+  price: product_price,
+  image: product_image,
+  tag: product_tag,
+  quantity: 0,
+  inCart: 0
+}
+
+let products_in_cart = localStorage.getItem('products_in_cart');
+products_in_cart = JSON.parse(products_in_cart);
+
+if(products_in_cart != null)
+{
+    if(products_in_cart[product.tag] == undefined)
+    {
+      products_in_cart = {
+        ...products_in_cart, 
+        [product.tag]: product
+      }
+
+      var inCart = localStorage.getItem('inCart');
+      inCart = parseInt(inCart) + 1;
+      localStorage.setItem('incart', inCart);
+
+      
+
+    }
+
+    products_in_cart[product.tag].quantity += 1;
+
+}
+else
+{
+  var inCart = 1;
+  product.inCart = 1;
+  product.quantity = 1;
+  localStorage.setItem('inCart', inCart);
+
+  products_in_cart = {
+    [product.tag]: product
+  }
+  
+}
+
+localStorage.setItem('products_in_cart', JSON.stringify(products_in_cart));
+
 });
 
 //DISPLAY CATEGORY SUBMENU
@@ -590,7 +646,7 @@ customer_login();
 // SEARCH FOR PRODUCTS
 $('#search').on('keyup', function(){
 
-  $('.dashboard_container').html(loading);
+  $('.search_dropdown_inner').html(loading);
   $('.loading_container').css('display','flex');
 
   const search = $(this).val();

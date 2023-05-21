@@ -6,12 +6,15 @@ foreach ($products as $product) {
     $product_name = $product->product_name;
     $product_price = $product->product_price;
     $images = json_decode($product->product_image);
+    $product_image = $images[0];
+
+    $product_tag = $obj->format_tag($product_name);
 
     ?>
   <div class="product_box" data-aos="zoom-in-down">
     <a href="<?php echo $base_url; ?>products/<?php echo $id; ?>" class="product_img_container">
       <div class="product_img">
-        <img src="<?php echo $base_url; ?>images/products/<?php echo $images[0]; ?>" alt="">
+        <img src="<?php echo $base_url; ?>images/products/<?php echo $product_image; ?>" alt="">
       </div>
     </a>
     <div class="product_details">
@@ -31,8 +34,10 @@ foreach ($products as $product) {
       </div>
       <div class="add_to_cart_container">
 
-        <button class="add_to_cart_btn">
-          <span class="material-symbols-outlined">shopping_cart</span>
+        <button class="add_to_cart_btn" data-product-name="<?php echo $product_name; ?>"
+          data-product-price="<?php echo $product_price; ?>" data-product-image="<?php echo $product_image; ?>"
+          data-product-tag="<?php echo $product_tag; ?>">
+          <span class=" material-symbols-outlined">shopping_cart</span>
           Add to cart
         </button>
       </div>

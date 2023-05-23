@@ -6,7 +6,7 @@
         <span class="material-symbols-outlined close_popup">close</span>
       </div>
     </div>
-    <div class="popup_body">
+    <div class="popup_body cart_wrapper">
 
     </div>
     <div class="popup_footer"></div>

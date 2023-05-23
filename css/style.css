@@ -277,7 +277,8 @@ p
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  display: flex;
+  /* display: flex; */
+  display: none;
   justify-content: center;
  align-items: center;
   overflow: hidden;
@@ -286,6 +287,7 @@ p
   top: -12px;
   left: 18px;
 }
+
 
 .category_list_container
 {
@@ -1473,12 +1475,18 @@ q
 .column_inner_container:first-child
 {
   overflow: auto;
+  min-width: 800px;
 }
 
 .column_desc
 {
   padding-left: 10px;
   
+}
+
+.column_desc p
+{
+  text-align: left !important;
 }
 
 /* .column_inner_container
@@ -1513,6 +1521,7 @@ q
 .column_img
 {
   flex-basis: 50px;
+  flex-shrink: 0;
   height: 50px;
   overflow: hidden;
 }

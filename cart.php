@@ -2,10 +2,20 @@
  <?php require "includes/header.php";?>
 
  <body>
-   <!-- TOPBAR AND NAVBAR SECTION -->
+   <!-- TOPBAR AND NAVBAR  SECTION -->
    <?php include "includes/header2.php";?>
 
-   <div class="columns_container">
+   <div class="columns_container cart_wrapper">
+
+
+
+   </div>
+
+
+
+
+   <!--
+     <div class="columns_container cart_wrapper">
 
      <div class="product_columns_heading">
        <div class="category_title_container">
@@ -196,11 +206,12 @@
      </div>
 
    </div>
+    -->
 
 
    <!-- PRODUCT YOU MAY ALSO LIKE ( SROLL CONTAINER ) -->
    <section class="related_product_container">
-     <h2>Related course</h2>
+     <h2>You may also like</h2>
      <?php include "includes/product_scroll.php";?>
    </section>
 

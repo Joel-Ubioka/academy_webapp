@@ -16,6 +16,9 @@ $product_spec = htmlspecialchars_decode($product->product_spec);
 $product_desc = htmlspecialchars_decode($product->product_desc);
 // CONVERT JSON IMAGES TO ARRAY
 $images = json_decode($product->product_image);
+$product_image = $images[0];
+
+$product_tag = $obj->format_tag($product_name);
 
 ?>
 
@@ -73,7 +76,10 @@ foreach ($images as $image) {
                </div>
              </div>
              <div class="product_details_btn_container">
-               <a href="#"> <button class="close_btn details_add_to_cart">Add to cart</button></a>
+               <a href="#"><button class="close_btn details_add_to_cart"
+                   data-product-name="<?php echo $product_name; ?>" data-product-price="<?php echo $product_price; ?>"
+                   data-product-image="<?php echo $product_image; ?>" data-product-tag="<?php echo $product_tag; ?>">Add
+                   to cart</button></a>
                <a href="#"> <button class="open_btn">Buy Now</button></a>
              </div>
 

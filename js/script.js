@@ -317,14 +317,12 @@ if(products_in_cart != null)
         ...products_in_cart, 
         [product.tag]: product
       }
-
-      var inCart = localStorage.getItem('inCart');
-      inCart = parseInt(inCart) + 1;
-      localStorage.setItem('incart', inCart);
-
-      
-
+var inCart = localStorage.getItem('inCart');
+    inCart = parseInt(inCart) + 1;
+    localStorage.setItem('incart', inCart);
     }
+
+    
 
     products_in_cart[product.tag].quantity += 1;
 
@@ -344,7 +342,199 @@ else
 
 localStorage.setItem('products_in_cart', JSON.stringify(products_in_cart));
 
+
+$('.toast_wrapper').fadeIn();
+$('.toast_msg span').html("Successfully added to cart!");
+
+  setTimeout(function(){
+    $('.toast_wrapper').fadeOut();
+   },3000)
+
+
+$('.cart').css("display", "flex");
+$('.cart').text(inCart);
+
+display_cart();
+
 });
+
+
+// AUTOMATICALLY LOAD IN CART
+$(document).ready(function(){
+  var inCart = localStorage.getItem('inCart');
+
+  if(inCart !== null)
+  {
+    $('.cart').css("display", "flex");
+    $('.cart').text(inCart);
+  }
+  
+});
+
+
+function display_cart()
+{
+  let cart_items = localStorage.getItem('products_in_cart');
+  cart_items = JSON.parse(cart_items);
+
+  let inCart = localStorage.getItem('inCart');
+
+  let product_container = document.querySelector('.cart_wrapper');
+  //let popup_container = document.querySelector('.popup_body');
+
+  if(cart_items)
+  {
+      if(product_container )
+      {
+
+        let output = "";
+
+        output += `
+        
+        <div class="product_columns_heading">
+        <div class="category_title_container">
+          <h1 class="columns_title">Shopping Cart</h1>
+          <div class="line_container">
+            <div class="line"></div>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="column_wrapper">
+        <div class="column_inner_container">
+          <div class="column_wrap">
+            <div class="column_heading">
+              <div class="heading_item">
+                <h3>Product</h3>
+              </div>
+              <div class="heading_item">
+                <h3>Price</h3>
+              </div>
+              <div class="heading_item">
+                <h3>Quantity</h3>
+              </div>
+              <div class="heading_item">
+                <h3>Total</h3>
+              </div>
+              <div class="heading_item">
+                <h3>Remove</h3>
+              </div>
+            </div>
+ 
+            <div class="column_body">
+        
+        `;
+
+        var total = 0;
+        Object.values(cart_items).map(item =>{
+
+          var price = new Intl.NumberFormat().format(item.price);
+          var sub_total = item.quantity * parseInt(item.price);
+
+          total += parseInt(sub_total);
+
+          sub_total = new Intl.NumberFormat().format(sub_total);
+
+
+          output += `
+          
+          <div class="column_content">
+          <div class="column_item img_desc">
+            <div class="column_img">
+              <img src="${base_url}images/products/${item.image}" alt="">
+            </div>
+            <div class="column_desc">
+              <p>${item.name}</p>
+            </div>
+          </div>
+          <div class="column_item">
+            <p>&#8358;${price}</p>
+          </div>
+          <div class="column_item">
+            <div class="product_details_qty_box">
+              <button class="qty_box btn qty_minus">-</button>
+              <input type="text" class="qty_box qty qty_value" value="${item.quantity}">
+              <button class="qty_box btn qty_plus">+</button>
+            </div>
+          </div>
+          <div class="column_item">
+            <p>&#8358;${sub_total}</p>
+          </div>
+          <div class="column_item">
+            <button class="product_remove_btn">
+              <span class="material-symbols-outlined">close</span>
+            </button>
+          </div>
+        </div>
+
+          `
+
+        });
+
+
+        let total_cost = new Intl.NumberFormat().format(total);
+
+    output += `
+
+        </div>
+    </div>
+
+    </div>
+    <div class="column_inner_container">
+      <div class="coupon_container">
+        <form action="" id="coupon_form">
+          <input type="text" class="form_input" id="coupon" placeholder="Coupon code">
+          <button id="coupon_btn" class="close_btn">Apply coupon</button>
+        </form>
+      </div>
+      <div class="summary_container">
+        <div class="product_columns_heading">
+          <div class="category_title_container">
+            <h2 class="columns_title">Cart Summary</h2>
+            <div class="line_container">
+              <div class="line"></div>
+            </div>
+          </div>
+          <div class="summary_details_container">
+            <div class="summary_list">
+              <p>Subtotal</p>
+              <p>&#8358;${total}</p>
+            </div>
+            <div class="summary_list last">
+              <p>Shipping</p>
+              <p>&#8358;0.00</p>
+            </div>
+            <div class="summary_total">
+              <p>Total</p>
+              <p>&#8358;${total}</p>
+            </div>
+            <button class="close_btn">Proceed to checkout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+    `;
+
+        product_container.innerHTML = output;
+        // popup_container.innerHTML = output;
+
+      }
+  }
+  else
+  {
+
+  }
+}
+
+
+display_cart();
+
+
+
+
 
 //DISPLAY CATEGORY SUBMENU
 

@@ -9,6 +9,9 @@ foreach ($products as $product) {
     $product_price = $product->product_price;
     // CONVERT JSON IMAGES TO ARRAY
     $images = json_decode($product->product_image);
+    $product_image = $images[0];
+
+    $product_tag = $obj->format_tag($product_name);
 
     ?>
 
@@ -35,7 +38,11 @@ foreach ($products as $product) {
         </div>
         <div class="add_to_cart_container">
 
-          <button class="add_to_cart_btn">
+          <button class="add_to_cart_btn" data-product-name="<?php echo $product_name; ?>"
+            data-product-price="<?php echo $product_price; ?>" data-product-image="<?php echo $product_image; ?>"
+            data-product-tag="<?php echo $product_tag; ?>">
+
+            >
             <span class="material-symbols-outlined">shopping_cart</span>
             Add to cart
           </button>

@@ -51,7 +51,7 @@ if (!$category_obj->is_categories_empty()) {
 
        <a href="<?php echo $base_url; ?>cart">
          <span class="material-symbols-outlined">shopping_cart</span>
-         <div class="item_container">0</div>
+         <div class="item_container cart"></div>
        </a>
 
        <a href="<?php echo $base_url; ?>signup" class="reg_btn">

@@ -42,7 +42,7 @@ foreach ($products as $product) {
             data-product-price="<?php echo $product_price; ?>" data-product-image="<?php echo $product_image; ?>"
             data-product-tag="<?php echo $product_tag; ?>">
 
-            >
+
             <span class="material-symbols-outlined">shopping_cart</span>
             Add to cart
           </button>

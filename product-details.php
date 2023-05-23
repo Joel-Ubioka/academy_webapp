@@ -70,9 +70,19 @@ foreach ($images as $image) {
                  <span>&#8358;<?php echo number_format($product_price); ?></span>
                </div>
                <div class="product_details_qty_box">
-                 <button class="qty_box btn qty_minus">-</button>
-                 <input type="text" class="qty_box qty qty_value" value="1">
-                 <button class="qty_box btn qty_plus">+</button>
+                 <button class="qty_box btn qty_minus detail_qty_btn" data-type="minus"
+                   data-product-name="<?php echo $product_name; ?>" data-product-price="<?php echo $product_price; ?>"
+                   data-product-image="<?php echo $product_image; ?>" data-product-tag="<?php echo $product_tag; ?>">
+
+
+                   -</button>
+                 <input type="text" class="qty_box qty qty_value" id="qty_value" value="1">
+                 <button class="qty_box btn qty_plus detail_qty_btn" data-type="plus"
+                   data-product-name="<?php echo $product_name; ?>" data-product-price="<?php echo $product_price; ?>"
+                   data-product-image="<?php echo $product_image; ?>" data-product-tag="<?php echo $product_tag; ?>">
+
+
+                   +</button>
                </div>
              </div>
              <div class="product_details_btn_container">

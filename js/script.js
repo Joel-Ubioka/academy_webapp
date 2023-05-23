@@ -268,6 +268,70 @@ $('.category_menu_container').click(function(){
 
 
 
+// ADD TO CART FUNCTION
+function add_to_cart(product_name, product_price, product_image, product_tag, quantity)
+{
+
+// CREATE PRODUCT OBJECT
+let product = {
+  name: product_name,
+  price: product_price,
+  image: product_image,
+  tag: product_tag,
+  quantity: quantity
+}
+
+let products_in_cart = localStorage.getItem('products_in_cart');
+products_in_cart = JSON.parse(products_in_cart);
+
+if(products_in_cart != null)
+{
+    if(products_in_cart[product.tag] == undefined)
+    {
+      products_in_cart = {
+        ...products_in_cart, 
+        [product.tag]: product
+      }
+var inCart = localStorage.getItem('inCart');
+    inCart = parseInt(inCart) + 1;
+    localStorage.setItem('incart', inCart);
+    }
+
+    
+
+   products_in_cart[product.tag].quantity = quantity;
+
+}
+else
+{
+  var inCart = 1;
+  //product.inCart = 1;
+  //product.quantity = quantity;
+  localStorage.setItem('inCart', inCart);
+
+  products_in_cart = {
+    [product.tag]: product
+  }
+  
+}
+
+localStorage.setItem('products_in_cart', JSON.stringify(products_in_cart));
+
+
+$('.toast_wrapper').fadeIn();
+$('.toast_msg span').html("Successfully added to cart!");
+
+  setTimeout(function(){
+    $('.toast_wrapper').fadeOut();
+   },3000)
+
+
+$('.cart').css("display", "flex");
+$('.cart').text(inCart);
+
+}
+
+
 // ADD TO CART
 $('.add_to_cart_btn, .details_add_to_cart').click(function(e){
   e.preventDefault();
@@ -452,9 +516,9 @@ function display_cart()
           </div>
           <div class="column_item">
             <div class="product_details_qty_box">
-              <button class="qty_box btn qty_minus">-</button>
+              <button class="qty_box btn qty_minus qty_btn" data-type="minus" data-product-tag="${item.tag}">-</button>
               <input type="text" class="qty_box qty qty_value" value="${item.quantity}">
-              <button class="qty_box btn qty_plus">+</button>
+              <button class="qty_box btn qty_plus qty_btn" data-type="plus" data-product-tag="${item.tag}">+</button>
             </div>
           </div>
           <div class="column_item">
@@ -498,7 +562,7 @@ function display_cart()
           <div class="summary_details_container">
             <div class="summary_list">
               <p>Subtotal</p>
-              <p>&#8358;${total}</p>
+              <p>&#8358;${total_cost}</p>
             </div>
             <div class="summary_list last">
               <p>Shipping</p>
@@ -506,7 +570,7 @@ function display_cart()
             </div>
             <div class="summary_total">
               <p>Total</p>
-              <p>&#8358;${total}</p>
+              <p>&#8358;${total_cost}</p>
             </div>
             <button class="close_btn">Proceed to checkout</button>
           </div>
@@ -525,7 +589,10 @@ function display_cart()
   }
   else
   {
-
+      if(product_container)
+      {
+        product_container.innerHTML = "There is no item in the cart!";
+      }
   }
 }
 
@@ -542,57 +609,114 @@ $('.category_list').hover(function(){
 $(this).children('.category_submenu').toggle();
 });
 
-//INCREASE OR DECREASE PRODUCT QUANTITY
-/*
-$('#qty_minus').click(function(){
-    let quantity = $('#qty_value').val();
-    if(quantity == 0)
-    {
-        quantity = 0;
-    }
-    else
-    {
-      quantity = quantity -1;
-    }
+//INCREASE OR DECREASE PRODUCT QUANTITY FOR DETAILS PAGE
+$('.detail_qty_btn').click(function(e){
+  e.preventDefault();
 
-    $('#qty_value').val(quantity);
+  const btn_type = $(this).attr('data-type');
+
+  let quantity = $('#qty_value').val();
+
+
+  if(btn_type == "minus")
+  {
+        if(quantity == 0)
+      {
+        quantity = 0;
+      }
+      else
+      {
+        quantity = quantity -1
+      }
+  }
+  else{
+    quantity = parseInt(quantity) + 1;
+  }
+
   
 
+ 
+
+  $('#qty_value').val(quantity);
+
+
+  // GET PRODUCT DATA
+  quantity = $('#qty_value').val();
+const product_name = $(this).attr('data-product-name');
+const product_price = $(this).attr('data-product-price');
+const product_image = $(this).attr('data-product-image');
+const product_tag = $(this).attr('data-product-tag');
+
+localStorage.setItem('current_prod_tag', product_tag);
+
+
+add_to_cart(product_name, product_price, product_image, product_tag, quantity)
 
 });
 
-$('#qty_plus').click(function(){
-  let quantity = $('#qty_value').val();
-  quantity = parseInt(quantity) +1;
 
-    $('#qty_value').val(quantity);
+
+
+//AUTOMATICALLY LOAD QUANTITY
+$(document).ready(function(){
+  let products_in_cart = localStorage.getItem('products_in_cart');
+products_in_cart = JSON.parse(products_in_cart);
+
+let prod_tag = localStorage.getItem('current_prod_tag');
+
+if(products_in_cart != null && prod_tag !=null)
+{
+   
+  const quantity = products_in_cart[prod_tag].quantity;
+
+  $('#qty_value').val(quantity);
+}
+
+
+
 });
-*/
 
-// FOR INCREASE AND DECREASE BUTTONS IN MULTIPLE ROWS
 
-$('.qty_minus').click(function(){
-  let quantity = $(this).next().val();
-  if(quantity <= 1)
-  {
-      quantity = 1;
+
+// FOR INCREASE AND DECREASE BUTTONS IN CARTS
+
+$('.cart_wrapper').on("click", ".qty_btn", function(){
+ 
+
+  const prod_tag = $(this).attr('data-product-tag');
+  const btn_type = $(this).attr('data-type');
+
+
+  // INCREASE PRODUCT QUANTITY
+
+  let products_in_cart = localStorage.getItem('products_in_cart');
+  products_in_cart = JSON.parse(products_in_cart);
+
+  if(products_in_cart != null)
+{
+    let qty = products_in_cart[prod_tag].quantity;
+
+    if(btn_type == "minus")
+    {
+          if(qty > 1)
+      {
+        products_in_cart[prod_tag].quantity -= 1;
+      }
+    }
+
+    else
+    {
+      products_in_cart[prod_tag].quantity += 1;
+    }
+
+  
+
+    localStorage.setItem('products_in_cart', JSON.stringify(products_in_cart))
+    display_cart();
+
   }
-  else
-  {
-    quantity = quantity -1;
-  }
-
-  $(this).next().val(quantity);
 
 
-
-});
-
-$('.qty_plus').click(function(){
-let quantity = $(this).prev().val();
-quantity = parseInt(quantity) +1;
-
-  $(this).prev().val(quantity);
 });
 
 

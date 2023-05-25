@@ -228,6 +228,12 @@ $rand_no;
      <?php include "includes/product_list.php";?>
    </nav>
 
+   <!-- PRODUCT YOU MAY ALSO LIKE -->
+   <section class="related_product_container">
+     <h2>You may also like</h2>
+     <?php include "includes/product_scroll.php";?>
+   </section>
+
 
 
    <!-- FOOTER SECTION -->

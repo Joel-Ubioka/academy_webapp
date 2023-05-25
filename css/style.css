@@ -1718,6 +1718,11 @@ q
   padding: 20px;
 }
 
+.complete_order_btn
+{
+  width: 100%;
+}
+
 /* ------ CATEGORY STYLES ------------*/
 
 .category_wrapper .product_columns_heading

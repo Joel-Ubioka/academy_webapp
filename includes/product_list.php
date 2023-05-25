@@ -1,5 +1,6 @@
 <div class="product_content">
   <?php
+$products = $obj->fetch_slider_products(10);
 foreach ($products as $product) {
     // CONVERT JSON IMAGES TO ARRAY
     $id = $product->id;

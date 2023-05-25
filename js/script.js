@@ -347,8 +347,7 @@ $('.add_to_cart_btn, .details_add_to_cart').click(function(e){
         </div>
   </div>
   `;
-//const footer = document.querySelector("#popup_footer");
-//footer.innerHTML = buttons;
+
 
  $('.popup_footer').html(buttons);
 
@@ -635,12 +634,12 @@ function display_checkout()
 
         <form action="" class="radio_form">
           <div class="input_column">
-            <input type="radio" name="payment_method" id="bank_transfer">
+            <input type="radio" name="payment_method" id="bank_transfer" value="Bank transfer">
             <label for="bank_transfer" class="payment_method">Bank Transfer/Deposit</label>
           </div>
 
           <div class="input_column">
-            <input type="radio" name="payment_method" id="credit_card">
+            <input type="radio" name="payment_method" id="credit_card" value="Credit card">
             <label for="credit_card" class="payment_method">Credit/Debit Card</label>
           </div>
 
@@ -668,7 +667,7 @@ function display_checkout()
               <p>Total Cost</p>
               <p>&#8358;${total_cost}</p>
             </div>
-            <button class="close_btn">Complete Payment</button>
+            <button class="close_btn complete_pay">Complete Payment</button>
           </div>
         </div>
       </div>
@@ -872,7 +871,55 @@ if(products_in_cart != null && prod_tag !=null)
 });
 
 
+// WHEN COMPLETE PAYMENT BUTTON IS CLICKED
+$('.checkout_container').on("click", ".complete_pay", function(e){
+    e.preventDefault();
 
+    const payment_method = $('input[name="payment_method"]:checked').val();
+
+    if(payment_method == undefined)
+    {
+            $('.toast_wrapper').fadeIn();
+           $('.toast_msg span').html("Select payment methos before proceeding!");
+
+        setTimeout(function(){
+          $('.toast_wrapper').fadeOut();
+        },8000)
+          }
+          else
+          {
+            if(payment_method == 'Bank transfer')
+            {
+              const content = `
+              <h4>Pay to the account details below</h4>
+              <br>
+              <p><b><i>Zenith : 1212018719</i></b></p>
+              <p><b><i>Morrhtech Solutions</i></b></p>
+              <br>
+              <p>After payment, click the button below</p>
+              <br>
+              `;
+
+              const button = `
+              <a href="${base_url}order_complete"><button class="close_btn complete_order_btn">Complete Order</button></a>
+              `;
+
+
+              $('.overlay').show();
+              $(".popup_container").css("display", "flex");
+              $(".popup_box").css("flex-basis", "400px");
+            
+            
+             $('.popup_body').html(content);
+             $('.popup_footer').html(button);
+            }
+            else
+            {
+              window.location = "payment";
+            }
+
+          }
+});
 
 
 

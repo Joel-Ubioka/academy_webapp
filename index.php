@@ -20,8 +20,8 @@
      <div class="advert_container">
        <div class="advert_inner_container">
          <?php
-$products = $obj->fetch_slider_products(2);
-foreach ($products as $product) {
+$prod_detail = $obj->fetch_slider_products(2);
+foreach ($prod_detail as $product) {
     $product_id = $product->id;
     $product_name = $product->product_name;
     // CONVERT JSON IMAGES TO ARRAY

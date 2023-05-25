@@ -5,7 +5,15 @@
    <!-- TOPBAR AND NAVBAR SECTION -->
    <?php include "includes/header2.php";?>
 
-   <div class="columns_container">
+   <div class="columns_container checkout_container">
+
+
+   </div>
+
+
+
+   <!--
+     <div class="columns_container checkout_container">
 
      <div class="product_columns_heading">
        <div class="category_title_container">
@@ -127,6 +135,7 @@
 
 
    </div>
+    -->
 
    <!-- FOOTER SECTION -->
    <?php require "includes/footer.php";?>

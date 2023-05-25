@@ -131,8 +131,7 @@ $('.popup_footer').on("click", ".proceed_btn", function(e){
 
   const customer_email = localStorage.getItem('customer_email');
 
-// console.log(customer_email);
-// return;
+ 
 
   if(customer_email !== null)
   {
@@ -344,7 +343,7 @@ $('.add_to_cart_btn, .details_add_to_cart').click(function(e){
           <button class="open_btn proceed_btn">Proceed to buy</button>
         </div>
         <div class="buy_btn_content">
-            <button class="close_btn select_more_btn">Select more course</button>
+            <button class="close_btn select_more_btn">Select more</button>
         </div>
   </div>
   `;
@@ -525,7 +524,7 @@ function display_cart()
             <p>&#8358;${sub_total}</p>
           </div>
           <div class="column_item">
-            <button class="product_remove_btn">
+            <button class="product_remove_btn" data-tag="${item.tag}">
               <span class="material-symbols-outlined">close</span>
             </button>
           </div>
@@ -535,7 +534,7 @@ function display_cart()
 
         });
 
-
+        localStorage.setItem('total_cost',total);
         let total_cost = new Intl.NumberFormat().format(total);
 
     output += `
@@ -572,7 +571,7 @@ function display_cart()
               <p>Total</p>
               <p>&#8358;${total_cost}</p>
             </div>
-            <button class="close_btn">Proceed to checkout</button>
+           <a href="${base_url}checkout"> <button class="close_btn">Proceed to checkout</button></a>
           </div>
         </div>
       </div>
@@ -583,7 +582,7 @@ function display_cart()
     `;
 
         product_container.innerHTML = output;
-        // popup_container.innerHTML = output;
+        $('.popup_body.cart_wrapper').html(output);
 
       }
   }
@@ -598,6 +597,202 @@ function display_cart()
 
 
 display_cart();
+
+
+
+// DISPLAY CART ITEMS IN CHECKOUT
+function display_checkout()
+{
+  let cart_items = localStorage.getItem('products_in_cart');
+  cart_items = JSON.parse(cart_items);
+
+  let total_cost = localStorage.getItem('total_cost');
+  total_cost = new Intl.NumberFormat().format(total_cost);
+
+
+  let product_container = document.querySelector('.checkout_container');
+
+  if(cart_items && product_container)
+  {
+    let output = "";
+    output += `
+    
+    
+    <div class="product_columns_heading">
+    <div class="category_title_container">
+      <h1 class="columns_title">Checkout</h1>
+      <div class="line_container">
+        <div class="line"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column_wrapper checkout_wrap">
+    <div class="column_inner_container">
+      <p>Select Payment Method</p>
+      <div class=" checkout payment">
+
+
+        <form action="" class="radio_form">
+          <div class="input_column">
+            <input type="radio" name="payment_method" id="bank_transfer">
+            <label for="bank_transfer" class="payment_method">Bank Transfer/Deposit</label>
+          </div>
+
+          <div class="input_column">
+            <input type="radio" name="payment_method" id="credit_card">
+            <label for="credit_card" class="payment_method">Credit/Debit Card</label>
+          </div>
+
+        </form>
+
+
+
+
+      </div>
+
+
+    </div>
+    <div class="column_inner_container">
+      <div class="summary_container">
+        <div class="product_columns_heading">
+          <div class="summary_details_container">
+            <div class="category_title_container summary">
+              <h2 class="columns_title">Summary</h2>
+            </div>
+            <div class="summary_list last">
+              <p>Original Cost</p>
+              <p>&#8358;${total_cost}</p>
+            </div>
+            <div class="summary_total">
+              <p>Total Cost</p>
+              <p>&#8358;${total_cost}</p>
+            </div>
+            <button class="close_btn">Complete Payment</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="column_body  order_details_wrapper">
+    <div class="category_title_container">
+      <h2 class="columns_title order_details">Order Details</h2>
+    </div>
+    
+    <div class="order_details_inner">
+    
+    `;
+
+
+      Object.values(cart_items).map(item =>{
+
+        
+        let sub_total = parseInt(item.price) * parseInt(item.quantity);
+            cost = new Intl.NumberFormat().format(sub_total)
+
+
+        output += `
+        
+              <div class="column_content checkout">
+                    <div class="column_img">
+                      <img src="images/products/${item.image}" alt="">
+                    </div>
+                    <div class="column_desc">
+                      <p>${item.name}</p>
+                    </div>
+
+                    <div class="column_item">
+                      <p>&#8358;${cost}</p>
+                    </div>
+            </div>
+        
+        `;
+
+      });
+
+        output += `
+              </div>
+              </div>
+        
+        `;
+
+       // $('.summary_list.last').text(total_cost)
+
+        product_container.innerHTML = output;
+
+  }
+  else
+  {
+    if(product_container)
+    {
+      product_container.innerHTML = "There is no item in the cart";
+      window.location = base_url;
+    }
+  }
+}
+display_checkout();
+
+
+
+// DELETE ITEM FROM CART
+$('.cart_wrapper').on('click', '.product_remove_btn', function(){
+  let cart_items = localStorage.getItem('products_in_cart');
+  cart_items = JSON.parse(cart_items);
+  cart_items_array = Object.entries(cart_items);
+  cart_items_keys = Object.keys(cart_items);
+
+  let product_tag = $(this).attr('data-tag');
+
+  let inCart = localStorage.getItem('inCart');
+  inCart = parseInt(inCart);
+
+  let index = 0;
+
+  cart_items_keys.map(item =>{
+
+    if(item == product_tag)
+    {
+      if(cart_items_array.length == 1)
+      {
+        localStorage.removeItem('products_in_cart');
+        inCart = 0;
+
+        $('.overlay').hide();
+        $('.popup_container').hide();
+      }
+      else{
+        cart_items_array.splice(index, 1);
+        inCart -= 1;
+        cart_items = Object.fromEntries(cart_items_array);
+        localStorage.setItem('products_in_cart', JSON.stringify(cart_items));
+      }
+
+      localStorage.setItem('inCart', inCart);
+
+      if(inCart !== 0)
+      {
+        $('.cart').text(inCart);
+      }
+      else
+      {
+        $('.cart').hide();
+      }
+
+      display_cart();
+
+    }
+    else
+    {
+      index += 1;
+    }
+
+  });
+
+});
+
 
 
 
@@ -675,6 +870,10 @@ if(products_in_cart != null && prod_tag !=null)
 
 
 });
+
+
+
+
 
 
 

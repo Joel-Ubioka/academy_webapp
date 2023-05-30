@@ -66,6 +66,36 @@
   overflow: auto;
 }
 
+
+.popup_body p:not(:last-child)
+{
+ margin-bottom: 20px;
+}
+
+.popup_body h1, .popup_body h2, .popup_body h3,
+.popup_body h4, .popup_body h5, .popup_body h6
+{
+ margin-bottom: 20px;
+}
+
+.popup_body .image_box
+{
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.popup_body .image_box img
+{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
 .popup_footer
 {
   padding: 10px;

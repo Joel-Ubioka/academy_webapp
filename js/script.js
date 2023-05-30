@@ -293,7 +293,7 @@ if(products_in_cart != null)
       }
 var inCart = localStorage.getItem('inCart');
     inCart = parseInt(inCart) + 1;
-    localStorage.setItem('incart', inCart);
+    localStorage.setItem('inCart', inCart);
     }
 
     
@@ -381,7 +381,7 @@ if(products_in_cart != null)
       }
 var inCart = localStorage.getItem('inCart');
     inCart = parseInt(inCart) + 1;
-    localStorage.setItem('incart', inCart);
+    localStorage.setItem('inCart', inCart);
     }
 
     
@@ -876,11 +876,13 @@ $('.checkout_container').on("click", ".complete_pay", function(e){
     e.preventDefault();
 
     const payment_method = $('input[name="payment_method"]:checked').val();
+    localStorage.setItem('payment_method', payment_method);
 
     if(payment_method == undefined)
     {
             $('.toast_wrapper').fadeIn();
-           $('.toast_msg span').html("Select payment methos before proceeding!");
+            $('.toast_container').addClass('danger');
+           $('.toast_msg span').html("Select payment method before proceeding!");
 
         setTimeout(function(){
           $('.toast_wrapper').fadeOut();

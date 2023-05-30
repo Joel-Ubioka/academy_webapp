@@ -135,7 +135,7 @@ class Customers_class extends File_class
 
         $stmt = $this->connect()->prepare('INSERT INTO customers (full_name, email, phone_number, password) VALUES(?,?,?,?)');
         if ($stmt->execute(array($full_name, $email, $phone_number, $hashed_password))) {
-
+            $_SESSION['customer_email'] = $email;
             echo "Successful! loading to checkout...";
 
         } else {

@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 require_once "../dashboard/config/config.php";
 require_once '../functions/autoloader.php';
 

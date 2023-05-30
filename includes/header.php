@@ -5,6 +5,7 @@ require_once "dashboard/classes/file_class.php";
 require_once "dashboard/classes/product_category_class.php";
 require_once "dashboard/classes/sub_category_class.php";
 require_once "dashboard/classes/product_class.php";
+require_once "classes/customers_class.php";
 
 include "url/base_url.php";
 

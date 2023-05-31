@@ -178,6 +178,20 @@ $('.popup_footer').on("click", ".proceed_btn", function(e){
         visibility_off
       </span>
     </div>
+
+    <div class="input_container">
+      <span class="material-symbols-outlined">
+        home
+      </span>
+      <input type="tel" name="address" class="form_input" placeholder="Address" required>
+    </div>
+
+    <div class="input_container">
+      <span class="material-symbols-outlined">
+        flag
+      </span>
+      <input type="tel" name="country" class="form_input" placeholder="Country" required>
+    </div>
  
 
     <button name="submit" class="close_btn">Sign Up</button>

@@ -35,7 +35,7 @@ include "popups/popup.php";
        },
        url: "<?php echo $base_url; ?>dashboard/ajax_functions/order_complete_ajax.php",
        success: function(response) {
-         response = "Successful";
+
          if (response == "Order empty") {
            window.location = "<?php echo $base_url; ?>";
          } else {

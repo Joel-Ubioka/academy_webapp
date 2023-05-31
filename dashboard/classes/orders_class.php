@@ -198,7 +198,7 @@ class Orders_class extends Product_class
 
         }
 
-        echo $message;
+        return $message;
 
     }
 

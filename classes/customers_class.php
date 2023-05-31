@@ -122,7 +122,7 @@ class Customers_class extends File_class
         }
     }
 
-    public function insert_customer($full_name, $email, $phone_number, $password)
+    public function insert_customer($full_name, $email, $phone_number, $password, $address, $country)
     {
 
         //CHECK IF THE USER IS EXISTING ALREADY
@@ -133,8 +133,8 @@ class Customers_class extends File_class
 
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        $stmt = $this->connect()->prepare('INSERT INTO customers (full_name, email, phone_number, password) VALUES(?,?,?,?)');
-        if ($stmt->execute(array($full_name, $email, $phone_number, $hashed_password))) {
+        $stmt = $this->connect()->prepare('INSERT INTO customers (full_name, email, phone_number, password, address, country) VALUES(?,?,?,?,?,?)');
+        if ($stmt->execute(array($full_name, $email, $phone_number, $hashed_password, $address, $country))) {
             $_SESSION['customer_email'] = $email;
             echo "Successful! loading to checkout...";
 

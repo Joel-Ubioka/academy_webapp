@@ -502,26 +502,48 @@ p
   white-space: nowrap;
 }
 
-
-.status.pending
+.product_status_wrapper button
 {
-  background: var( --color4);
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  color:var(--color_shade1) ;
+  font-weight: bold;
+  border: transparent;
+
+}
+
+.product_status_wrapper button:focus
+{
+ border: 1px solid var(--highlight_color);
+ 
+
+}
+
+.product_status_wrapper button:not(:last-child)
+{
+  margin-bottom: 20px;
+}
+
+.status.pending, .pending_btn
+{
+  background: var( --color4) !important;
 }
 
 
-.status.return
+.status.return, .return_btn
 {
-  background: var(  --color3);
+  background: var(  --color3) !important;
 }
 
-.status.inprogress
+.status.inprogress, .inprogress_btn
 {
-  background: var( --color2);
+  background: var( --color2) !important;
 }
 
-.status.delivered
+.status.delivered, .delivered_btn
 {
-  background: var( --success_color_shade);
+  background: var( --success_color_shade) !important;
 }
 
 .recentCustomers

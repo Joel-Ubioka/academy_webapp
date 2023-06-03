@@ -416,6 +416,8 @@ $('.popup_footer').on("click", ".no_btn", function(e){
   
 });
 
+
+
 // DELETE ITEM
 
 $('.popup_footer').on("click", ".delete_btn", function(e){
@@ -452,6 +454,135 @@ $('.popup_footer').on("click", ".delete_btn", function(e){
         $(that).children('button').attr('disabled', false);
          
           
+
+      }
+  });
+  
+});
+
+// SHOW UPDATE STATUS POPUP
+$('.dashboard_container').on("click", ".update_status_link", function(e){
+
+  e.preventDefault();
+
+  const id = $(this).attr('data-id');
+  const url =  $(this).attr('data-url');
+  const table = $(this).attr('data-table');
+  const column = $(this).attr('data-column');
+  
+  localStorage.setItem("update_id", id);
+  localStorage.setItem("update_url", url);
+  localStorage.setItem("update_column", column);
+  
+   
+    const message = "<p>Click any of the button below to update your product status.</p>";
+    const btns = `<div class="product_status_wrapper">
+                    <button data-id="${id}" data-url="${url}" data-table="${table}" data-column="${column}" data-value="In progress" class="open_btn update_status_btn inprogress_btn">In progress</button>
+                    <button data-id="${id}" data-url="${url}" data-table="${table}" data-column="${column}" data-value="Pending" class="open_btn update_status_btn pending_btn">Pending</button>
+                    <button data-id="${id}" data-url="${url}" data-table="${table}" data-column="${column}" data-value="Return" class="open_btn update_status_btn return_btn">Return</button>
+                    <button data-id="${id}" data-url="${url}" data-table="${table}" data-column="${column}" data-value="Delivered" class="open_btn update_status_btn delivered_btn">Delivered</button>
+                 </div>`;
+  
+    $('.overlay').show();
+      $('.popup_container').css('display','flex');
+      $('.popup_box').css('flex-basis', '400px');
+      $('.popup_body').html(message);
+      $('.popup_footer').html(btns);
+  });
+
+  // DELETE ITEM
+  $('.popup_footer').on("click", ".update_status_btn", function(e){
+    e.preventDefault();
+
+    const id = $(this).attr('data-id');
+    const url =  $(this).attr('data-url');
+    const table = $(this).attr('data-table');
+    const column = $(this).attr('data-column');
+    const value = $(this).attr('data-value');
+  
+    update_item(id, url, table, column, value);
+  });
+
+
+  function update_item(id, url, table, column, value)
+  {
+  // const id = $(this).attr('data-id');
+  // const url =  $(this).attr('data-url');
+  // const table = $(this).attr('data-table');
+  // const column = $(this).attr('data-column');
+  // const value = $(this).attr('data-value');
+
+  $.ajax({
+    type: "POST",
+      url: url,
+      data:{'id':id, 'table': table, 'column': column, 'value': value},
+
+      success: function(response){
+       
+
+        $('.toast_wrapper').fadeIn();
+        if(response !== "Successfully updated!")
+        {
+          $('.toast_container').addClass('danger');
+        }
+        else{
+          $('.toast_container').removeClass('danger');
+          $('.overlay').hide();
+          $('.popup_container').css('display','none');
+          load_active_page();
+        }
+        $('.toast_msg span').html(response);
+  
+          setTimeout(function(){
+            $('.toast_wrapper').fadeOut();
+          },5000)
+  
+   
+
+      }
+  });
+  }
+
+// UPDATE ITEM
+
+$('.dashboard_container').on("click", ".update_btn", function(e){
+
+
+
+  e.preventDefault();
+
+  const id = $(this).attr('data-id');
+  const url =  $(this).attr('data-url');
+  const table = $(this).attr('data-table');
+  const column = $(this).attr('data-column');
+  const value = $(this).attr('data-value');
+
+  $.ajax({
+    type: "POST",
+      url: url,
+      data:{'id':id, 'table': table, 'column': column, 'value': value},
+
+      success: function(response){
+       
+
+        $('.toast_wrapper').fadeIn();
+        if(response !== "Successfully updated!")
+        {
+          $('.toast_container').addClass('danger');
+        }
+        else{
+          $('.toast_container').removeClass('danger');
+          $('.overlay').hide();
+          $('.popup_container').css('display','none');
+          load_active_page();
+        }
+        $('.toast_msg span').html(response);
+  
+          setTimeout(function(){
+            $('.toast_wrapper').fadeOut();
+          },5000)
+  
+   
 
       }
   });

@@ -121,7 +121,16 @@ require "includes/header_dashboard.php";
         </li>
 
         <li>
-          <a href="#" data-url='includes/insert_product.php'>
+          <a href="#" data-url='includes/orders.php'>
+            <span class="icon">
+              <ion-icon name="list-outline"></ion-icon>
+            </span>
+            <span class="title">Orders</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" data-url='#'>
             <span class="icon">
               <ion-icon name="notifications-outline"></ion-icon>
             </span>

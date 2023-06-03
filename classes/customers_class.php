@@ -49,7 +49,7 @@ class Customers_class extends File_class
     public function get_customer_name($id)
     {
         $customer_array = $this->fetch_customer_by_id($id);
-        return $customer_array->customer_name;
+        return $customer_array->full_name;
     }
 
     public function fetch_customers()
@@ -61,7 +61,7 @@ class Customers_class extends File_class
 
     protected function select_customers()
     {
-        $stmt = $this->connect()->prepare('SELECT * FROM customers');
+        $stmt = $this->connect()->prepare('SELECT * FROM customers ORDER BY id DESC');
         if (!$stmt->execute()) {
             $stmt = null;
             echo 'Connection failed';
@@ -166,6 +166,24 @@ class Customers_class extends File_class
     public function view_customers()
     {
         $stmt = $this->select_customers();
+        $customer_array = $stmt->fetchAll(PDO::FETCH_OBJ);
+        return $customer_array;
+    }
+
+    protected function select_some_customers($limit)
+    {
+        $stmt = $this->connect()->prepare("SELECT * FROM customers ORDER BY id DESC LIMIT $limit");
+        if (!$stmt->execute()) {
+            $stmt = null;
+            echo 'Connection failed';
+        } else {
+            return $stmt;
+        }
+    }
+
+    public function fetch_some_customers($limit)
+    {
+        $stmt = $this->select_some_customers($limit);
         $customer_array = $stmt->fetchAll(PDO::FETCH_OBJ);
         return $customer_array;
     }

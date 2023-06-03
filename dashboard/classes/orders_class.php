@@ -63,6 +63,24 @@ class Orders_class extends Product_class
         return $order_array;
     }
 
+    protected function select_some_orders($limit)
+    {
+        $stmt = $this->connect()->prepare("SELECT * FROM orders ORDER BY id DESC LIMIT $limit");
+        if (!$stmt->execute()) {
+            $stmt = null;
+            echo 'Connection failed';
+        } else {
+            return $stmt;
+        }
+    }
+
+    public function fetch_some_orders($limit)
+    {
+        $stmt = $this->select_some_orders($limit);
+        $order_array = $stmt->fetchAll(PDO::FETCH_OBJ);
+        return $order_array;
+    }
+
     protected function select_order_by_category($category_id)
     {
         $stmt = $this->connect()->prepare('SELECT * FROM orders WHERE category_id=?');
@@ -179,6 +197,9 @@ class Orders_class extends Product_class
         $address = $customer_details->address;
         $country = $customer_details->country;
 
+        // DEFINE PRODUCT STATUS BASED ON PAYMENT METHOD
+        ($payment_method == "Bank transfer") ? $payment_status = "Unpaid" : $payment_status = "Paid";
+
         foreach ($orders as $order) {
             $product_name = $order->name;
             $product_id = $this->get_product_id($product_name);
@@ -186,8 +207,8 @@ class Orders_class extends Product_class
             $product_qty = $order->quantity;
             $product_img = $order->image;
 
-            $stmt = $this->connect()->prepare('INSERT INTO orders (product_id,product_price, quantity, product_image, payment_method,customer_id,email,phone_number,address,country) VALUES(?,?,?,?,?,?,?,?,?,?)');
-            if ($stmt->execute(array($product_id, $product_price, $product_qty, $product_img, $payment_method, $customer_id, $email, $phone_number, $address, $country))) {
+            $stmt = $this->connect()->prepare('INSERT INTO orders (product_id,product_price, quantity, product_image, payment_method, payment_status, customer_id,email,phone_number,address,country) VALUES(?,?,?,?,?,?,?,?,?,?,?)');
+            if ($stmt->execute(array($product_id, $product_price, $product_qty, $product_img, $payment_method, $payment_status, $customer_id, $email, $phone_number, $address, $country))) {
 
                 $message = "Successfully ordered!";
 
@@ -200,6 +221,23 @@ class Orders_class extends Product_class
 
         return $message;
 
+    }
+
+    protected function select_generic($table)
+    {
+        $stmt = $this->connect()->prepare("SELECT * FROM $table");
+        if (!$stmt->execute()) {
+            $stmt = null;
+            echo 'Connection failed';
+        } else {
+            return $stmt;
+        }
+    }
+
+    public function count_record($table)
+    {
+        $stmt = $this->select_generic($table);
+        return $stmt->rowCount();
     }
 
     public function view_orders()

@@ -222,7 +222,7 @@ $('.reset_pass_link').click(function(){
 
        <h2>Reset password</h2>
 
-       <form action="" method="POST" id="signup_form">
+       <form action="${base_url}ajax_functions/update_reset_code_ajax.php" method="POST" id="reset_pass_form">
 
          <div class="input_container">
            <span class="material-symbols-outlined">
@@ -231,16 +231,143 @@ $('.reset_pass_link').click(function(){
            <input type="email" name="email" class="form_input" placeholder="Email" required>
          </div>
 
-         <button name="submit" class="close_btn">Login</button>
+         <button name="submit" class="close_btn">Reset Password</button>
 
        </form>
-              <p>Remember your password <a href="signup">Reset Password</a></p>
+              <p>Remember your password <a href="signup">Login</a></p>
      </div>
                             `;
 
                             $('.popup_body').html(reset_pass_element);
                            
 });
+
+
+//RESET PASSWORD (UPDATE PASSWORD RESET CODE)
+$('.popup_body').on('submit','#reset_pass_form', function(e){
+  e.preventDefault();
+  const that = this;
+  $(that).children('button').attr('disabled', true);
+
+  $(this).ajaxSubmit({
+
+success: function(response){
+
+  if(response !== "Successfully updated")
+  {
+
+    $('.toast_wrapper').fadeIn();
+    $('.toast_container').addClass('danger');
+$('.toast_msg span').html(response);
+
+  setTimeout(function(){
+    $('.toast_wrapper').fadeOut();
+   },3000)
+  
+  }
+  else{
+
+        $.ajax({
+          type: "GET",
+          url: "reset_password.php",
+          success: function(response){
+            $('.popup_body').html(response);
+          }
+        });
+
+
+        
+    
+  }
+
+  $(that).children('button').attr('disabled', false);
+   
+    
+}
+  });
+});
+
+
+
+//RESET PASSWORD
+
+
+$('.popup_body').on('submit','.update_form_data', function(e){
+  e.preventDefault();
+  const that = this;
+
+  $(that).children('button').attr('disabled', true);
+
+  $(this).ajaxSubmit({
+
+success: function(response){
+
+  $('.toast_wrapper').fadeIn();
+   
+
+  if(response !== "Successfully updated")
+  {
+    $('.toast_container').addClass('success');
+    $('.toast_msg span').html(response);
+    setTimeout(function(){
+      $('.toast_wrapper').fadeOut();
+    
+    },5000)
+ 
+  }
+  else{
+    $('.toast_container').removeClass('danger');
+    $('.toast_msg span').html("Password successfully updated! You can now use the new password to login!");
+    that.reset();
+    $('.popup_container').hide();
+    $('.overlay').hide();
+
+    setTimeout(function(){
+          $('.toast_wrapper').fadeOut();
+        
+        },10000)
+  }
+  
+  
+    
+
+  $(that).children('button').attr('disabled', false);
+   
+    
+}
+  });
+});
+
+
+// SHOW RESET PASSWORD POPUP
+// $('.reset_pass_link').click(function(){
+//   $(".overlay").show();
+//   $(".popup_container").css("display", "flex");
+
+//   const reset_pass_element = `
+//   <div class="signup_container">
+
+//        <h2>Reset password</h2>
+
+//        <form action="" method="POST" id="signup_form">
+
+//          <div class="input_container">
+//            <span class="material-symbols-outlined">
+//              mail
+//            </span>
+//            <input type="email" name="email" class="form_input" placeholder="Email" required>
+//          </div>
+
+//          <button name="submit" class="close_btn">Login</button>
+
+//        </form>
+//               <p>Remember your password <a href="signup">Reset Password</a></p>
+//      </div>
+//                             `;
+
+//                             $('.popup_body').html(reset_pass_element);
+                           
+// });
 
 
 //SHOW PASSWORD
@@ -1025,6 +1152,16 @@ function insert()
 
 }
 insert()
+
+
+
+
+
+
+
+
+
+
 
 //INSERT FUNCTION FOR CUSTOMER REG
 function customer_reg()

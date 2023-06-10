@@ -232,4 +232,77 @@ class Users_class extends File_class
         }
 
     }
+
+
+    public function update_reset_code($email, $reset_code)
+    {
+          if(!$this->user_exists($email))
+          {
+            echo "User does not exist!";
+            exit();
+          }
+          
+
+            // $reset_code = uniqid();
+            
+            $update = $this->connect()->prepare("UPDATE users SET reset_code=? WHERE email=?");
+            if(!$update->execute(array($reset_code, $email)))
+            {
+              echo "Connection failed!";
+              exit();
+            }
+            else
+            {
+                $_SESSION['resest_email'] = $email;
+                echo "Successfully updated";
+            }
+          
+    }
+
+
+    public function reset_password($email, $reset_code, $new_password, $confirm_password)
+    {
+          if(!$this->user_exists($email))
+          {
+            echo "User does not exist!";
+            exit();
+          }
+
+          if($new_password !== $confirm_password)
+          {
+            echo "Password do not match!";
+            exit();
+          }
+          
+
+          //GET USER'S RESET CODE
+          $user_details = $this->fetch_user($email);
+          $db_reset_code = $user_details->reset_code;
+
+          if($reset_code !== $db_reset_code)
+          {
+            echo "You entered wrong reset code!";
+            exit();
+          }
+          
+          $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
+          
+
+            
+            $update = $this->connect()->prepare("UPDATE users SET password=? WHERE email=?");
+            if(!$update->execute(array($hashed_password, $email)))
+            {
+              $message =  "Connection failed!";
+              exit();
+            }
+            else
+            {
+                $message =  "Successfully updated";
+            }
+
+            return $message;
+          
+    }
+
+    
 }

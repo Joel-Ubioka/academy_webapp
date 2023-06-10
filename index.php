@@ -182,7 +182,7 @@ $prod_id = $product_array[$rand_no][0];
 
      <?php
 $min_no = 1;
-$max_no = count($product_array) - 1;
+$max_no = count($product_array) -1;
 
 $rand_no = rand($min_no, $max_no);
 $product_title = $product_array[$rand_no][1];

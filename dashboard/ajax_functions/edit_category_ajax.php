@@ -1,5 +1,4 @@
 <?php
-<?php
 include "../config/config.php";
 include '../functions/autoloader.php';
 

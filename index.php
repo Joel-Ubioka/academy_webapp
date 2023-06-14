@@ -157,10 +157,16 @@ $product_title = $product_array[$rand_no][1];
 
 $images = $product_array[$rand_no][9];
 
+
+
 // CONVERT JSON IMAGES TO ARRAY
 $images = json_decode($images);
 
-$ran_images = $images[$rand_no];
+$image_max_no = count($images)-1;
+
+$img_rand_no = rand($min_no, $image_max_no);
+
+$ran_images = $images[$img_rand_no];
 
 $prod_id = $product_array[$rand_no][0];
 ?>
@@ -181,7 +187,7 @@ $prod_id = $product_array[$rand_no][0];
      </div>
 
      <?php
-$min_no = 1;
+$min_no = 0;
 $max_no = count($product_array) -1;
 
 $rand_no = rand($min_no, $max_no);
@@ -189,9 +195,14 @@ $product_title = $product_array[$rand_no][1];
 
 $images = $product_array[$rand_no][9];
 
+
 // CONVERT JSON IMAGES TO ARRAY
 $images = json_decode($images);
-$ran_images = $images[$rand_no];
+$image_max_no = count($images)-1;
+
+$img_rand_no = rand($min_no, $image_max_no);
+
+$ran_images = $images[$img_rand_no];
 
 $prod_id = $product_array[$rand_no][0];
 

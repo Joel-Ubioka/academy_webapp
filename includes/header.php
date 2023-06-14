@@ -1,4 +1,6 @@
-<?php session_start();
+<?php
+ob_start();
+session_start();
 require_once "dashboard/config/config.php";
 require_once 'functions/dashboard_autoloader.php';
 require_once "dashboard/classes/file_class.php";

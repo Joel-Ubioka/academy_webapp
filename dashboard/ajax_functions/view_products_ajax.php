@@ -11,7 +11,7 @@ $is_products_empty = $obj->is_products_empty();
 
 <div class="table_wrapper">
   <h2>
-    <ion-icon name="star-outline"></ion-icon> Products Categories
+    <ion-icon name="star-outline"></ion-icon> Products
   </h2>
   <div class="table_container">
     <table id="table_format" class="table_format">
@@ -45,7 +45,8 @@ if ($is_products_empty) {
 
         $id = $item->id;
         $product_name = $item->product_name;
-        $product_category = $item->product_category;
+        $category_id = $item->category_id;
+        $product_category = $obj->get_category_name($category_id);
 
         $product_price = $item->product_price;
         $product_price = "&#8358;" . number_format($product_price);

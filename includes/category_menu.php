@@ -16,9 +16,13 @@ if ($sub_category_obj->sub_category_by_cat_exist($category->id)) {
       <?php
 $sub_categories = $sub_category_obj->fetch_subcategory_by_cat_id($category->id);
         foreach ($sub_categories as $sub_category) {
+
+          $sub_category_name = str_replace(' ', '-', $sub_category->sub_category);
+
+          
             ?>
       <li class="category_submenu_list "><a
-          href="<?php echo $base_url . 'categories/' . $sub_category->id . "/" . $sub_category->sub_category; ?>"><?php echo $sub_category->sub_category; ?></a>
+          href="<?php echo $base_url . 'categories/' . $sub_category->id . "/" . $sub_category_name ; ?>"><?php echo $sub_category->sub_category; ?></a>
       </li>
       <?php
 }

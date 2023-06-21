@@ -20,8 +20,8 @@ require "includes/header_dashboard.php";
       <ul>
         <li>
           <a href="#" data-url='includes/dashboard.php'>
-            <span class="icon logo_container"><img src="images/logo.png" alt=""></span>
-            <span class="title">Morrhtech Solutions</span>
+            <span class="icon logo_container"><img src="images/logo.jpg" alt=""></span>
+            <span class="title">Floxi Luxury Store</span>
           </a>
         </li>
 

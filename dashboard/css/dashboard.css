@@ -439,7 +439,7 @@ p
   padding: 5px 10px;
   background: var(--highlight_color);
   text-decoration: none;
-  color: var(--main_color);
+  color: var(--main_color_shade);
   border-radius: 6px;
 }
 

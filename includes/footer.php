@@ -8,7 +8,7 @@
       </p>
       <div class="product_details_btn_container">
         <a href="tel: 08035817907"> <button class="open_btn" style="color: white;">Call Us</button></a>
-        <a href="#"> <button class="close_btn">Chat Us</button></a>
+        <a href="https://wa.me/message/5VE7VU6KF6XDL1"> <button class="close_btn">Chat Us</button></a>
       </div>
     </div>
     <div class="footer_column get_in_touch">
@@ -20,7 +20,7 @@
       </p>
       <p>
         <span class="material-symbols-outlined">mail</span>
-        <a href="mailto: admin@floxi.com"><span>admin@floxi.com</span></a>
+        <a href="mailto: admin@floxi.com"><span>admin@floxi.com.ng</span></a>
       </p>
       <p>
         <span class="material-symbols-outlined">call</span>
@@ -33,22 +33,22 @@
         <span class="material-symbols-outlined">navigate_next</span>
         <span> Home</span>
       </a>
-      <a href="">
+      <a href="<?php echo $base_url; ?>about_us.php">
         <span class="material-symbols-outlined">navigate_next</span>
-        <span>About</span>
+        <span>About Us</span>
       </a>
-      <a href="">
+      <a href="<?php echo $base_url; ?>contact.php">
         <span class="material-symbols-outlined">navigate_next</span>
 
         <span>Contact</span>
       </a>
-      <a href="">
+      <a href="<?php echo $base_url; ?>faq.php">
         <span class="material-symbols-outlined">navigate_next</span>
-        <span>Market</span>
+        <span>FAQ</span>
       </a>
-      <a href="">
+      <a href="<?php echo $base_url; ?>privacy_policy.php">
         <span class="material-symbols-outlined">navigate_next</span>
-        <span>Blog</span>
+        <span>Privacy & Policy</span>
       </a>
     </div>
     <div class="footer_column">
@@ -56,7 +56,9 @@
       <p> To receive our free tutorials and opportunities enter your email below</p>
       <form action="" id="subscribe">
         <input type="email" name="email" class="form_input" placeholder="Enter your email">
-        <button class="search_btn">Subscribe</button>
+        <button class="search_btn">
+          <p style="color: white;">Subscribe</p>
+        </button>
       </form>
       <div class="social_container">
         <h3>Follow Us</h3>

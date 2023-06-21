@@ -1440,7 +1440,7 @@ q
   grid-template-columns: 3fr 1fr 2fr 1fr 1fr ;
   column-gap: 10px;
   background-color: var(--highlight_color);
-  color: var(--main_color);
+  color: var(--main_color_shade);
   padding: 10px;
 
 }

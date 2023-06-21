@@ -52,7 +52,7 @@ include "popups/popup.php";
 
                     `;
            const button = `
-                                <a href="#"><button class="close_btn complete_order_btn">Chat Us</button></a>
+                                <a href="https://wa.me/message/5VE7VU6KF6XDL1"><button class="close_btn complete_order_btn">Chat Us</button></a>
                                 `;
 
            $('.loading_container').hide();

@@ -1036,8 +1036,8 @@ $('.checkout_container').on("click", ".complete_pay", function(e){
               const content = `
               <h4>Pay to the account details below</h4>
               <br>
-              <p><b><i>Zenith : 1212018719</i></b></p>
-              <p><b><i>Morrhtech Solutions</i></b></p>
+              <p><b><i>Access Bank :1789648030</i></b></p>
+              <p><b><i>Floxi Luxury Store</i></b></p>
               <br>
               <p>After payment, click the button below</p>
               <br>

@@ -32,4 +32,7 @@ $product_image = $_FILES['product_img'];
 
 $obj = new Product_class();
 
+
+
+
 $obj->update_product($product_id, $product_name, $product_category, $product_price, $product_tag, $product_publisher, $product_spec, $product_desc, $product_image);

@@ -304,7 +304,7 @@ class Product_class extends Sub_category_class
         $file_names = json_encode($file_names);
 
         if ($upload) {
-            $stmt = $this->connect()->prepare('UPDATE products SET product_name=?,product_category=?, product_price=?, product_tag=?, product_publisher=?, product_spec=?, product_desc=?, product_image=? WHERE id=?');
+            $stmt = $this->connect()->prepare('UPDATE products SET product_name=?, category_id=?, product_price=?, product_tag=?, product_publisher=?, product_spec=?, product_desc=?, product_image=? WHERE id=?');
             if ($stmt->execute(array($product_name, $product_category, $product_price, $product_tag, $product_publisher, $product_spec, $product_desc, $file_names, $product_id))) {
 
                 $result = "Successfully updated!";

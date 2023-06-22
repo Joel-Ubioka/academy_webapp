@@ -35,8 +35,9 @@ $product_detail = $product_obj->fetch_product_by_id($id);
               <option value="">Select Category</option>
               <?php
 foreach ($categories as $item) {
+    $category_id = $item->id;
     $category = $item->category_name;
-    echo "<option value='$category'>$category</option>";
+    echo "<option value='$category_id'>$category</option>";
 }
 
 ?>

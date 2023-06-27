@@ -1,5 +1,8 @@
 <?php session_start();
 include "../url/base_url.php";
+include "config/config.php";
+include 'functions/autoloader.php';
+include "../classes/users_class.php";
 if (!isset($_SESSION['user_email'])) {
 
     header('location:' . $base_url . 'login');
@@ -7,6 +10,9 @@ if (!isset($_SESSION['user_email'])) {
 }
 
 $email = $_SESSION['user_email'];
+
+$user_obj = new Users_class;
+$is_admin = $user_obj->is_admin($email);
 
 // HEADER SECTION
 require "includes/header_dashboard.php";
@@ -34,6 +40,10 @@ require "includes/header_dashboard.php";
           </a>
         </li>
 
+        <?php
+if ($is_admin) {
+    ?>
+
         <li>
           <a href="#" data-url='includes/insert_product.php'>
             <span class="icon">
@@ -52,34 +62,6 @@ require "includes/header_dashboard.php";
           </a>
         </li>
 
-        <li>
-          <a href="#" class="dropdown_menu">
-            <span class="icon">
-              <ion-icon name="bag-handle-outline"></ion-icon>
-            </span>
-            <span class="title">Products</span>
-            <span class="dropdown_icon">
-              <ion-icon name="chevron-down-outline"></ion-icon>
-            </span>
-          </a>
-          <div class="submenu">
-
-            <a href="#" data-url='includes/insert_product.php'>
-              <span class="icon">
-                <ion-icon name="add-circle-outline" title="Insert products"></ion-icon>
-              </span>
-              <span class="title">Insert Products</span>
-            </a>
-
-            <a href="#" data-url='ajax_functions/view_products_ajax.php'>
-              <span class="icon">
-                <ion-icon name="eye-outline" title="View products"></ion-icon>
-              </span>
-              <span class="title">View Products</span>
-            </a>
-
-          </div>
-        </li>
         <li>
           <a href="#" class="dropdown_menu">
             <span class="icon">
@@ -146,6 +128,40 @@ require "includes/header_dashboard.php";
             <span class="title">Comments</span>
           </a>
         </li>
+
+        <?php
+}
+?>
+
+        <li>
+          <a href="#" class="dropdown_menu">
+            <span class="icon">
+              <ion-icon name="bag-handle-outline"></ion-icon>
+            </span>
+            <span class="title">Products</span>
+            <span class="dropdown_icon">
+              <ion-icon name="chevron-down-outline"></ion-icon>
+            </span>
+          </a>
+          <div class="submenu">
+
+            <a href="#" data-url='includes/insert_product.php'>
+              <span class="icon">
+                <ion-icon name="add-circle-outline" title="Insert products"></ion-icon>
+              </span>
+              <span class="title">Insert Products</span>
+            </a>
+
+            <a href="#" data-url='ajax_functions/view_products_ajax.php'>
+              <span class="icon">
+                <ion-icon name="eye-outline" title="View products"></ion-icon>
+              </span>
+              <span class="title">View Products</span>
+            </a>
+
+          </div>
+        </li>
+
 
         <li>
           <a href="#" data-url='logout.php' class="logout">

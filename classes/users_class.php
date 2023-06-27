@@ -13,6 +13,8 @@ class Users_class extends File_class
         }
     }
 
+   
+
     protected function get_user_id($user_name)
     {
         $stmt = $this->select_user($user_name);
@@ -302,6 +304,37 @@ class Users_class extends File_class
 
             return $message;
           
+    }
+
+    protected function select_admin($email)
+    {
+        $stmt = $this->connect()->prepare("SELECT * FROM users WHERE email=? AND status =?");
+        if (!$stmt->execute(array($email, "Admin"))) {
+            return false;
+        } else {
+            return $stmt;
+        }
+    }
+
+    public function is_admin($email)
+    {
+        $stmt = $this->select_admin($email);
+        
+        if($stmt)
+        {
+          if($stmt->rowCount()>0)
+          {
+            return true;
+          }
+          else
+          {
+            return false;
+          }
+        }
+        else
+        {
+          return false;
+        }
     }
 
     

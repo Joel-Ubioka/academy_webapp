@@ -1,14 +1,21 @@
 <?php
+session_start();
 include "../config/config.php";
 include '../functions/autoloader.php';
 include "../../classes/customers_class.php";
+include "../../classes/users_class.php";
 
 $obj = new Orders_class;
 $customer_obj = new Customers_class;
+$user_obj = new Users_class;
+
+$email = $_SESSION['user_email'];
 
 $order_details = $obj->fetch_some_orders(10);
 
 $customer_details = $customer_obj->fetch_some_customers(8);
+
+$is_admin = $user_obj->is_admin($email)
 
 ?>
 
@@ -17,9 +24,16 @@ $customer_details = $customer_obj->fetch_some_customers(8);
 <!--  DASHBOARD BOXES-->
 <div class="cardBox">
 
+
+
+  <?php
+if ($is_admin) {
+    ?>
+
   <div class="card">
     <div>
-      <div class="numbers"><?php echo number_format($obj->count_record("customers")); ?></div>
+      <div class="numbers"><?php echo number_format($obj->count_record("customers")); ?>
+      </div>
       <div class="cardName">Customers</div>
     </div>
     <div class="iconBox">
@@ -34,16 +48,6 @@ $customer_details = $customer_obj->fetch_some_customers(8);
     </div>
     <div class="iconBox">
       <ion-icon name="people-circle-outline"></ion-icon>
-    </div>
-  </div>
-
-  <div class="card">
-    <div>
-      <div class="numbers"><?php echo number_format($obj->count_record("products")); ?></div>
-      <div class="cardName">Products</div>
-    </div>
-    <div class="iconBox">
-      <ion-icon name="bookmarks-outline"></ion-icon>
     </div>
   </div>
 
@@ -66,6 +70,24 @@ $customer_details = $customer_obj->fetch_some_customers(8);
       <ion-icon name="chatbubbles-outline"></ion-icon>
     </div>
   </div>
+
+  <?php
+}
+?>
+
+
+
+  <div class="card">
+    <div>
+      <div class="numbers"><?php echo number_format($obj->count_record("products")); ?></div>
+      <div class="cardName">Products</div>
+    </div>
+    <div class="iconBox">
+      <ion-icon name="bookmarks-outline"></ion-icon>
+    </div>
+  </div>
+
+
 
 </div>
 <!--  ORDER DETAILS LIST-->

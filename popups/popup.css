@@ -127,7 +127,7 @@
  
   border: 1px solid var(--main_color);
   background-color: var(--main_color);
-  color: var(  --highlight_color);
+  color: white;
 }
 
 .buy_btn_content .open_btn:hover

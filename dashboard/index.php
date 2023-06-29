@@ -129,10 +129,6 @@ if ($is_admin) {
           </a>
         </li>
 
-        <?php
-}
-?>
-
         <li>
           <a href="#" class="dropdown_menu">
             <span class="icon">
@@ -161,6 +157,12 @@ if ($is_admin) {
 
           </div>
         </li>
+
+
+        <?php
+}
+?>
+
 
 
         <li>

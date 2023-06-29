@@ -41,15 +41,7 @@ if ($is_admin) {
     </div>
   </div>
 
-  <div class="card">
-    <div>
-      <div class="numbers"><?php echo number_format($obj->count_record("users")); ?></div>
-      <div class="cardName">Users</div>
-    </div>
-    <div class="iconBox">
-      <ion-icon name="people-circle-outline"></ion-icon>
-    </div>
-  </div>
+
 
   <div class="card">
     <div>
@@ -71,12 +63,6 @@ if ($is_admin) {
     </div>
   </div>
 
-  <?php
-}
-?>
-
-
-
   <div class="card">
     <div>
       <div class="numbers"><?php echo number_format($obj->count_record("products")); ?></div>
@@ -86,6 +72,22 @@ if ($is_admin) {
       <ion-icon name="bookmarks-outline"></ion-icon>
     </div>
   </div>
+
+  <?php
+}
+?>
+
+  <div class="card">
+    <div>
+      <div class="numbers"><?php echo number_format($obj->count_record("users")); ?></div>
+      <div class="cardName">Users</div>
+    </div>
+    <div class="iconBox">
+      <ion-icon name="people-circle-outline"></ion-icon>
+    </div>
+  </div>
+
+
 
 
 
